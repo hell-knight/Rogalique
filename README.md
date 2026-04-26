@@ -1,0 +1,1 @@
+Rogalique is a simple 2D roguelike tutorial game. The player runs through a procedurally generated maze, kills monsters, and collects loot. As part of this project, we’ll also build a simple 2D game engine.
