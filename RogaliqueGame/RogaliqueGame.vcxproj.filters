@@ -10,20 +10,5 @@
     <ClCompile Include="GameMain.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="Sprite.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Vector.h" />
-    <ClInclude Include="Sprite.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="IDelayedAction.h" />
-    <ClInclude Include="IObserver.h">
-      <Filter>Sources</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
