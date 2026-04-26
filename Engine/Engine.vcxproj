@@ -161,11 +161,14 @@ xcopy /y /d "$(TargetPath)" "$(SolutionDir)RogaliqueGame\$(Platform)\$(Configura
   <ItemGroup>
     <ClInclude Include="Engine.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
