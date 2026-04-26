@@ -1,5 +1,4 @@
 #include "Sprite.h"
-#include "GameSettings.h"
 
 
 namespace RogaliqueGame

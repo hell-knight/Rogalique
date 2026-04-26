@@ -1,6 +1,5 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "GameSettings.h"
 #include <list>
 
 namespace RogaliqueGame
