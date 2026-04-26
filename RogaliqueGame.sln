@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RogaliqueGame", "RogaliqueG
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcxproj", "{E3AC9596-74E2-46D4-AFD6-E96FC86CCE26}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EngineTest", "EngineTest\EngineTest.vcxproj", "{62C09082-87E0-4D52-AD98-8C02F68C1C4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{E3AC9596-74E2-46D4-AFD6-E96FC86CCE26}.Release|x64.Build.0 = Release|x64
 		{E3AC9596-74E2-46D4-AFD6-E96FC86CCE26}.Release|x86.ActiveCfg = Release|Win32
 		{E3AC9596-74E2-46D4-AFD6-E96FC86CCE26}.Release|x86.Build.0 = Release|Win32
+		{62C09082-87E0-4D52-AD98-8C02F68C1C4C}.Debug|x64.ActiveCfg = Debug|x64
+		{62C09082-87E0-4D52-AD98-8C02F68C1C4C}.Debug|x64.Build.0 = Debug|x64
+		{62C09082-87E0-4D52-AD98-8C02F68C1C4C}.Debug|x86.ActiveCfg = Debug|Win32
+		{62C09082-87E0-4D52-AD98-8C02F68C1C4C}.Debug|x86.Build.0 = Debug|Win32
+		{62C09082-87E0-4D52-AD98-8C02F68C1C4C}.Release|x64.ActiveCfg = Release|x64
+		{62C09082-87E0-4D52-AD98-8C02F68C1C4C}.Release|x64.Build.0 = Release|x64
+		{62C09082-87E0-4D52-AD98-8C02F68C1C4C}.Release|x86.ActiveCfg = Release|Win32
+		{62C09082-87E0-4D52-AD98-8C02F68C1C4C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

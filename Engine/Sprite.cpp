@@ -1,5 +1,5 @@
+#include "pch.h"
 #include "Sprite.h"
-
 
 namespace MyEngine
 {
@@ -40,16 +40,13 @@ namespace MyEngine
 
 	void SetSpriteRandomPosition(sf::Sprite& sprite, const sf::FloatRect& rect, const std::list<sf::Sprite>& collection)
 	{
-		do {
-			const auto newPosition = GetRandomSpritePositionInRectangle(sprite, rect);
-			sprite.setPosition(newPosition);
-		} while (FullCheckCollisions(collection.begin(), collection.end(), sprite));
+
 	}
 
 	bool CheckSpriteIntersection(const sf::Sprite& sprite1, const sf::Sprite& sprite2) {
 		const auto distance = sprite1.getPosition() - sprite2.getPosition();
 		if (sqrtf(distance.x * distance.x + distance.y * distance.y) * 2 < sprite1.getGlobalBounds().width + sprite2.getGlobalBounds().width) {
- 			return true;
+			return true;
 		}
 		return false;
 	}

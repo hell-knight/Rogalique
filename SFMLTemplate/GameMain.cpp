@@ -19,9 +19,7 @@ int main()
 		std::cerr << "No console" << std::endl;
 	}*/
 
-	Engine engine;
-	engine.Initialize();
-	engine.Run();
+	//MyEngine::Engine::Instance()->Run();
 
 	sf::RenderWindow window(sf::VideoMode(330, 400), "SFML works!");
 

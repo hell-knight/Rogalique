@@ -31,4 +31,3 @@ class IObserver
 public:
 	virtual void Notify(std::shared_ptr<IObservable> observable) = 0;
 };
-
