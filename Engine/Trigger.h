@@ -6,11 +6,10 @@ namespace MyEngine
 	struct Trigger
 	{
 	public:
+		ColliderComponent* first;
+		ColliderComponent* second;
 		Trigger(ColliderComponent* newFirst, ColliderComponent* newSecond) :
 			first(newFirst), second(newSecond) {
 		};
-	private:
-		ColliderComponent* first;
-		ColliderComponent* second;
 	};
 }
