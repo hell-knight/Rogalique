@@ -1,12 +1,13 @@
 #pragma once
 #include "TransformComponent.h"
 #include <iostream>
+#include "EngineAPI.h"
 
 namespace MyEngine
 {
 	class TransformComponent;
 
-	class GameObject
+	class ENGINE_API GameObject
 	{
 	public:
 		GameObject();

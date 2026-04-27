@@ -26,8 +26,6 @@ namespace MyEngine
 		Engine();
 		~Engine() = default;
 
-	private:
-		sf::RenderWindow window;
 	};
 }
 #endif // ENGINE_H

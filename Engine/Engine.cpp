@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "Engine.h"
 #include <iostream>
+#include "GameWorld.h"
+#include "RenderSystem.h"
 
 namespace MyEngine
 {
@@ -10,11 +12,10 @@ namespace MyEngine
 		return &instance;
 	}
 
-	Engine::Engine() :
-		window(sf::VideoMode(800, 600), "Engine game")
+	Engine::Engine()
 	{
 		// Init random number generator
-		unsigned int seed = (unsigned int)time(nullptr); // Get current time as seed. You can also use any other number to fix randomization
+		unsigned int seed = (unsigned int)time(nullptr);
 		srand(seed);
 	}
 
@@ -25,24 +26,31 @@ namespace MyEngine
 		sf::Event event;
 
 		// Game loop
-		while (window.isOpen()) {
+		while (RenderSystem::Instance()->GetMainWindow().isOpen()) 
+		{
+			sf::Time dt = gameClock.restart();
+			float deltaTime = dt.asSeconds();
 
-			float startTime = gameClock.getElapsedTime().asSeconds();
-			while (window.pollEvent(event))
+			while (RenderSystem::Instance()->GetMainWindow().pollEvent(event))
 			{
 				// Close window if close button or Escape key pressed
 				if (event.type == sf::Event::Closed)
 				{
-					window.close();
+					RenderSystem::Instance()->GetMainWindow().close();
 				}
 			}
 
-			if (!window.isOpen()) {
+			if (!RenderSystem::Instance()->GetMainWindow().isOpen()) {
 				break;
 			}
 
-			window.clear();
-			window.display();
+			RenderSystem::Instance()->GetMainWindow().clear();
+
+			GameWorld::Instance()->Update(deltaTime);
+			GameWorld::Instance()->Render();
+			GameWorld::Instance()->LateUpdate();
+
+			RenderSystem::Instance()->GetMainWindow().display();
 		}
 	}
 }

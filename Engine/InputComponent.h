@@ -1,11 +1,11 @@
 #pragma once
 #include "Component.h"
 #include <SFML/Window.hpp>
-//#include "EngineAPI.h"
+#include "EngineAPI.h"
 
 namespace MyEngine
 {
-	class InputComponent : public Component
+	class ENGINE_API InputComponent : public Component
 	{
 	public:
 		InputComponent(GameObject* gameObject);

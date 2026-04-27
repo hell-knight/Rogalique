@@ -1,11 +1,11 @@
 #pragma once
 #include <SFML/Graphics/RenderWindow.hpp>
 #include "TransformComponent.h"
-//#include "EngineAPI.h"
+#include "EngineAPI.h"
 
 namespace MyEngine
 {
-	class CameraComponent : public Component
+	class ENGINE_API CameraComponent : public Component
 	{
 	public:
 		CameraComponent(GameObject* gameObject);

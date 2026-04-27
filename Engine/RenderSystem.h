@@ -1,10 +1,10 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-//#include "EngineAPI.h"
+#include "EngineAPI.h"
 
 namespace MyEngine
 {
-	class RenderSystem
+	class ENGINE_API RenderSystem
 	{
 	public:
 		static RenderSystem* Instance();

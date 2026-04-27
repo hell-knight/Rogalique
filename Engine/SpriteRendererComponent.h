@@ -2,11 +2,11 @@
 #include "TransformComponent.h"
 #include <SFML/Graphics.hpp>
 #include <memory>
-//#include "EngineAPI.h"
+#include "EngineAPI.h"
 
 namespace MyEngine
 {
-	class SpriteRendererComponent : public Component
+	class ENGINE_API SpriteRendererComponent : public Component
 	{
 	public:
 		SpriteRendererComponent(GameObject* gameObject);

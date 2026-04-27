@@ -1,9 +1,10 @@
 #pragma once
 #include "GameObject.h"
+#include "EngineAPI.h"
 
 namespace MyEngine
 {
-	class GameWorld
+	class ENGINE_API GameWorld
 	{
 	public:
 		static GameWorld* Instance();
