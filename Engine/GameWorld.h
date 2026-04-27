@@ -14,7 +14,6 @@ namespace MyEngine
 		void LateUpdate();
 
 		GameObject* CreateGameObject();
-		GameObject* CreateGameObject(std::string name);
 		void DestroyGameObject(GameObject* gameObject);
 		void Clear();
 	private:
