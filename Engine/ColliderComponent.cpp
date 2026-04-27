@@ -13,76 +13,61 @@ namespace MyEngine
 		isTrigger = newIsTrigger;
 	}
 
-	void ColliderComponent::SubscribeCollision(std::function<void(const Collision&)> onCollisionAction)
+	int ColliderComponent::SubscribeCollision(std::function<void(const Collision&)> onCollisionAction)
 	{
-		onCollisionActions.push_back(onCollisionAction);
-	}
-	void ColliderComponent::UnsubscribeCollision(std::function<void(const Collision&)> onCollisionAction)
-	{
-		onCollisionActions.erase(std::remove_if
-		(
-			onCollisionActions.begin(),
-			onCollisionActions.end(),
-			[&onCollisionAction](const std::function<void(Collision&)>& action)
-			{
-				return action.target<void(const Collision&)>() == onCollisionAction.target<void(const Collision&)>();
-			}
-		), onCollisionActions.end());
+		int id = nextSubscriptionId++;
+		onCollisionActions[id] = std::move(onCollisionAction);
+		return id;
 	}
 
-	void ColliderComponent::SubscribeTriggerEnter(std::function<void(const Trigger&)> onTriggerEnterAction)
+	void ColliderComponent::UnsubscribeCollision(int subscriptionId)
 	{
-		onTriggerEnterActions.push_back(onTriggerEnterAction);
-	}
-	void ColliderComponent::UnsubscribeTriggerEnter(std::function<void(const Trigger&)> onTriggerEnterAction)
-	{
-		onTriggerEnterActions.erase(std::remove_if
-		(
-			onTriggerEnterActions.begin(),
-			onTriggerEnterActions.end(),
-			[&onTriggerEnterAction](const std::function<void(const Trigger&)>& action)
-			{
-				return action.target<void(const Trigger&)>() == onTriggerEnterAction.target<void(const Trigger&)>();
-			}
-		), onTriggerEnterActions.end());
+		onCollisionActions.erase(subscriptionId);
 	}
 
-	void ColliderComponent::SubscribeTriggerExit(std::function<void(const Trigger&)> onTriggerExitAction)
+	int ColliderComponent::SubscribeTriggerEnter(std::function<void(const Trigger&)> onTriggerEnterAction)
 	{
-		onTriggerExitActions.push_back(onTriggerExitAction);
+		int id = nextSubscriptionId++;
+		onTriggerEnterActions[id] = std::move(onTriggerEnterAction);
+		return id;
 	}
-	void ColliderComponent::UnsubscribeTriggerExit(std::function<void(const Trigger&)> onTriggerExitAction)
+
+	void ColliderComponent::UnsubscribeTriggerEnter(int subscriptionId)
 	{
-		onTriggerExitActions.erase(std::remove_if
-		(
-			onTriggerExitActions.begin(),
-			onTriggerExitActions.end(),
-			[&onTriggerExitAction](const std::function<void(const Trigger&)>& action)
-			{
-				return action.target<void(const Trigger&)>() == onTriggerExitAction.target<void(const Trigger&)>();
-			}
-		), onTriggerExitActions.end());
+		onTriggerEnterActions.erase(subscriptionId);
+	}
+
+	int ColliderComponent::SubscribeTriggerExit(std::function<void(const Trigger&)> onTriggerExitAction)
+	{
+		int id = nextSubscriptionId++;
+		onTriggerExitActions[id] = std::move(onTriggerExitAction);
+		return id;
+	}
+
+	void ColliderComponent::UnsubscribeTriggerExit(int subscriptionId)
+	{
+		onTriggerExitActions.erase(subscriptionId);
 	}
 
 	void ColliderComponent::OnCollision(const Collision& collision)
 	{
-		for (auto& action : onCollisionActions)
+		for (auto& pair : onCollisionActions)
 		{
-			action(collision);
+			pair.second(collision);
 		}
 	}
 	void ColliderComponent::OnTriggerEnter(const Trigger& trigger)
 	{
-		for (auto& action : onTriggerEnterActions)
+		for (auto& pair : onTriggerEnterActions)
 		{
-			action(trigger);
+			pair.second(trigger);
 		}
 	}
 	void ColliderComponent::OnTriggerExit(const Trigger& trigger)
 	{
-		for (auto& action : onTriggerExitActions)
+		for (auto& pair : onTriggerExitActions)
 		{
-			action(trigger);
+			pair.second(trigger);
 		}
 	}
 }
