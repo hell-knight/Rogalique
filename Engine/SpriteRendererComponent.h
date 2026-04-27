@@ -2,6 +2,7 @@
 #include "TransformComponent.h"
 #include <SFML/Graphics.hpp>
 #include <memory>
+#include "Vector.h"
 #include "EngineAPI.h"
 
 namespace MyEngine
@@ -22,6 +23,7 @@ namespace MyEngine
 		void FlipX(bool flip);
 		void FlipY(bool flip);
 	private:
+		Vector2Df scale;
 		sf::Sprite* sprite;
 		TransformComponent* transform;
 
