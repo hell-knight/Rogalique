@@ -1,0 +1,9 @@
+# Automatically normalize all source files
+* text=auto
+
+# For C++ projects, we explicitly specify
+*.h     text eol=crlf
+*.cpp   text eol=crlf
+*.hpp   text eol=crlf
+*.c     text eol=crlf
+*.inl   text eol=crlf
