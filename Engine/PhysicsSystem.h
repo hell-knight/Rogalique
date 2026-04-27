@@ -1,5 +1,5 @@
 #pragma once
-
+#include <set>
 #include <map>
 #include <iostream>
 #include "ColliderComponent.h"
@@ -26,7 +26,20 @@ namespace MyEngine
 		PhysicsSystem& operator= (PhysicsSystem const&) = delete;
 
 		std::vector<ColliderComponent*> colliders;
-		std::map<ColliderComponent*, ColliderComponent*> triggersEnteredPair;
+
+		// A new structure for comparing pairs without regard to order
+		struct PairCompare {
+			bool operator()(const std::pair<ColliderComponent*, ColliderComponent*>& lhs,
+				const std::pair<ColliderComponent*, ColliderComponent*>& rhs) const {
+				// reduce it to canonical form: the left index is 1
+				auto canonical = [](ColliderComponent* a, ColliderComponent* b) {
+					return std::minmax(a, b);
+				};
+				return canonical(lhs.first, lhs.second) < canonical(rhs.first, rhs.second);
+			}
+		};
+
+		std::set<std::pair<ColliderComponent*, ColliderComponent*>, PairCompare> triggersEnteredSet;
 
 		float fixedDeltaTime = 0.02f;
 	};

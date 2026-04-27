@@ -36,17 +36,19 @@ namespace MyEngine
 				{
 					if (colliders[i]->isTrigger != colliders[j]->isTrigger)
 					{
-						if (triggersEnteredPair.find(colliders[i]) == triggersEnteredPair.end() && triggersEnteredPair.find(colliders[j]) == triggersEnteredPair.end())
+						auto pair = std::make_pair(colliders[i], colliders[j]);
+						if (triggersEnteredSet.find(pair) == triggersEnteredSet.end())
 						{
 							Trigger triggerEnter(colliders[i], colliders[j]);
 							colliders[i]->OnTriggerEnter(triggerEnter);
 							colliders[j]->OnTriggerEnter(triggerEnter);
 
-							triggersEnteredPair.emplace(colliders[i], colliders[j]);
+							triggersEnteredSet.insert(pair);
 						}
 					}
 					else if (!colliders[i]->isTrigger)
 					{
+						// simple collision
 						float intersectionWidth = intersection.width;
 						float intersectionHeight = intersection.height;
 						Vector2Df intersectionPosition = { intersection.left - 0.5f * intersectionWidth, intersection.top - 0.5f * intersectionHeight };
@@ -89,17 +91,21 @@ namespace MyEngine
 			}
 		}
 
-		for (auto triggeredPair = triggersEnteredPair.cbegin(), nextTriggeredPair = triggeredPair; triggeredPair != triggersEnteredPair.cend(); triggeredPair = nextTriggeredPair)
+		std::vector<std::pair<ColliderComponent*, ColliderComponent*>> exitedPairs;
+		for (const auto& p : triggersEnteredSet)
 		{
-			++nextTriggeredPair;
-			if (!triggeredPair->first->bounds.intersects(triggeredPair->second->bounds))
+			if (!p.first->bounds.intersects(p.second->bounds))
 			{
-				Trigger triggerExit(triggeredPair->first, triggeredPair->second);
-				triggeredPair->first->OnTriggerExit(triggerExit);
-				triggeredPair->second->OnTriggerExit(triggerExit);
+				Trigger triggerExit(p.first, p.second);
+				p.first->OnTriggerExit(triggerExit);
+				p.second->OnTriggerExit(triggerExit);
 
-				triggersEnteredPair.erase(triggeredPair);
+				exitedPairs.push_back(p);
 			}
+		}
+		for (const auto& p : exitedPairs)
+		{
+			triggersEnteredSet.erase(p);
 		}
 	}
 
