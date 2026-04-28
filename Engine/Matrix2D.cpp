@@ -27,8 +27,8 @@ namespace MyEngine
 		float cosA = cos(angle * PI / 180.f);
 		float sinA = sin(angle * PI / 180.f);
 		m[0][0] = cosA * scale.x;
-		m[0][1] = sinA;
-		m[1][0] = -sinA;
+		m[0][1] = -sinA * scale.y;
+		m[1][0] = sinA * scale.x;
 		m[1][1] = cosA * scale.y;
 
 		m[2][0] = 0.f;
@@ -122,6 +122,24 @@ namespace MyEngine
 		}
 
 		return result;
+
+		//float det = m[0][0] * m[1][1] - m[0][1] * m[1][0];
+		//if (det == 0.f) {
+		//	// degenerate matrix — you can return 1 or throw an exception
+		//	return Matrix2D();
+		//}
+		//float invDet = 1.f / det;
+		//Matrix2D result;
+		//result.m[0][0] = m[1][1] * invDet;
+		//result.m[0][1] = -m[0][1] * invDet;
+		//result.m[0][2] = (m[0][1] * m[1][2] - m[0][2] * m[1][1]) * invDet;
+		//result.m[1][0] = -m[1][0] * invDet;
+		//result.m[1][1] = m[0][0] * invDet;
+		//result.m[1][2] = (m[0][2] * m[1][0] - m[0][0] * m[1][2]) * invDet;
+		//result.m[2][0] = 0.f;
+		//result.m[2][1] = 0.f;
+		//result.m[2][2] = 1.f;
+		//return result;
 	}
 
 	void Matrix2D::Print() const
