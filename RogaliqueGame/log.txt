@@ -1,3 +1,4 @@
 [INFO] Program was started!
 [INFO] Program was started!
 [INFO] Program was started!
+[INFO] Program was started!
