@@ -26,6 +26,7 @@ namespace MyEngine
 		Engine();
 		~Engine() = default;
 
+		void setupLogger();
 	};
 }
 #endif // ENGINE_H

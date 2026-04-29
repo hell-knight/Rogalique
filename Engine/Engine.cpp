@@ -17,6 +17,18 @@ namespace MyEngine
 		// Init random number generator
 		unsigned int seed = (unsigned int)time(nullptr);
 		srand(seed);
+
+		setupLogger();
+	}
+
+	void Engine::setupLogger()
+	{
+		auto logger = std::make_shared<Logger>();
+		logger->addSink(std::make_shared<ConsoleSink>());
+		logger->addSink(std::make_shared<FileSink>("log.txt"));
+
+		LoggerRegistry::getInstance().registerLogger("global", logger);
+		LoggerRegistry::getInstance().setDefaultLogger(logger);
 	}
 
 	void Engine::Run()
@@ -24,6 +36,8 @@ namespace MyEngine
 		// Init game clock
 		sf::Clock gameClock;
 		sf::Event event;
+
+		LOG_INFO("Program was started!");
 
 		// Game loop
 		while (RenderSystem::Instance()->GetMainWindow().isOpen()) 
