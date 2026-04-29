@@ -23,14 +23,17 @@ namespace MyEngine
 			textures.emplace(name, newTexture);
 		}
 	}
+
 	const sf::Texture* ResourceSystem::GetTextureShared(const std::string& name) const
 	{
 		return textures.find(name)->second;
 	}
+
 	sf::Texture* ResourceSystem::GetTextureCopy(const std::string& name) const
 	{
 		return new sf::Texture(*textures.find(name)->second);
 	}
+
 	void ResourceSystem::DeleteSharedTexture(const std::string& name)
 	{
 		auto texturePair = textures.find(name);
@@ -82,24 +85,28 @@ namespace MyEngine
 			textureMaps.emplace(name, *textureMapElements);
 		}
 	}
+
 	const sf::Texture* ResourceSystem::GetTextureMapElementShared(const std::string& name, int elementIndex) const
 	{
 		auto textureMap = textureMaps.find(name);
 		auto textures = textureMap->second;
 		return textures[elementIndex];
 	}
+
 	sf::Texture* ResourceSystem::GetTextureMapElementCopy(const std::string& name, int elementIndex) const
 	{
 		auto textureMap = textureMaps.find(name);
 		auto textures = textureMap->second;
 		return new sf::Texture(*textures[elementIndex]);
 	}
+
 	int ResourceSystem::GetTextureMapElementsCount(const std::string& name) const
 	{
 		auto textureMap = textureMaps.find(name);
 		auto textures = textureMap->second;
 		return textures.size();
 	}
+
 	void ResourceSystem::DeleteSharedTextureMap(const std::string& name)
 	{
 		auto textureMap = textureMaps.find(name);
@@ -113,10 +120,39 @@ namespace MyEngine
 		textureMaps.erase(textureMap);
 	}
 
+	void ResourceSystem::LoadSound(const std::string& name, std::string sourcePath)
+	{
+		if (sounds.find(name) != sounds.end())
+		{
+			return;
+		}
+
+		sf::SoundBuffer* newSound = new sf::SoundBuffer();
+		if (newSound->loadFromFile(sourcePath))
+		{
+			sounds.emplace(name, newSound);
+		}
+	}
+
+	const sf::SoundBuffer* ResourceSystem::GetSound(const std::string& name) const
+	{
+		return sounds.find(name)->second;
+	}
+
+	void ResourceSystem::DeleteSound(const std::string& name)
+	{
+		auto soundPair = sounds.find(name);
+
+		sf::SoundBuffer* deletingSound = soundPair->second;
+		sounds.erase(soundPair);
+		delete deletingSound;
+	}
+
 	void ResourceSystem::Clear()
 	{
 		DeleteAllTextures();
 		DeleteAllTextureMaps();
+		DeleteAllSounds();
 	}
 
 	void ResourceSystem::DeleteAllTextures()
@@ -133,6 +169,7 @@ namespace MyEngine
 			DeleteSharedTexture(key);
 		}
 	}
+
 	void ResourceSystem::DeleteAllTextureMaps()
 	{
 		std::vector<std::string> keysToDelete;
@@ -145,6 +182,21 @@ namespace MyEngine
 		for (const auto& key : keysToDelete)
 		{
 			DeleteSharedTextureMap(key);
+		}
+	}
+
+	void ResourceSystem::DeleteAllSounds()
+	{
+		std::vector<std::string> keysToDelete;
+
+		for (const auto& soundPair : sounds)
+		{
+			keysToDelete.push_back(soundPair.first);
+		}
+
+		for (const auto& key : keysToDelete)
+		{
+			DeleteSound(key);
 		}
 	}
 }

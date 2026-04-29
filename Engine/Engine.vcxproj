@@ -159,6 +159,7 @@ xcopy /y /d "$(TargetPath)" "$(SolutionDir)RogaliqueGame\$(Platform)\$(Configura
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AudioComponent.h" />
     <ClInclude Include="CameraComponent.h" />
     <ClInclude Include="ColliderComponent.h" />
     <ClInclude Include="Collision.h" />
@@ -188,6 +189,7 @@ xcopy /y /d "$(TargetPath)" "$(SolutionDir)RogaliqueGame\$(Platform)\$(Configura
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AudioComponent.cpp" />
     <ClCompile Include="CameraComponent.cpp" />
     <ClCompile Include="ColliderComponent.cpp" />
     <ClCompile Include="Collision.cpp" />
