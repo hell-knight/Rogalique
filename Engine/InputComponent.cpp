@@ -32,6 +32,7 @@ namespace MyEngine
 			horizontalAxis -= 1.0f;
 			LOG_INFO("Move left");
 		}
+		attackPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::Space);
 	}
 	void InputComponent::Render()
 	{
@@ -42,8 +43,14 @@ namespace MyEngine
 	{
 		return horizontalAxis;
 	}
+
 	float InputComponent::GetVerticalAxis() const
 	{
 		return verticalAxis;
+	}
+
+	bool InputComponent::IsAttackPressed() const
+	{
+		return attackPressed;
 	}
 }

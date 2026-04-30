@@ -5,6 +5,9 @@
 #include <SpriteDirectionComponent.h>
 #include "SpriteAnimationComponent.h"
 #include "Logger.h"
+#include "HealthComponent.h"
+#include "InputAttackComponent.h"
+#include "AttackComponent.h"
 
 namespace RogaliqueGame
 {
@@ -45,6 +48,19 @@ namespace RogaliqueGame
 
 		auto animator = gameObject->AddComponent<MyEngine::SpriteAnimationComponent>();
 		animator->Initialize("player", 6.f);
+
+		auto health = gameObject->AddComponent<MyEngine::HealthComponent>();
+		health->SetMaxHealth(100.f);
+		health->SetArmor(10.f);
+		health->SubscribeOnDeath([this]() {
+			LOG_INFO("Player died.");
+			});
+
+		auto attack = gameObject->AddComponent<MyEngine::AttackComponent>();
+		attack->SetDamage(25.f);
+		attack->SetRadius(150.f);
+		attack->SetCooldown(0.5f);
+		gameObject->AddComponent<MyEngine::InputAttackComponent>();
 	}
 
 	MyEngine::GameObject* Player::GetGameObject()
