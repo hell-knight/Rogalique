@@ -9,10 +9,17 @@ namespace MyEngine
 		input = gameObject->GetComponent<InputComponent>();
 		transform = gameObject->GetComponent<TransformComponent>();
 
+		if (transform == nullptr)
+		{
+			LOG_ERROR("MovementComponent requires TransformComponent. Removing.");
+			gameObject->RemoveComponent(this);
+			return;
+		}
+
 		if (input == nullptr)
 		{
-			std::cout << "Need input component for movement" << std::endl;
-			gameObject->RemoveComponent(this);
+			LOG_WARN("MovementComponent: InputComponent not found. Movement via keys disabled.");
+			//gameObject->RemoveComponent(this);
 		}
 	}
 
@@ -21,7 +28,13 @@ namespace MyEngine
 		float xAxis = input->GetHorizontalAxis();
 		float yAxis = input->GetVerticalAxis();
 
-		transform->MoveBy(speed * deltaTime * Vector2Df{ xAxis, yAxis });
+		Vector2Df dir = { xAxis, yAxis };
+		if (dir.x != 0.f || dir.y != 0.f)
+		{
+			LOG_INFO("MovementComponent moving (" + std::to_string(dir.x) + ", " + std::to_string(dir.y) + ")");
+		}
+
+		transform->MoveBy(speed * deltaTime * dir);
 
 		acceleration = transform->GetWorldPosition() - previousPosition;
 		previousPosition = transform->GetWorldPosition();

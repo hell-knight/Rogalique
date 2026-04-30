@@ -22,13 +22,20 @@ namespace MyEngine
 		view->setCenter(Convert<sf::Vector2f, Vector2Df>(position));
 		view->setRotation(rotation);
 
+		if (!window)
+		{
+			LOG_ERROR("CameraComponent: window is null, cannot set view.");
+			return;
+		}
 		window->setView(*view);
 	}
+
 	void CameraComponent::Render()
 	{
-		if (window == nullptr)
+		if (!window)
 		{
-			std::cout << "NULL window render." << std::endl;
+			LOG_ERROR("CameraComponent: window is null, cannot set view.");
+			return;
 		}
 	}
 
@@ -36,10 +43,12 @@ namespace MyEngine
 	{
 		view->reset(sf::FloatRect(0, 0, width, -height));
 	}
+
 	void CameraComponent::SetWindow(sf::RenderWindow* newWindow)
 	{
 		window = newWindow;
 	}
+
 	void CameraComponent::ZoomBy(float newZoom)
 	{
 		if (newZoom <= 0)

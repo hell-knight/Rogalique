@@ -171756,3 +171756,2693 @@
 [INFO] Move forward
 [INFO] Move forward
 [INFO] Move forward
+[INFO] Loading texture map 'player' fromResources/Textures/Player.png (4 elements)
+[INFO] Texture map 'player' loaded with 4 elements (requested 4).
+[INFO] Loading texture map 'level_floors' fromResources/Textures/Floor.png (49 elements)
+[INFO] Texture map 'level_floors' loaded with 49 elements (requested 49).
+[INFO] Loading texture map 'level_walls' fromResources/Textures/Wall.png (48 elements)
+[INFO] Texture map 'level_walls' loaded with 48 elements (requested 48).
+[INFO] Loading texture map 'ai' fromResources/Textures/AI.png (9 elements)
+[INFO] Texture map 'ai' loaded with 9 elements (requested 9).
+[INFO] Loading sound 'music' fromResources/Sounds/game_background.ogg
+[INFO] Sound 'music' loaded successfully.
+[INFO] Loading texture map 'player' fromResources/Textures/Player.png (4 elements)
+[INFO] Texture map 'player' loaded with 4 elements (requested 4).
+[INFO] Loading texture map 'level_floors' fromResources/Textures/Floor.png (49 elements)
+[INFO] Texture map 'level_floors' loaded with 49 elements (requested 49).
+[INFO] Loading texture map 'level_walls' fromResources/Textures/Wall.png (48 elements)
+[INFO] Texture map 'level_walls' loaded with 48 elements (requested 48).
+[INFO] Loading texture map 'ai' fromResources/Textures/AI.png (9 elements)
+[INFO] Texture map 'ai' loaded with 9 elements (requested 9).
+[INFO] Loading sound 'music' fromResources/Sounds/game_background.ogg
+[INFO] Sound 'music' loaded successfully.
+[INFO] Loading texture map 'player' fromResources/Textures/Player.png (4 elements)
+[INFO] Texture map 'player' loaded with 4 elements (requested 4).
+[INFO] Loading texture map 'level_floors' fromResources/Textures/Floor.png (49 elements)
+[INFO] Texture map 'level_floors' loaded with 49 elements (requested 49).
+[INFO] Loading texture map 'level_walls' fromResources/Textures/Wall.png (48 elements)
+[INFO] Texture map 'level_walls' loaded with 48 elements (requested 48).
+[INFO] Loading texture map 'ai' fromResources/Textures/AI.png (9 elements)
+[INFO] Texture map 'ai' loaded with 9 elements (requested 9).
+[INFO] Loading sound 'music' fromResources/Sounds/game_background.ogg
+[INFO] Sound 'music' loaded successfully.
+[INFO] Loading texture map 'player' fromResources/Textures/Player.png (4 elements)
+[INFO] Texture map 'player' loaded with 4 elements (requested 4).
+[INFO] Loading texture map 'level_floors' fromResources/Textures/Floor.png (49 elements)
+[INFO] Texture map 'level_floors' loaded with 49 elements (requested 49).
+[INFO] Loading texture map 'level_walls' fromResources/Textures/Wall.png (48 elements)
+[INFO] Texture map 'level_walls' loaded with 48 elements (requested 48).
+[INFO] Loading texture map 'ai' fromResources/Textures/AI.png (9 elements)
+[INFO] Texture map 'ai' loaded with 9 elements (requested 9).
+[INFO] Loading sound 'music' fromResources/Sounds/game_background.ogg
+[INFO] Sound 'music' loaded successfully.
+[INFO] Loading texture map 'player' fromResources/Textures/Player.png (4 elements)
+[INFO] Texture map 'player' loaded with 4 elements (requested 4).
+[INFO] Loading texture map 'level_floors' fromResources/Textures/Floor.png (49 elements)
+[INFO] Texture map 'level_floors' loaded with 49 elements (requested 49).
+[INFO] Loading texture map 'level_walls' fromResources/Textures/Wall.png (48 elements)
+[INFO] Texture map 'level_walls' loaded with 48 elements (requested 48).
+[INFO] Loading texture map 'ai' fromResources/Textures/AI.png (9 elements)
+[INFO] Texture map 'ai' loaded with 9 elements (requested 9).
+[INFO] Loading sound 'music' fromResources/Sounds/game_background.ogg
+[INFO] Sound 'music' loaded successfully.
+[INFO] Loading texture map 'player' fromResources/Textures/Player.png (4 elements)
+[INFO] Texture map 'player' loaded with 4 elements (requested 4).
+[INFO] Loading texture map 'level_floors' fromResources/Textures/Floor.png (49 elements)
+[INFO] Texture map 'level_floors' loaded with 49 elements (requested 49).
+[INFO] Loading texture map 'level_walls' fromResources/Textures/Wall.png (48 elements)
+[INFO] Texture map 'level_walls' loaded with 48 elements (requested 48).
+[INFO] Loading texture map 'ai' fromResources/Textures/AI.png (9 elements)
+[INFO] Texture map 'ai' loaded with 9 elements (requested 9).
+[INFO] Loading sound 'music' fromResources/Sounds/game_background.ogg
+[INFO] Sound 'music' loaded successfully.
+[INFO] Logger is alive before resources
+[INFO] Loading texture map 'player' fromResources/Textures/Player.png (4 elements)
+[INFO] Texture map 'player' loaded with 4 elements (requested 4).
+[INFO] Loading texture map 'level_floors' fromResources/Textures/Floor.png (49 elements)
+[INFO] Texture map 'level_floors' loaded with 49 elements (requested 49).
+[INFO] Loading texture map 'level_walls' fromResources/Textures/Wall.png (48 elements)
+[INFO] Texture map 'level_walls' loaded with 48 elements (requested 48).
+[INFO] Loading texture map 'ai' fromResources/Textures/AI.png (9 elements)
+[INFO] Texture map 'ai' loaded with 9 elements (requested 9).
+[INFO] Loading sound 'music' fromResources/Sounds/game_background.ogg
+[INFO] Sound 'music' loaded successfully.
+[INFO] Starting DeveloperLevel...
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] SpriteColliderComponent subscribed for Wall
+[INFO] Generated 60 walls and 224 floors
+[INFO] SpriteColliderComponent subscribed for Player
+[INFO] SpriteAnimationComponent initialized with 4 frames from player
+[INFO] Player created at (896.000000, 896.000000)
+[INFO] FollowComponent: target set to Player
+[INFO] SpriteColliderComponent subscribed for AI
+[INFO] SpriteAnimationComponent initialized with 9 frames from ai
+[INFO] AI created at (1152.000000, 896.000000)
+[INFO] Program was started!
+[INFO] Collision (Right) between 'Player' and 'AI'
+[INFO] Collision (Left) between 'AI' and 'Player'
+[INFO] Collision (Right) between 'Player' and 'AI'
+[INFO] Collision (Left) between 'AI' and 'Player'
+[INFO] Collision (Right) between 'Player' and 'AI'
+[INFO] Collision (Left) between 'AI' and 'Player'
+[INFO] Collision (Right) between 'Player' and 'AI'
+[INFO] Collision (Left) between 'AI' and 'Player'
+[INFO] Collision (Right) between 'Player' and 'AI'
+[INFO] Collision (Left) between 'AI' and 'Player'
+[INFO] Collision (Right) between 'Player' and 'AI'
+[INFO] Collision (Left) between 'AI' and 'Player'
+[INFO] Collision (Right) between 'Player' and 'AI'
+[INFO] Collision (Left) between 'AI' and 'Player'
+[INFO] Collision (Right) between 'Player' and 'AI'
+[INFO] Collision (Left) between 'AI' and 'Player'
+[INFO] Collision (Right) between 'Player' and 'AI'
+[INFO] Collision (Left) between 'AI' and 'Player'
+[INFO] Collision (Right) between 'Player' and 'AI'
+[INFO] Collision (Left) between 'AI' and 'Player'
+[INFO] Collision (Right) between 'Player' and 'AI'
+[INFO] Collision (Left) between 'AI' and 'Player'
+[INFO] Collision (Right) between 'Player' and 'AI'
+[INFO] Collision (Left) between 'AI' and 'Player'
+[INFO] Collision (Right) between 'Player' and 'AI'
+[INFO] Collision (Left) between 'AI' and 'Player'
+[INFO] Collision (Right) between 'Player' and 'AI'
+[INFO] Collision (Left) between 'AI' and 'Player'
+[INFO] Collision (Right) between 'Player' and 'AI'
+[INFO] Collision (Left) between 'AI' and 'Player'
+[INFO] Collision (Right) between 'Player' and 'AI'
+[INFO] Collision (Left) between 'AI' and 'Player'
+[INFO] Collision (Right) between 'Player' and 'AI'
+[INFO] Collision (Left) between 'AI' and 'Player'
+[INFO] Collision (Right) between 'Player' and 'AI'
+[INFO] Collision (Left) between 'AI' and 'Player'
+[INFO] Collision (Right) between 'Player' and 'AI'
+[INFO] Collision (Left) between 'AI' and 'Player'
+[INFO] Collision (Right) between 'Player' and 'AI'
+[INFO] Collision (Left) between 'AI' and 'Player'
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 0.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move left
+[INFO] MovementComponent moving (-1.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] MovementComponent moving (0.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move forward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 1.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, 0.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] Move right
+[INFO] MovementComponent moving (1.000000, -1.000000)
+[INFO] Move backward
+[INFO] MovementComponent moving (0.000000, -1.000000)
+[INFO] Move backward
+[INFO] MovementComponent moving (0.000000, -1.000000)
+[INFO] Move backward
+[INFO] MovementComponent moving (0.000000, -1.000000)
+[INFO] Move backward
+[INFO] MovementComponent moving (0.000000, -1.000000)
+[INFO] Move backward
+[INFO] MovementComponent moving (0.000000, -1.000000)
+[INFO] Move backward
+[INFO] MovementComponent moving (0.000000, -1.000000)
+[INFO] Move backward
+[INFO] MovementComponent moving (0.000000, -1.000000)
+[INFO] Move backward
+[INFO] MovementComponent moving (0.000000, -1.000000)
+[INFO] Move backward
+[INFO] MovementComponent moving (0.000000, -1.000000)
+[INFO] Move backward
+[INFO] MovementComponent moving (0.000000, -1.000000)
+[INFO] Move backward
+[INFO] MovementComponent moving (0.000000, -1.000000)
+[INFO] Move backward
+[INFO] MovementComponent moving (0.000000, -1.000000)
+[INFO] Move backward
+[INFO] MovementComponent moving (0.000000, -1.000000)
+[INFO] Move backward
+[INFO] MovementComponent moving (0.000000, -1.000000)
+[INFO] Move backward
+[INFO] MovementComponent moving (0.000000, -1.000000)
+[INFO] Move backward
+[INFO] MovementComponent moving (0.000000, -1.000000)
+[INFO] Move backward
+[INFO] MovementComponent moving (0.000000, -1.000000)
+[INFO] Move backward
+[INFO] MovementComponent moving (0.000000, -1.000000)
+[INFO] Move backward
+[INFO] MovementComponent moving (0.000000, -1.000000)

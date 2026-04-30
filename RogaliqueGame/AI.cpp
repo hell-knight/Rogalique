@@ -4,6 +4,7 @@
 #include "SpriteAnimationComponent.h"
 #include "FollowComponent.h"
 #include "SpriteColliderComponent.h"
+#include "Logger.h"
 
 namespace RogaliqueGame
 {
@@ -13,8 +14,16 @@ namespace RogaliqueGame
 		auto transform = gameObject->GetComponent<MyEngine::TransformComponent>();
 		transform->SetWorldPosition(position);
 
+		auto* tex = MyEngine::ResourceSystem::Instance()->GetTextureMapElementShared("ai", 0);
+		if (!tex) {
+			LOG_ERROR("AI: failed to get texture for AI, object will have no texture.");
+			MyEngine::GameWorld::Instance()->DestroyGameObject(gameObject);
+			gameObject = nullptr;
+			return; // or gameObject->RemoveComponent(this);
+		}
+
 		auto renderer = gameObject->AddComponent<MyEngine::SpriteRendererComponent>();
-		renderer->SetTexture(*MyEngine::ResourceSystem::Instance()->GetTextureMapElementShared("ai", 0));
+		renderer->SetTexture(*tex);
 		renderer->SetPixelSize(100, 100);
 
 		auto follower = gameObject->AddComponent<MyEngine::FollowComponent>();

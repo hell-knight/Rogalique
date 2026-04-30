@@ -4,6 +4,7 @@
 #include <MovementComponent.h>
 #include <SpriteDirectionComponent.h>
 #include "SpriteAnimationComponent.h"
+#include "Logger.h"
 
 namespace RogaliqueGame
 {
@@ -12,9 +13,17 @@ namespace RogaliqueGame
 		gameObject = MyEngine::GameWorld::Instance()->CreateGameObject("Player");
 		auto transform = gameObject->GetComponent<MyEngine::TransformComponent>();
 		transform->SetWorldPosition(position);
-		//gameObject->AddComponent<MyEngine::RigidbodyComponent>();
+
+		auto* tex = MyEngine::ResourceSystem::Instance()->GetTextureMapElementShared("player", 0);
+		if (!tex) {
+			LOG_ERROR("Player: failed to get texture.");
+			MyEngine::GameWorld::Instance()->DestroyGameObject(gameObject);
+			gameObject = nullptr;
+			return;
+		}
+
 		auto renderer = gameObject->AddComponent<MyEngine::SpriteRendererComponent>();
-		renderer->SetTexture(*MyEngine::ResourceSystem::Instance()->GetTextureMapElementShared("player", 0));
+		renderer->SetTexture(*tex);
 		renderer->SetPixelSize(100, 100);
 
 		auto camera = gameObject->AddComponent<MyEngine::CameraComponent>();

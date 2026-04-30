@@ -204,6 +204,7 @@ xcopy /y /d "$(TargetPath)" "$(SolutionDir)RogaliqueGame\$(Platform)\$(Configura
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameWorld.cpp" />
     <ClCompile Include="InputComponent.cpp" />
+    <ClCompile Include="Logger.cpp" />
     <ClCompile Include="Matrix2D.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="pch.cpp">

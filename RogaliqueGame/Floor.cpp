@@ -1,4 +1,5 @@
 #include "Floor.h"
+#include "Logger.h"
 
 namespace RogaliqueGame
 {
@@ -8,8 +9,16 @@ namespace RogaliqueGame
 		auto transform = gameObject->GetComponent<MyEngine::TransformComponent>();
 		transform->SetWorldPosition(position);
 
+		auto* tex = MyEngine::ResourceSystem::Instance()->GetTextureMapElementShared("level_floors", textureMapIndex);
+		if (!tex) {
+			LOG_ERROR("Floor: failed to get floor texture at index " + std::to_string(textureMapIndex));
+			MyEngine::GameWorld::Instance()->DestroyGameObject(gameObject);
+			gameObject = nullptr;
+			return;
+		}
+
 		auto renderer = gameObject->AddComponent<MyEngine::SpriteRendererComponent>();
-		renderer->SetTexture(*MyEngine::ResourceSystem::Instance()->GetTextureMapElementShared("level_floors", textureMapIndex));
+		renderer->SetTexture(*tex);
 		renderer->SetPixelSize(128, 128);
 	}
 }
