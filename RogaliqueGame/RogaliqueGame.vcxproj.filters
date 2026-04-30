@@ -19,10 +19,22 @@
     <ClCompile Include="Music.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="AI.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Floor.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Wall.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h" />
     <ClInclude Include="DeveloperLevel.h" />
     <ClInclude Include="Music.h" />
+    <ClInclude Include="AI.h" />
+    <ClInclude Include="Floor.h" />
+    <ClInclude Include="Wall.h" />
   </ItemGroup>
 </Project>

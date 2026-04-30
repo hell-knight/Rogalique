@@ -1,10 +1,11 @@
 #pragma once
 #include "GameObject.h"
 #include "InputComponent.h"
+#include "EngineAPI.h"
 
 namespace MyEngine
 {
-	class MovementComponent : public Component
+	class ENGINE_API MovementComponent : public Component
 	{
 	public:
 		MovementComponent(GameObject* gameObject);

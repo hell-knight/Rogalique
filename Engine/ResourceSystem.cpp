@@ -51,6 +51,9 @@ namespace MyEngine
 		}
 
 		sf::Texture textureMap;
+		/*std::cout << "Loading texture map: " << name << " from " << sourcePath << std::endl;
+		bool ok = textureMap.loadFromFile(sourcePath);
+		std::cout << "Result: " << (ok ? "SUCCESS" : "FAIL") << std::endl;*/
 		if (textureMap.loadFromFile(sourcePath))
 		{
 			auto textureMapElements = new std::vector<sf::Texture*>();

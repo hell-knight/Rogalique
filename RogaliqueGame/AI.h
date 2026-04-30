@@ -1,5 +1,4 @@
 #pragma once
-
 #include "CameraComponent.h"
 #include "GameWorld.h"
 #include "SpriteRendererComponent.h"
@@ -10,13 +9,14 @@
 
 namespace RogaliqueGame
 {
-	class Player
+	class AI
 	{
 	public:
-		Player(const MyEngine::Vector2Df& position);
+		AI(const MyEngine::Vector2Df& position, MyEngine::GameObject* player);
 		MyEngine::GameObject* GetGameObject();
 
 	private:
 		MyEngine::GameObject* gameObject;
 	};
+
 }
