@@ -8,8 +8,8 @@
 
 namespace MyEngine
 {
-    AttackComponent::AttackComponent(GameObject* gameObject)
-        : Component(gameObject)
+    AttackComponent::AttackComponent(GameObject* gameObject, float newDamage, float newRadius, float newCooldown)
+        : Component(gameObject), damage(newDamage), radius(newRadius), cooldown(newCooldown)
     {
         LOG_INFO(gameObject->GetName() + " AttackComponent created (default dmg=" +
             std::to_string(damage) + " radius=" + std::to_string(radius) +

@@ -9,13 +9,13 @@ namespace MyEngine
     class ENGINE_API HealthComponent : public Component
     {
     public:
-        HealthComponent(GameObject* gameObject);
+        HealthComponent(GameObject* gameObject, float newHealth, float newArmor);
 
         void Update(float deltaTime) override {}
         void Render() override {}
 
-        void SetMaxHealth(float maxHP);
-        void SetArmor(float value);
+        //void SetMaxHealth(float maxHP);
+        //void SetArmor(float value);
 
         float GetHealth() const;
         float GetMaxHealth() const;

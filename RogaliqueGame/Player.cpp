@@ -49,17 +49,12 @@ namespace RogaliqueGame
 		auto animator = gameObject->AddComponent<MyEngine::SpriteAnimationComponent>();
 		animator->Initialize("player", 6.f);
 
-		auto health = gameObject->AddComponent<MyEngine::HealthComponent>();
-		health->SetMaxHealth(100.f);
-		health->SetArmor(10.f);
+		auto health = gameObject->AddComponent<MyEngine::HealthComponent>(gameObject, 100.f, 10.f);
 		health->SubscribeOnDeath([this]() {
 			LOG_INFO("Player died.");
 			});
 
-		auto attack = gameObject->AddComponent<MyEngine::AttackComponent>();
-		attack->SetDamage(25.f);
-		attack->SetRadius(150.f);
-		attack->SetCooldown(0.5f);
+		auto attack = gameObject->AddComponent<MyEngine::AttackComponent>(gameObject, 25.f, 150.f, 0.5f);
 		gameObject->AddComponent<MyEngine::InputAttackComponent>();
 	}
 

@@ -9,7 +9,7 @@ namespace MyEngine
     class ENGINE_API AttackComponent : public Component
     {
     public:
-        AttackComponent(GameObject* gameObject);
+        AttackComponent(GameObject* gameObject, float newDamage, float newRadius, float newCooldown);
 
         void SetDamage(float dmg);
         void SetRadius(float rad);

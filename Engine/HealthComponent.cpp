@@ -5,14 +5,14 @@
 
 namespace MyEngine
 {
-    HealthComponent::HealthComponent(GameObject* gameObject)
-        : Component(gameObject)
+    HealthComponent::HealthComponent(GameObject* gameObject, float newHealth, float newArmor)
+        : Component(gameObject), maxHealth(newHealth), health(newHealth), armor(newArmor)
     {
         LOG_INFO(gameObject->GetName() + " HealthComponent created (default HP: " +
             std::to_string(maxHealth) + ", armor: " + std::to_string(armor) + ")");
     }
 
-    void HealthComponent::SetMaxHealth(float maxHP)
+    /*void HealthComponent::SetMaxHealth(float maxHP)
     {
         maxHealth = maxHP;
         health = maxHP;
@@ -23,7 +23,7 @@ namespace MyEngine
     {
         armor = value;
         LOG_INFO(gameObject->GetName() + " armor set to " + std::to_string(armor));
-    }
+    }*/
 
     float HealthComponent::GetHealth() const { return health; }
     float HealthComponent::GetMaxHealth() const { return maxHealth; }
