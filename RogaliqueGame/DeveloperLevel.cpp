@@ -1,5 +1,6 @@
 #include "DeveloperLevel.h"
 #include "Logger.h"
+#include "MazeGenerator.h"
 
 using namespace MyEngine;
 
@@ -73,6 +74,10 @@ namespace RogaliqueGame
 			}
 		}
 		LOG_INFO("Generated " + std::to_string(walls.size()) + " walls and " + std::to_string(floors.size()) + " floors");
+
+		// Maze Generator
+		MazeGenerator mazeGenerator(width, height, this);
+		mazeGenerator.Generate();
 
 		auto playerPos = MyEngine::Vector2Df({ width / 2 * 128.f, height / 2 * 128.f });
 		player = std::make_unique<Player>(playerPos);

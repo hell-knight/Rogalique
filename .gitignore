@@ -48,3 +48,4 @@ RogaliqueGame/log.txt
 
 # Optional: VS Code settings (if you're using it)
 .vscode/
+/RogaliqueGame/MazeGenerator.h

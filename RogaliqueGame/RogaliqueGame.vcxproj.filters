@@ -28,6 +28,9 @@
     <ClCompile Include="Wall.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="MazeGenerator.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h" />
@@ -36,5 +39,6 @@
     <ClInclude Include="AI.h" />
     <ClInclude Include="Floor.h" />
     <ClInclude Include="Wall.h" />
+    <ClInclude Include="MazeGenerator.h" />
   </ItemGroup>
 </Project>
