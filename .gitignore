@@ -44,7 +44,7 @@ Thumbs.db
 *.bak
 
 # Log game
-log.txt
+RogaliqueGame/log.txt
 
 # Optional: VS Code settings (if you're using it)
 .vscode/
