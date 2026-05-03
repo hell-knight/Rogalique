@@ -10,6 +10,7 @@ namespace RogaliqueGame
 	{
 	public:
 		Floor(const MyEngine::Vector2Df& position, int textureMapIndex);
+		MyEngine::Vector2Df GetPosition() const;
 
 	private:
 		MyEngine::GameObject* gameObject;

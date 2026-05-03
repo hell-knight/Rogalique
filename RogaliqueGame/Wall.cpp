@@ -27,4 +27,9 @@ namespace RogaliqueGame
 
 		auto collider = gameObject->AddComponent<MyEngine::SpriteColliderComponent>();
 	}
+
+	MyEngine::Vector2Df Wall::GetPosition() const
+	{
+		return gameObject->GetComponent<MyEngine::TransformComponent>()->GetWorldPosition();
+	}
 }

@@ -83,6 +83,12 @@ namespace MyEngine
 		return left.x != right.x || left.y != right.y;
 	}
 
+	template<typename T>
+	bool operator<(const Vector2D<T>& left, const Vector2D<T>& right) {
+		if (left.x != right.x) return left.x < right.x;
+		return left.y < right.y;
+	}
+
 	// This complex template allows us to convert any vector type to any other vector type (like our Vector2D to SFML's Vector and vice versa)
 	template<typename U, typename V>
 	U Convert(const V& v)

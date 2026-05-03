@@ -1,22 +1,17 @@
 #pragma once
-#include "CameraComponent.h"
-#include "GameWorld.h"
-#include "SpriteRendererComponent.h"
-#include "RenderSystem.h"
-#include "InputComponent.h"
-#include "GameObject.h"
+#include "Character.h"
 #include "Vector.h"
 
 namespace RogaliqueGame
 {
-	class AI
+	class AI : public Character
 	{
 	public:
 		AI(const MyEngine::Vector2Df& position, MyEngine::GameObject* player);
-		MyEngine::GameObject* GetGameObject();
+		/*MyEngine::GameObject* GetGameObject();
 
 	private:
-		MyEngine::GameObject* gameObject;
+		MyEngine::GameObject* gameObject;*/
 	};
 
 }

@@ -21,4 +21,9 @@ namespace RogaliqueGame
 		renderer->SetTexture(*tex);
 		renderer->SetPixelSize(128, 128);
 	}
+
+	MyEngine::Vector2Df Floor::GetPosition() const
+	{
+		return gameObject->GetComponent<MyEngine::TransformComponent>()->GetWorldPosition();
+	}
 }

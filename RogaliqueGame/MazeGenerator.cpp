@@ -20,13 +20,13 @@ namespace RogaliqueGame
 		std::srand(std::time(nullptr));
 
 		// Start from a random cell in the grid.
-		int startX = std::rand() % width;
-		int startY = std::rand() % height;
+		int startX = 2 + std::rand() % (width - 4);
+		int startY = 2 + std::rand() % (height - 4);
 
 		// Use a stack to keep track of visited cells during DFS.
 		std::stack<std::pair<int, int>> stack;
 		stack.push({ startX, startY });
-		grid[startX][startY] = true;	// Mark the starting cell as visited.
+		grid[startY][startX] = true;	// Mark the starting cell as visited.
 
 		// Continue until the stack is empty (all cells are processed).
 		while (!stack.empty())
@@ -79,7 +79,7 @@ namespace RogaliqueGame
 			int ny = y + dir.second;
 
 			// Ensure the neighbor is within bounds and unvisited.
-			if (nx >= 0 && nx < width && ny >= 0 && ny < height && !grid[ny][nx])
+			if (nx > 0 && nx < width && ny > 0 && ny < height && !grid[ny][nx])
 			{
 				available.push_back(dir);
 			}
@@ -96,10 +96,10 @@ namespace RogaliqueGame
 		int wallY = (y1 + y2) / 2;
 
 		// Add floors to the current cell and the neighboring cell.
-		level->floors.push_back(std::make_unique<Floor>(
+		/*level->floors.push_back(std::make_unique<Floor>(
 			MyEngine::Vector2Df{ x1 * 128.f, y1 * 128.f }, 0));
 		level->floors.push_back(std::make_unique<Floor>(
-			MyEngine::Vector2Df{ x2 * 128.f, y2 * 128.f }, 0));
+			MyEngine::Vector2Df{ x2 * 128.f, y2 * 128.f }, 0));*/
 
 		// Add a wall at the midpoint if the cells are not directly adjacent.
 		if (wallX != x1 || wallY != y1)
