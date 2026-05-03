@@ -53,8 +53,4 @@ namespace RogaliqueGame
 		aiAttack->SetTarget(player);
 	}
 
-	/*MyEngine::GameObject* AI::GetGameObject()
-	{
-		return gameObject;
-	}*/
 }
