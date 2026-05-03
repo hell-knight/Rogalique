@@ -28,6 +28,18 @@
     <ClCompile Include="Wall.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="MazeGenerator.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Creeper.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Spawner.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h" />
@@ -36,5 +48,9 @@
     <ClInclude Include="AI.h" />
     <ClInclude Include="Floor.h" />
     <ClInclude Include="Wall.h" />
+    <ClInclude Include="MazeGenerator.h" />
+    <ClInclude Include="Character.h" />
+    <ClInclude Include="Creeper.h" />
+    <ClInclude Include="Spawner.h" />
   </ItemGroup>
 </Project>

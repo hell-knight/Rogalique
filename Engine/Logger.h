@@ -5,6 +5,7 @@
 #include <vector>
 #include <mutex>
 #include <unordered_map>
+#include "EngineAPI.h"
 
 enum class LogLevel { INFO, WARNING, ERROR_LOG };
 
@@ -83,17 +84,17 @@ public:
     void error(const std::string& message) { log(LogLevel::ERROR_LOG, message); }
 };
 
-class LoggerRegistry {
+class ENGINE_API LoggerRegistry {
 private:
     std::unordered_map<std::string, std::shared_ptr<Logger>> loggers;
     std::shared_ptr<Logger> defaultLogger;
     std::mutex registryMutex;
 
 public:
-    static LoggerRegistry& getInstance() {
-        static LoggerRegistry instance;
-        return instance;
-    }
+    static LoggerRegistry& getInstance(); //{
+        /*static LoggerRegistry instance;
+        return instance;*/
+    //}
 
     std::shared_ptr<Logger> getLogger(const std::string& name) {
         std::lock_guard<std::mutex> lock(registryMutex);

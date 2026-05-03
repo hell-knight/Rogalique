@@ -6,15 +6,16 @@ namespace MyEngine
 	SpriteColliderComponent::SpriteColliderComponent(GameObject* gameObject) : ColliderComponent(gameObject)
 	{
 		auto spriteRenderer = gameObject->GetComponent<SpriteRendererComponent>();
-		if (spriteRenderer == nullptr)
+		if (!spriteRenderer)
 		{
-			std::cout << "SpriteRenderer required to SpriteCollider." << std::endl;
+			LOG_ERROR("SpriteColliderComponent requires SpriteRenderer. Removing.");
 			gameObject->RemoveComponent(this);
 			return;
 		}
 
 		sprite = gameObject->GetComponent<SpriteRendererComponent>()->GetSprite();
 		PhysicsSystem::Instance()->Subscribe(this);
+		LOG_INFO("SpriteColliderComponent subscribed for " + gameObject->GetName());
 	}
 	SpriteColliderComponent::~SpriteColliderComponent()
 	{
@@ -23,6 +24,7 @@ namespace MyEngine
 			std::destroy_at(&bounds);
 		}*/
 		PhysicsSystem::Instance()->Unsubscribe(this);
+		LOG_INFO("SpriteColliderComponent unsubscribed for " + (gameObject ? gameObject->GetName() : "unknown"));
 	}
 
 	void SpriteColliderComponent::Update(float deltaTime)

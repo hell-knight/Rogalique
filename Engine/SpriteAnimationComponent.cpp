@@ -11,7 +11,7 @@ namespace MyEngine
 
         if (!transform || !renderer)
         {
-            std::cout << "SpriteAnimationComponent needs Transform and SpriteRenderer" << std::endl;
+            LOG_ERROR("SpriteAnimationComponent needs Transform and SpriteRenderer. Removing.");
             gameObject->RemoveComponent(this);
         }
     }
@@ -23,7 +23,7 @@ namespace MyEngine
         int frameCount = ResourceSystem::Instance()->GetTextureMapElementsCount(textureMapName);
         if (frameCount == 0)
         {
-            std::cout << "No frames in texture map: " << textureMapName << std::endl;
+            LOG_ERROR("No frames in texture map: " + textureMapName);
             return;
         }
 
@@ -36,6 +36,7 @@ namespace MyEngine
         // Set the starting frame
         renderer->SetTexture(*frames[0]);
         lastPosition = transform->GetWorldPosition();
+        LOG_INFO("SpriteAnimationComponent initialized with " + std::to_string(frameCount) + " frames from " + textureMapName);
     }
 
     void SpriteAnimationComponent::Update(float deltaTime)

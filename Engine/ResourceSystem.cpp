@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "ResourceSystem.h"
+#include "Logger.h"
 
 namespace MyEngine
 {
@@ -11,8 +12,11 @@ namespace MyEngine
 
 	void ResourceSystem::LoadTexture(const std::string& name, std::string sourcePath, bool isSmooth)
 	{
+		LOG_INFO("Loading texture '" + name + "' from" + sourcePath);
+
 		if (textures.find(name) != textures.end())
 		{
+			LOG_INFO("Texture '" + name + "' already loaded, skipping.");
 			return;
 		}
 
@@ -21,12 +25,24 @@ namespace MyEngine
 		{
 			newTexture->setSmooth(isSmooth);
 			textures.emplace(name, newTexture);
+			LOG_INFO("Texture '" + name + "' loaded successfully.");
+		}
+		else
+		{
+			LOG_ERROR("Failed to load texture '" + name + "' from" + sourcePath);
+			delete newTexture;
 		}
 	}
 
 	const sf::Texture* ResourceSystem::GetTextureShared(const std::string& name) const
 	{
-		return textures.find(name)->second;
+		auto it = textures.find(name);
+		if (it == textures.end())
+		{
+			LOG_ERROR("Texture not found: " + name);
+			return nullptr;
+		}
+		return it->second;
 	}
 
 	sf::Texture* ResourceSystem::GetTextureCopy(const std::string& name) const
@@ -45,54 +61,85 @@ namespace MyEngine
 
 	void ResourceSystem::LoadTextureMap(const std::string& name, std::string sourcePath, sf::Vector2u elementPixelSize, int totalElements, bool isSmooth)
 	{
+		LOG_INFO("Loading texture map '" + name + "' from" + sourcePath +
+			" (" + std::to_string(totalElements) + " elements)");
 		if (textureMaps.find(name) != textureMaps.end())
 		{
+			LOG_INFO("Texture map '" + name + "' already loaded, skipping.");
 			return;
 		}
 
 		sf::Texture textureMap;
-		/*std::cout << "Loading texture map: " << name << " from " << sourcePath << std::endl;
-		bool ok = textureMap.loadFromFile(sourcePath);
-		std::cout << "Result: " << (ok ? "SUCCESS" : "FAIL") << std::endl;*/
-		if (textureMap.loadFromFile(sourcePath))
+		if (!textureMap.loadFromFile(sourcePath))
 		{
-			auto textureMapElements = new std::vector<sf::Texture*>();
+			LOG_ERROR("Failed to load texture map '" + name + "' from" + sourcePath);
+		}
 
-			auto textureSize = textureMap.getSize();
-			int loadedElements = 0;
+		auto textureMapElements = std::make_unique<std::vector<sf::Texture*>>();
 
-			for (int y = 0; y <= textureSize.y - elementPixelSize.y; y += elementPixelSize.y)
+		auto textureSize = textureMap.getSize();
+		int loadedElements = 0;
+
+		for (int y = 0; y <= textureSize.y - elementPixelSize.y; y += elementPixelSize.y)
+		{
+			if (loadedElements == totalElements)
+			{
+				break;
+			}
+
+			for (int x = 0; x <= textureSize.x - elementPixelSize.x; x += elementPixelSize.x)
 			{
 				if (loadedElements == totalElements)
 				{
 					break;
 				}
 
-				for (int x = 0; x <= textureSize.x - elementPixelSize.x; x += elementPixelSize.x)
+				sf::Texture* newTextureMapElement = new sf::Texture();
+				if (newTextureMapElement->loadFromFile(sourcePath, sf::IntRect(x, y, elementPixelSize.x, elementPixelSize.y)))
 				{
-					if (loadedElements == totalElements)
-					{
-						break;
-					}
-
-					sf::Texture* newTextureMapElement = new sf::Texture();
-					if (newTextureMapElement->loadFromFile(sourcePath, sf::IntRect(x, y, elementPixelSize.x, elementPixelSize.y)))
-					{
-						newTextureMapElement->setSmooth(isSmooth);
-						textureMapElements->push_back(newTextureMapElement);
-					}
+					newTextureMapElement->setSmooth(isSmooth);
+					textureMapElements->push_back(newTextureMapElement);
 					loadedElements++;
 				}
+				else
+				{
+					LOG_WARN("Failed to extract element " + std::to_string(loadedElements) +
+						" from texture map '" + name + "'. Skipping.");
+					delete newTextureMapElement;
+				}
 			}
-
-			textureMaps.emplace(name, *textureMapElements);
 		}
+
+		if (loadedElements == 0)
+		{
+			LOG_ERROR("No elements could be loaded for texture map '" + name + "'. Map will be empty.");
+		}
+		else
+		{
+			LOG_INFO("Texture map '" + name + "' loaded with " + std::to_string(loadedElements) +
+				" elements (requested " + std::to_string(totalElements) + ").");
+		}
+
+		textureMaps.emplace(name, std::move(*textureMapElements));
 	}
 
 	const sf::Texture* ResourceSystem::GetTextureMapElementShared(const std::string& name, int elementIndex) const
 	{
 		auto textureMap = textureMaps.find(name);
-		auto textures = textureMap->second;
+		if (textureMap == textureMaps.end())
+		{
+			LOG_ERROR("Texture map not found: " + name);
+			return nullptr;
+		}
+
+		const auto& textures = textureMap->second;
+		if (elementIndex < 0 || elementIndex >= static_cast<int>(textures.size()))
+		{
+			LOG_ERROR("Texture map element index " + std::to_string(elementIndex) + " out of range for '" +
+				name + "' (size: " + std::to_string(textures.size()) + ").");
+			return nullptr;
+		}
+
 		return textures[elementIndex];
 	}
 
@@ -125,8 +172,11 @@ namespace MyEngine
 
 	void ResourceSystem::LoadSound(const std::string& name, std::string sourcePath)
 	{
+		LOG_INFO("Loading sound '" + name + "' from" + sourcePath);
+
 		if (sounds.find(name) != sounds.end())
 		{
+			LOG_INFO("Sound '" + name + "' already loaded, skipping.");
 			return;
 		}
 
@@ -134,12 +184,24 @@ namespace MyEngine
 		if (newSound->loadFromFile(sourcePath))
 		{
 			sounds.emplace(name, newSound);
+			LOG_INFO("Sound '" + name + "' loaded successfully.");
+		}
+		else
+		{
+			LOG_ERROR("Failed to load sound '" + name + "' from" + sourcePath);
+			delete newSound;
 		}
 	}
 
 	const sf::SoundBuffer* ResourceSystem::GetSound(const std::string& name) const
 	{
-		return sounds.find(name)->second;
+		auto it = sounds.find(name);
+		if (it == sounds.end())
+		{
+			LOG_ERROR("Attempt to get sound '" + name + "' which is not loaded.");
+			return nullptr;
+		}
+		return it->second;
 	}
 
 	void ResourceSystem::DeleteSound(const std::string& name)

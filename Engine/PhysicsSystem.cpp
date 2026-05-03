@@ -19,6 +19,12 @@ namespace MyEngine
 		for (int i = 0; i < colliders.size(); i++)
 		{
 			auto body = colliders[i]->GetGameObject()->GetComponent<RigidbodyComponent>();
+			if (!body)
+			{
+				LOG_WARN("Collider without RigidbodyComponent on object '" +
+					colliders[i]->GetGameObject()->GetName() + "', treating as kinematic.");
+				continue;
+			}
 			if (body->GetKinematic())
 			{
 				continue;
@@ -44,6 +50,9 @@ namespace MyEngine
 							colliders[j]->OnTriggerEnter(triggerEnter);
 
 							triggersEnteredSet.insert(pair);
+							LOG_INFO("Trigger entered between '" +
+								colliders[i]->GetGameObject()->GetName() + "' and '" +
+								colliders[j]->GetGameObject()->GetName() + "'");
 						}
 					}
 					else if (!colliders[i]->isTrigger)
@@ -56,17 +65,19 @@ namespace MyEngine
 						Vector2Df aPosition = { colliders[i]->bounds.left,  colliders[i]->bounds.top };
 						auto aTransform = colliders[i]->GetGameObject()->GetComponent<TransformComponent>();
 
+						// Determine the direction of the collision and push the object away
+						std::string collisionDir;
 						if (intersectionWidth > intersectionHeight)
 						{
 							if (intersectionPosition.y > aPosition.y)
 							{
 								aTransform->MoveBy({ 0, -intersectionHeight });
-								std::cout << "Top collision" << std::endl;
+								collisionDir = "Top";
 							}
 							else
 							{
 								aTransform->MoveBy({ 0, intersectionHeight });
-								std::cout << "Down collision" << std::endl;
+								collisionDir = "Down";
 							}
 						}
 						else
@@ -74,18 +85,22 @@ namespace MyEngine
 							if (intersectionPosition.x > aPosition.x)
 							{
 								aTransform->MoveBy({ -intersectionWidth, 0.f });
-								std::cout << "Right collision" << std::endl;
+								collisionDir = "Right";
 							}
 							else
 							{
 								aTransform->MoveBy({ intersectionWidth, 0.f });
-								std::cout << "Left collision" << std::endl;
+								collisionDir = "Left";
 							}
 						}
 
 						Collision collision(colliders[i], colliders[j], intersection);
 						colliders[i]->OnCollision(collision);
 						colliders[j]->OnCollision(collision);
+
+						LOG_INFO("Collision (" + collisionDir + ") between '" +
+							colliders[i]->GetGameObject()->GetName() + "' and '" +
+							colliders[j]->GetGameObject()->GetName() + "'");
 					}
 				}
 			}
@@ -101,6 +116,9 @@ namespace MyEngine
 				p.second->OnTriggerExit(triggerExit);
 
 				exitedPairs.push_back(p);
+				LOG_INFO("Trigger exited between '" +
+					p.first->GetGameObject()->GetName() + "' and '" +
+					p.second->GetGameObject()->GetName() + "'");
 			}
 		}
 		for (const auto& p : exitedPairs)

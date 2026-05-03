@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v145</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -159,6 +159,8 @@ xcopy /y /d "$(TargetPath)" "$(SolutionDir)RogaliqueGame\$(Platform)\$(Configura
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AIAttackComponent.h" />
+    <ClInclude Include="AttackComponent.h" />
     <ClInclude Include="AudioComponent.h" />
     <ClInclude Include="CameraComponent.h" />
     <ClInclude Include="ColliderComponent.h" />
@@ -170,7 +172,9 @@ xcopy /y /d "$(TargetPath)" "$(SolutionDir)RogaliqueGame\$(Platform)\$(Configura
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameWorld.h" />
+    <ClInclude Include="HealthComponent.h" />
     <ClInclude Include="IDelayedAction.h" />
+    <ClInclude Include="InputAttackComponent.h" />
     <ClInclude Include="InputComponent.h" />
     <ClInclude Include="IObserver.h" />
     <ClInclude Include="Logger.h" />
@@ -193,6 +197,8 @@ xcopy /y /d "$(TargetPath)" "$(SolutionDir)RogaliqueGame\$(Platform)\$(Configura
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AIAttackComponent.cpp" />
+    <ClCompile Include="AttackComponent.cpp" />
     <ClCompile Include="AudioComponent.cpp" />
     <ClCompile Include="CameraComponent.cpp" />
     <ClCompile Include="ColliderComponent.cpp" />
@@ -203,7 +209,10 @@ xcopy /y /d "$(TargetPath)" "$(SolutionDir)RogaliqueGame\$(Platform)\$(Configura
     <ClCompile Include="FollowComponent.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameWorld.cpp" />
+    <ClCompile Include="HealthComponent.cpp" />
+    <ClCompile Include="InputAttackComponent.cpp" />
     <ClCompile Include="InputComponent.cpp" />
+    <ClCompile Include="Logger.cpp" />
     <ClCompile Include="Matrix2D.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="pch.cpp">

@@ -10,7 +10,7 @@ namespace MyEngine
 		spriteRenderer = gameObject->GetComponent<MyEngine::SpriteRendererComponent>();
 		if (transform == nullptr)
 		{
-			std::cout << "FollowComponent requires a TransformComponent." << std::endl;
+			LOG_ERROR("FollowComponent requires TransformComponent. Removing.");
 			gameObject->RemoveComponent(this);
 		}
 	}
@@ -46,13 +46,20 @@ namespace MyEngine
 
 	void FollowComponent::SetTarget(GameObject* targetObject)
 	{
-		if (targetObject)
+		if (!targetObject)
 		{
-			targetTransform = targetObject->GetComponent<TransformComponent>();
-			if (targetTransform == nullptr)
-			{
-				std::cout << "Target object has no TransformComponent." << std::endl;
-			}
+			LOG_WARN("FollowComponent: SetTarget called with nullptr.");
+			targetTransform = nullptr;
+			return;
+		}
+		targetTransform = targetObject->GetComponent<TransformComponent>();
+		if (targetTransform)
+		{
+			LOG_INFO("FollowComponent: target set to " + targetObject->GetName());
+		}
+		else
+		{
+			LOG_ERROR("FollowComponent: target object has no TransformComponent.");
 		}
 	}
 

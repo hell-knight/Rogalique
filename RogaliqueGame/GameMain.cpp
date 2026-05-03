@@ -4,12 +4,15 @@
 #include "ResourceSystem.h"
 #include "DeveloperLevel.h"
 #include "Matrix2D.h"
+#include "Logger.h"
 
 
 using namespace RogaliqueGame;
 
 int main()
 {
+	MyEngine::Engine::Instance();
+	LOG_INFO("Logger is alive before resources");
 	MyEngine::RenderSystem::Instance()->SetMainWindow(new sf::RenderWindow(sf::VideoMode(1280, 720), "RogaliqueGame"));
 
 	ResourceSystem::Instance()->LoadTextureMap("player", "Resources/Textures/Player.png", { 48, 63 }, 4, false);

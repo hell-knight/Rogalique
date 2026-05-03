@@ -7,6 +7,7 @@
 #include "Music.h"
 #include "Floor.h"
 #include "Wall.h"
+#include "Spawner.h"
 
 using namespace MyEngine;
 
@@ -19,12 +20,13 @@ namespace RogaliqueGame
 		void Restart() override;
 		void Stop() override;
 
-	private:
-		std::shared_ptr<Player> player;
-		std::shared_ptr<AI> ai;
-		std::unique_ptr<Music> music;
-
 		std::vector<std::unique_ptr<Wall>> walls;
 		std::vector<std::unique_ptr<Floor>> floors;
+
+	private:
+		std::shared_ptr<Player> player;
+		//std::shared_ptr<AI> ai;
+		std::vector<std::shared_ptr<Character>> enemies;
+		std::unique_ptr<Music> music;
 	};
 }
