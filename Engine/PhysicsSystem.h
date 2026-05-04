@@ -6,46 +6,51 @@
 #include "RigidbodyComponent.h"
 #include "Vector.h"
 
-namespace MyEngine
-{
-	class PhysicsSystem
-	{
-	public:
-		static PhysicsSystem* Instance();
+namespace MyEngine {
+class PhysicsSystem {
+   public:
+    static PhysicsSystem* Instance();
 
-		void Update();
+    void Update();
 
-		float GetFixedDeltaTime() const;
-		void Subscribe(ColliderComponent* collider);
-		void Unsubscribe(ColliderComponent* collider);
-	private:
-		PhysicsSystem() {}
-		~PhysicsSystem() {}
+    float GetFixedDeltaTime() const;
+    void Subscribe(ColliderComponent* collider);
+    void Unsubscribe(ColliderComponent* collider);
 
-		PhysicsSystem(PhysicsSystem const&) = delete;
-		PhysicsSystem& operator= (PhysicsSystem const&) = delete;
+   private:
+    PhysicsSystem() {}
+    ~PhysicsSystem() {}
 
-		std::vector<ColliderComponent*> colliders;
+    PhysicsSystem(PhysicsSystem const&) = delete;
+    PhysicsSystem& operator=(PhysicsSystem const&) = delete;
 
-		// A new structure for comparing pairs without regard to order
-		struct PairCompare {
-			bool operator()(const std::pair<ColliderComponent*, ColliderComponent*>& lhs,
-				const std::pair<ColliderComponent*, ColliderComponent*>& rhs) const {
-				// reduce it to canonical form: the left index is 1
-				auto canonical = [](ColliderComponent* a, ColliderComponent* b) {
-					return std::minmax(a, b);
-				};
-				return canonical(lhs.first, lhs.second) < canonical(rhs.first, rhs.second);
-			}
-		};
+    std::vector<ColliderComponent*> colliders;
 
-		std::set<std::pair<ColliderComponent*, ColliderComponent*>, PairCompare> triggersEnteredSet;
+    // A new structure for comparing pairs without regard to order
+    struct PairCompare {
+        bool operator()(
+            const std::pair<ColliderComponent*, ColliderComponent*>& lhs,
+            const std::pair<ColliderComponent*, ColliderComponent*>& rhs)
+            const {
+            // reduce it to canonical form: the left index is 1
+            auto canonical = [](ColliderComponent* a, ColliderComponent* b) {
+                return std::minmax(a, b);
+            };
+            return canonical(lhs.first, lhs.second) <
+                   canonical(rhs.first, rhs.second);
+        }
+    };
 
-		float fixedDeltaTime = 0.02f;
+    std::set<std::pair<ColliderComponent*, ColliderComponent*>, PairCompare>
+        triggersEnteredSet;
 
-		void ProcessColliders();
-        void ProcessCollisionPair(ColliderComponent* a, ColliderComponent* b, const sf::FloatRect& intersection);
-		void ResolveCollision(ColliderComponent* a, ColliderComponent* b, const sf::FloatRect& intersection);
-        void ProcessTriggerExits();
-	};
-}
+    float fixedDeltaTime = 0.02f;
+
+    void ProcessColliders();
+    void ProcessCollisionPair(ColliderComponent* a, ColliderComponent* b,
+                              const sf::FloatRect& intersection);
+    void ResolveCollision(ColliderComponent* a, ColliderComponent* b,
+                          const sf::FloatRect& intersection);
+    void ProcessTriggerExits();
+};
+}  // namespace MyEngine

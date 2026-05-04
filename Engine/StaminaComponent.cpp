@@ -4,8 +4,8 @@
 #include <algorithm>
 
 namespace MyEngine {
-StaminaComponent::StaminaComponent(GameObject* gameObject, float maxStamina) 
-	: Component(gameObject), maxStamina(maxStamina), stamina(maxStamina) {
+StaminaComponent::StaminaComponent(GameObject* gameObject, float maxStamina)
+    : Component(gameObject), maxStamina(maxStamina), stamina(maxStamina) {
     LOG_INFO(gameObject->GetName() + " StaminaComponent created (max: " +
              std::to_string(maxStamina) + ")");
 }
@@ -24,7 +24,8 @@ void StaminaComponent::Use(float amount) {
     stamina = std::max(0.f, stamina - amount);
 }
 
-bool StaminaComponent::HasEnough(float amount) const { return stamina >= amount; }
-
+bool StaminaComponent::HasEnough(float amount) const {
+    return stamina >= amount;
+}
 
 }  // namespace MyEngine

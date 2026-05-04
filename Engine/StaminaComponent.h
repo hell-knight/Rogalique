@@ -2,9 +2,8 @@
 #include "Component.h"
 #include "EngineAPI.h"
 
-namespace MyEngine 
-{
-class ENGINE_API StaminaComponent : public Component{
+namespace MyEngine {
+class ENGINE_API StaminaComponent : public Component {
    public:
     StaminaComponent(GameObject* gameObject, float maxStamina = 100.f);
 
@@ -21,4 +20,4 @@ class ENGINE_API StaminaComponent : public Component{
     float stamina;
     float maxStamina;
 };
-}
+}  // namespace MyEngine
