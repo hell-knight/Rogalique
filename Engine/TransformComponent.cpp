@@ -246,7 +246,7 @@ void TransformComponent::setWorldInfoFrom(const Matrix2D& transform) const {
 
     rotation =
         std::atan2(transform.GetMatrix()[0][1], transform.GetMatrix()[0][0]) *
-        180 / 3.14159265;
+        180.f / 3.14159265f;
 }
 
 void TransformComponent::setLocalInfoFrom(const Matrix2D& transform) const {
@@ -262,7 +262,7 @@ void TransformComponent::setLocalInfoFrom(const Matrix2D& transform) const {
 
     localRotation =
         std::atan2(transform.GetMatrix()[0][1], transform.GetMatrix()[0][0]) *
-        180 / 3.14159265;
+        180.f / 3.14159265f;
 }
 
 void TransformComponent::updateLocalTransform() const {

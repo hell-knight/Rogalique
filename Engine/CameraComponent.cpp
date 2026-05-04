@@ -32,7 +32,8 @@ void CameraComponent::Render() {
 }
 
 void CameraComponent::SetBaseResolution(int width, int height) {
-    view->reset(sf::FloatRect(0, 0, width, -height));
+    view->reset(sf::FloatRect(0, 0, static_cast<float>(width),
+                              static_cast<float>(-height)));
 }
 
 void CameraComponent::SetWindow(sf::RenderWindow* newWindow) {

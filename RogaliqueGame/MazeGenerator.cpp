@@ -16,7 +16,7 @@ MazeGenerator::MazeGenerator(int width, int height, DeveloperLevel* level)
 // Generate: Creates a maze using the Depth-First Search (DFS) algorithm.
 void MazeGenerator::Generate() {
     // Seed the random number generator for consistent randomness.
-    std::srand(std::time(nullptr));
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
     // Start from a random cell in the grid.
     int startX = 2 + std::rand() % (width - 4);

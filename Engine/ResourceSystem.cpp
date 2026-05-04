@@ -72,13 +72,13 @@ void ResourceSystem::LoadTextureMap(const std::string& name,
     auto textureSize = textureMap.getSize();
     int loadedElements = 0;
 
-    for (int y = 0; y <= textureSize.y - elementPixelSize.y;
+    for (unsigned int y = 0; y <= textureSize.y - elementPixelSize.y;
          y += elementPixelSize.y) {
         if (loadedElements == totalElements) {
             break;
         }
 
-        for (int x = 0; x <= textureSize.x - elementPixelSize.x;
+        for (unsigned int x = 0; x <= textureSize.x - elementPixelSize.x;
              x += elementPixelSize.x) {
             if (loadedElements == totalElements) {
                 break;
@@ -141,7 +141,7 @@ sf::Texture* ResourceSystem::GetTextureMapElementCopy(const std::string& name,
 int ResourceSystem::GetTextureMapElementsCount(const std::string& name) const {
     auto textureMap = textureMaps.find(name);
     auto textures = textureMap->second;
-    return textures.size();
+    return (int)textures.size();
 }
 
 void ResourceSystem::DeleteSharedTextureMap(const std::string& name) {

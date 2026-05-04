@@ -92,6 +92,11 @@ class Logger {
     }
 };
 
+#ifdef _MSC_VER
+#pragma warning(push)
+#pragma warning(disable : 4251)
+#endif
+
 class ENGINE_API LoggerRegistry {
    private:
     std::unordered_map<std::string, std::shared_ptr<Logger>> loggers;
@@ -99,29 +104,23 @@ class ENGINE_API LoggerRegistry {
     std::mutex registryMutex;
 
    public:
-    static LoggerRegistry& getInstance();  //{
-    /*static LoggerRegistry instance;
-    return instance;*/
-    //}
+    static LoggerRegistry& getInstance();
 
-    std::shared_ptr<Logger> getLogger(const std::string& name) {
-        std::lock_guard<std::mutex> lock(registryMutex);
-        if (loggers.find(name) != loggers.end()) {
-            return loggers[name];
-        }
-        return defaultLogger;
-    }
+    std::shared_ptr<Logger> getLogger(const std::string& name);
 
-    void setDefaultLogger(std::shared_ptr<Logger> logger) {
-        defaultLogger = logger;
-    }
+    void setDefaultLogger(std::shared_ptr<Logger> logger);
 
     void registerLogger(const std::string& name,
-                        std::shared_ptr<Logger> logger) {
-        std::lock_guard<std::mutex> lock(registryMutex);
-        loggers[name] = logger;
-    }
+                        std::shared_ptr<Logger> logger);
+
+   private:
+    LoggerRegistry();
+    ~LoggerRegistry();
 };
+
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
 
 #define LOG_INFO(message) \
     LoggerRegistry::getInstance().getLogger("global")->info(message)

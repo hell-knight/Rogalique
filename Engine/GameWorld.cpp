@@ -28,7 +28,7 @@ void GameWorld::Render() {
 }
 
 void GameWorld::LateUpdate() {
-    for (int i = markedToDestroyGameObjects.size() - 1; i >= 0; i--) {
+    for (int i = (int)markedToDestroyGameObjects.size() - 1; i >= 0; i--) {
         DestroyGameObjectImmediate(markedToDestroyGameObjects[i]);
     }
 }
@@ -50,7 +50,7 @@ void GameWorld::DestroyGameObject(GameObject* gameObject) {
 }
 
 void GameWorld::Clear() {
-    for (int i = gameObjects.size() - 1; i >= 0; i--) {
+    for (int i = (int)gameObjects.size() - 1; i >= 0; i--) {
         if (gameObjects[i] == nullptr) {
             continue;
         }
