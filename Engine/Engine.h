@@ -10,23 +10,21 @@
 #define ENGINE_API __declspec(dllimport)
 #endif
 
-namespace MyEngine
-{
-	class ENGINE_API Engine
-	{
-	public:
-		Engine(const Engine& app) = delete;
-		Engine& operator= (const Engine&) = delete;
+namespace MyEngine {
+class ENGINE_API Engine {
+   public:
+    Engine(const Engine& app) = delete;
+    Engine& operator=(const Engine&) = delete;
 
-		static Engine* Instance();
+    static Engine* Instance();
 
-		void Run();
+    void Run();
 
-	private:
-		Engine();
-		~Engine() = default;
+   private:
+    Engine();
+    ~Engine() = default;
 
-		void setupLogger();
-	};
-}
-#endif // ENGINE_H
+    void setupLogger();
+};
+}  // namespace MyEngine
+#endif  // ENGINE_H

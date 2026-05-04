@@ -4,14 +4,12 @@
 #include <AudioComponent.h>
 #include <ResourceSystem.h>
 
-namespace RogaliqueGame
-{
-	class Music
-	{
-	public:
-		Music(const std::string& soundName);
+namespace RogaliqueGame {
+class Music {
+   public:
+    Music(const std::string& soundName);
 
-	private:
-		MyEngine::GameObject* gameObject;
-	};
-}
+   private:
+    MyEngine::GameObject* gameObject;
+};
+}  // namespace RogaliqueGame

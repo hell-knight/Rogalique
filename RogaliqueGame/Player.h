@@ -8,15 +8,13 @@
 #include "GameObject.h"
 #include "Vector.h"
 
-namespace RogaliqueGame
-{
-	class Player
-	{
-	public:
-		Player(const MyEngine::Vector2Df& position);
-		MyEngine::GameObject* GetGameObject();
+namespace RogaliqueGame {
+class Player {
+   public:
+    Player(const MyEngine::Vector2Df& position);
+    MyEngine::GameObject* GetGameObject();
 
-	private:
-		MyEngine::GameObject* gameObject;
-	};
-}
+   private:
+    MyEngine::GameObject* gameObject;
+};
+}  // namespace RogaliqueGame

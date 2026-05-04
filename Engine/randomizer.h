@@ -24,7 +24,9 @@ T random(T lower = T(0), T higher = T(99)) {
         return lower;
     }
 
-    using uniform_distribution_type = typename uniform_distribution_selector<std::is_integral<T>::value, T>::type;
+    using uniform_distribution_type =
+        typename uniform_distribution_selector<std::is_integral<T>::value,
+                                               T>::type;
 
     uniform_distribution_type distribution(lower, higher);
     static std::mt19937 engine;

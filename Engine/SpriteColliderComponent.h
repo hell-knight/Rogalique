@@ -5,17 +5,16 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include "EngineAPI.h"
 
-namespace MyEngine
-{
-	class ENGINE_API SpriteColliderComponent : public ColliderComponent
-	{
-	public:
-		SpriteColliderComponent(GameObject* gameObject);
-		~SpriteColliderComponent();
+namespace MyEngine {
+class ENGINE_API SpriteColliderComponent : public ColliderComponent {
+   public:
+    SpriteColliderComponent(GameObject* gameObject);
+    ~SpriteColliderComponent();
 
-		void Update(float deltaTime) override;
-		void Render() override;
-	private:
-		const sf::Sprite* sprite;
-	};
-}
+    void Update(float deltaTime) override;
+    void Render() override;
+
+   private:
+    const sf::Sprite* sprite;
+};
+}  // namespace MyEngine

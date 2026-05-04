@@ -11,22 +11,19 @@
 
 using namespace MyEngine;
 
-namespace RogaliqueGame
-{
-	class DeveloperLevel : public Scene
-	{
-	public:
-		void Start() override;
-		void Restart() override;
-		void Stop() override;
+namespace RogaliqueGame {
+class DeveloperLevel : public Scene {
+   public:
+    void Start() override;
+    void Restart() override;
+    void Stop() override;
 
-		std::vector<std::unique_ptr<Wall>> walls;
-		std::vector<std::unique_ptr<Floor>> floors;
+    std::vector<std::unique_ptr<Wall>> walls;
+    std::vector<std::unique_ptr<Floor>> floors;
 
-	private:
-		std::shared_ptr<Player> player;
-		//std::shared_ptr<AI> ai;
-		std::vector<std::shared_ptr<Character>> enemies;
-		std::unique_ptr<Music> music;
-	};
-}
+   private:
+    std::shared_ptr<Player> player;
+    std::vector<std::shared_ptr<Character>> enemies;
+    std::unique_ptr<Music> music;
+};
+}  // namespace RogaliqueGame

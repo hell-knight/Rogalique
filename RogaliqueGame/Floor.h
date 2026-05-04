@@ -4,15 +4,13 @@
 #include "ResourceSystem.h"
 #include "GameObject.h"
 
-namespace RogaliqueGame
-{
-	class Floor
-	{
-	public:
-		Floor(const MyEngine::Vector2Df& position, int textureMapIndex);
-		MyEngine::Vector2Df GetPosition() const;
+namespace RogaliqueGame {
+class Floor {
+   public:
+    Floor(const MyEngine::Vector2Df& position, int textureMapIndex);
+    MyEngine::Vector2Df GetPosition() const;
 
-	private:
-		MyEngine::GameObject* gameObject;
-	};
-}
+   private:
+    MyEngine::GameObject* gameObject;
+};
+}  // namespace RogaliqueGame

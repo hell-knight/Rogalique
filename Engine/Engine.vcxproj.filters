@@ -123,6 +123,12 @@
     <ClInclude Include="AIAttackComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="StaminaComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HUDRendererComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -213,6 +219,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AIAttackComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StaminaComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HUDRendererComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
