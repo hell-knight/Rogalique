@@ -3,6 +3,9 @@
 #include "MazeGenerator.h"
 #include "Creeper.h"
 #include <unordered_set>
+#include "HUDRendererComponent.h"
+#include "HealthComponent.h"
+#include "StaminaComponent.h"
 
 using namespace MyEngine;
 
@@ -85,6 +88,13 @@ void DeveloperLevel::Start() {
     player = std::make_unique<Player>(playerPos);
     LOG_INFO("Player created at (" + std::to_string(playerPos.x) + ", " +
              std::to_string(playerPos.y) + ")");
+
+    auto hudObj = GameWorld::Instance()->CreateGameObject("HUD");
+    auto* health = player->GetGameObject()->GetComponent<HealthComponent>();
+    auto* stamina = player->GetGameObject()->GetComponent<StaminaComponent>();
+    auto* healthTex = ResourceSystem::Instance()->GetTextureShared("icon_health");
+    auto* staminaTex = ResourceSystem::Instance()->GetTextureShared("icon_stamina");
+    hudObj->AddComponent<MyEngine::HUDRendererComponent>(hudObj, health, stamina, healthTex, staminaTex);
 
     // Compilation of safe positions
     std::vector<MyEngine::Vector2Df> floorPositions;

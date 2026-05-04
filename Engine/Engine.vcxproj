@@ -173,6 +173,7 @@ xcopy /y /d "$(TargetPath)" "$(SolutionDir)RogaliqueGame\$(Platform)\$(Configura
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameWorld.h" />
     <ClInclude Include="HealthComponent.h" />
+    <ClInclude Include="HUDRendererComponent.h" />
     <ClInclude Include="IDelayedAction.h" />
     <ClInclude Include="InputAttackComponent.h" />
     <ClInclude Include="InputComponent.h" />
@@ -211,6 +212,7 @@ xcopy /y /d "$(TargetPath)" "$(SolutionDir)RogaliqueGame\$(Platform)\$(Configura
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameWorld.cpp" />
     <ClCompile Include="HealthComponent.cpp" />
+    <ClCompile Include="HUDRendererComponent.cpp" />
     <ClCompile Include="InputAttackComponent.cpp" />
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="Logger.cpp" />

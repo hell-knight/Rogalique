@@ -22,6 +22,9 @@ int main() {
         "level_walls", "Resources/Textures/Wall.png", {16, 16}, 48, false);
     ResourceSystem::Instance()->LoadTextureMap(
         "ai", "Resources/Textures/AI.png", {784 / 3, 1168 / 3}, 9, false);
+    ResourceSystem::Instance()->LoadTexture("icon_health", "Resources/Textures/health.png");
+    ResourceSystem::Instance()->LoadTexture("icon_stamina",
+                                            "Resources/Textures/stamina.png");
 
     ResourceSystem::Instance()->LoadSound(
         "music", "Resources/Sounds/game_background.ogg");

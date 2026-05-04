@@ -8,6 +8,7 @@
 #include "HealthComponent.h"
 #include "InputAttackComponent.h"
 #include "AttackComponent.h"
+#include "StaminaComponent.h"
 
 namespace RogaliqueGame {
 Player::Player(const MyEngine::Vector2Df& position) {
@@ -36,6 +37,8 @@ Player::Player(const MyEngine::Vector2Df& position) {
     camera->ZoomBy(2.f);
 
     auto input = gameObject->AddComponent<MyEngine::InputComponent>();
+
+    auto stamina = gameObject->AddComponent<MyEngine::StaminaComponent>(gameObject, 100.f);
 
     auto movement = gameObject->AddComponent<MyEngine::MovementComponent>();
     movement->SetSpeed(400.f);

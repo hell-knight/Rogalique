@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "StaminaComponent.h"
 #include "Logger.h"
+#include "GameObject.h"
 #include <algorithm>
 
 namespace MyEngine {

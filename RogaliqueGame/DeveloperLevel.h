@@ -23,7 +23,6 @@ class DeveloperLevel : public Scene {
 
    private:
     std::shared_ptr<Player> player;
-    // std::shared_ptr<AI> ai;
     std::vector<std::shared_ptr<Character>> enemies;
     std::unique_ptr<Music> music;
 };
