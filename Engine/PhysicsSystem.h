@@ -42,5 +42,10 @@ namespace MyEngine
 		std::set<std::pair<ColliderComponent*, ColliderComponent*>, PairCompare> triggersEnteredSet;
 
 		float fixedDeltaTime = 0.02f;
+
+		void ProcessColliders();
+        void ProcessCollisionPair(ColliderComponent* a, ColliderComponent* b, const sf::FloatRect& intersection);
+		void ResolveCollision(ColliderComponent* a, ColliderComponent* b, const sf::FloatRect& intersection);
+        void ProcessTriggerExits();
 	};
 }

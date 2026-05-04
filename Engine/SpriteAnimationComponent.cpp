@@ -45,7 +45,6 @@ namespace MyEngine
 
         Vector2Df currentPos = transform->GetWorldPosition();
         float distance = (currentPos - lastPosition).GetLength();
-        //std::cout << "AI pos: (" << currentPos.x << ", " << currentPos.y << ") dist: " << distance << std::endl;
         const float threshold = 0.01f;  // pixels per frame
 
         if (distance > threshold)

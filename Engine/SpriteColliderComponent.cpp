@@ -19,10 +19,6 @@ namespace MyEngine
 	}
 	SpriteColliderComponent::~SpriteColliderComponent()
 	{
-		/*if (&bounds != nullptr)
-		{
-			std::destroy_at(&bounds);
-		}*/
 		PhysicsSystem::Instance()->Unsubscribe(this);
 		LOG_INFO("SpriteColliderComponent unsubscribed for " + (gameObject ? gameObject->GetName() : "unknown"));
 	}
