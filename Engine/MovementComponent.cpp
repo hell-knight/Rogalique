@@ -8,6 +8,7 @@ namespace MyEngine
 	{
 		input = gameObject->GetComponent<InputComponent>();
 		transform = gameObject->GetComponent<TransformComponent>();
+        stamina = gameObject->GetComponent<StaminaComponent>();
 
 		if (transform == nullptr)
 		{
@@ -29,10 +30,20 @@ namespace MyEngine
 		float yAxis = input->GetVerticalAxis();
 
 		Vector2Df dir = { xAxis, yAxis };
-		if (dir.x != 0.f || dir.y != 0.f)
-		{
-			LOG_INFO("MovementComponent moving (" + std::to_string(dir.x) + ", " + std::to_string(dir.y) + ")");
-		}
+                if (dir.x != 0.f || dir.y != 0.f) {
+                    LOG_INFO("MovementComponent moving (" +
+                             std::to_string(dir.x) + ", " +
+                             std::to_string(dir.y) + ")");
+                }
+
+		float len = dir.GetLength();
+                if (len > 0.01f){
+					// Movement: stamina if the component is available
+                    if (stamina) stamina->Use(10.f * deltaTime);
+                } else {
+					// stand: recovering
+                    if (stamina) stamina->Restore(15.f * deltaTime);
+				}
 
 		transform->MoveBy(speed * deltaTime * dir);
 

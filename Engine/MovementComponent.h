@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObject.h"
 #include "InputComponent.h"
+#include "StaminaComponent.h"
 #include "EngineAPI.h"
 
 namespace MyEngine
@@ -19,6 +20,7 @@ namespace MyEngine
 	private:
 		InputComponent* input;
 		TransformComponent* transform;
+        StaminaComponent* stamina = nullptr;
 
 		float speed = 0;
 		Vector2Df previousPosition = { 0, 0 };
