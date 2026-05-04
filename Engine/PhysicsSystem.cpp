@@ -2,6 +2,7 @@
 #include "PhysicsSystem.h"
 
 namespace MyEngine {
+
 PhysicsSystem* PhysicsSystem::Instance() {
     static PhysicsSystem physicsSystem;
     return &physicsSystem;
@@ -15,51 +16,56 @@ void PhysicsSystem::Update() {
 }
 
 void PhysicsSystem::ProcessColliders() {
-    for (size_t i = 0; i < colliders.size(); ++i) {
-        auto* body =
-            colliders[i]->GetGameObject()->GetComponent<RigidbodyComponent>();
+    for (size_t colliderIndex = 0; colliderIndex < colliders.size();
+         ++colliderIndex) {
+        auto* rigidbody = colliders[colliderIndex]
+                              ->GetGameObject()
+                              ->GetComponent<RigidbodyComponent>();
 
         // Ignore colliders without a rigid body or those set to kinematic
-        if (!body || body->GetKinematic()) continue;
+        if (!rigidbody || rigidbody->GetKinematic()) continue;
 
-        for (size_t j = 0; j < colliders.size(); ++j) {
-            if (j == i) continue;
+        for (size_t otherIndex = 0; otherIndex < colliders.size();
+             ++otherIndex) {
+            if (otherIndex == colliderIndex) continue;
 
             sf::FloatRect intersection;
-            if (colliders[i]->bounds.intersects(colliders[j]->bounds,
-                                                intersection)) {
-                ProcessCollisionPair(colliders[i], colliders[j], intersection);
+            if (colliders[colliderIndex]->bounds.intersects(
+                    colliders[otherIndex]->bounds, intersection)) {
+                ProcessCollisionPair(colliders[colliderIndex],
+                                     colliders[otherIndex], intersection);
             }
         }
     }
 }
 
-void PhysicsSystem::ProcessCollisionPair(ColliderComponent* a,
-                                         ColliderComponent* b,
+void PhysicsSystem::ProcessCollisionPair(ColliderComponent* colliderA,
+                                         ColliderComponent* colliderB,
                                          const sf::FloatRect& intersection) {
     // One is a trigger and the other is not → trigger enter logic
-    if (a->isTrigger != b->isTrigger) {
-        auto pair = std::make_pair(a, b);
-        if (triggersEnteredSet.find(pair) == triggersEnteredSet.end()) {
-            Trigger triggerEnter(a, b);
-            a->OnTriggerEnter(triggerEnter);
-            b->OnTriggerEnter(triggerEnter);
+    if (colliderA->isTrigger != colliderB->isTrigger) {
+        auto triggerPair = std::make_pair(colliderA, colliderB);
+        if (triggersEnteredSet.find(triggerPair) == triggersEnteredSet.end()) {
+            Trigger triggerEnter(colliderA, colliderB);
+            colliderA->OnTriggerEnter(triggerEnter);
+            colliderB->OnTriggerEnter(triggerEnter);
 
-            triggersEnteredSet.insert(pair);
+            triggersEnteredSet.insert(triggerPair);
             LOG_INFO("Trigger entered between '" +
-                     a->GetGameObject()->GetName() + "' and '" +
-                     b->GetGameObject()->GetName() + "'");
+                     colliderA->GetGameObject()->GetName() + "' and '" +
+                     colliderB->GetGameObject()->GetName() + "'");
         }
         return;
     }
 
     // Both are non-trigger colliders → resolve physical collision
-    if (!a->isTrigger) {
-        ResolveCollision(a, b, intersection);
+    if (!colliderA->isTrigger) {
+        ResolveCollision(colliderA, colliderB, intersection);
     }
 }
 
-void PhysicsSystem::ResolveCollision(ColliderComponent* a, ColliderComponent* b,
+void PhysicsSystem::ResolveCollision(ColliderComponent* colliderA,
+                                     ColliderComponent* colliderB,
                                      const sf::FloatRect& intersection) {
     float intersectionWidth = intersection.width;
     float intersectionHeight = intersection.height;
@@ -67,54 +73,56 @@ void PhysicsSystem::ResolveCollision(ColliderComponent* a, ColliderComponent* b,
         intersection.left - 0.5f * intersectionWidth,
         intersection.top - 0.5f * intersectionHeight};
 
-    Vector2Df aPosition = {a->bounds.left, a->bounds.top};
-    auto aTransform = a->GetGameObject()->GetComponent<TransformComponent>();
+    Vector2Df colliderAPosition = {colliderA->bounds.left,
+                                   colliderA->bounds.top};
+    auto colliderATransform =
+        colliderA->GetGameObject()->GetComponent<TransformComponent>();
 
-    // Determine collision direction and push a out of b
+    // Determine collision direction and push colliderA out of colliderB
     std::string collisionDir;
     if (intersectionWidth > intersectionHeight) {
-        if (intersectionPosition.y > aPosition.y) {
-            aTransform->MoveBy({0, -intersectionHeight});
+        if (intersectionPosition.y > colliderAPosition.y) {
+            colliderATransform->MoveBy({0, -intersectionHeight});
             collisionDir = "Top";
         } else {
-            aTransform->MoveBy({0, intersectionHeight});
+            colliderATransform->MoveBy({0, intersectionHeight});
             collisionDir = "Down";
         }
     } else {
-        if (intersectionPosition.x > aPosition.x) {
-            aTransform->MoveBy({-intersectionWidth, 0.f});
+        if (intersectionPosition.x > colliderAPosition.x) {
+            colliderATransform->MoveBy({-intersectionWidth, 0.f});
             collisionDir = "Right";
         } else {
-            aTransform->MoveBy({intersectionWidth, 0.f});
+            colliderATransform->MoveBy({intersectionWidth, 0.f});
             collisionDir = "Left";
         }
     }
 
-    Collision collision(a, b, intersection);
-    a->OnCollision(collision);
-    b->OnCollision(collision);
+    Collision collision(colliderA, colliderB, intersection);
+    colliderA->OnCollision(collision);
+    colliderB->OnCollision(collision);
 
     LOG_INFO("Collision (" + collisionDir + ") between '" +
-             a->GetGameObject()->GetName() + "' and '" +
-             b->GetGameObject()->GetName() + "'");
+             colliderA->GetGameObject()->GetName() + "' and '" +
+             colliderB->GetGameObject()->GetName() + "'");
 }
 
 void PhysicsSystem::ProcessTriggerExits() {
     std::vector<std::pair<ColliderComponent*, ColliderComponent*>> exitedPairs;
-    for (const auto& p : triggersEnteredSet) {
-        if (!p.first->bounds.intersects(p.second->bounds)) {
-            Trigger triggerExit(p.first, p.second);
-            p.first->OnTriggerExit(triggerExit);
-            p.second->OnTriggerExit(triggerExit);
+    for (const auto& triggerPair : triggersEnteredSet) {
+        if (!triggerPair.first->bounds.intersects(triggerPair.second->bounds)) {
+            Trigger triggerExit(triggerPair.first, triggerPair.second);
+            triggerPair.first->OnTriggerExit(triggerExit);
+            triggerPair.second->OnTriggerExit(triggerExit);
 
-            exitedPairs.push_back(p);
+            exitedPairs.push_back(triggerPair);
             LOG_INFO("Trigger exited between '" +
-                     p.first->GetGameObject()->GetName() + "' and '" +
-                     p.second->GetGameObject()->GetName() + "'");
+                     triggerPair.first->GetGameObject()->GetName() + "' and '" +
+                     triggerPair.second->GetGameObject()->GetName() + "'");
         }
     }
-    for (const auto& p : exitedPairs) {
-        triggersEnteredSet.erase(p);
+    for (const auto& exitedPair : exitedPairs) {
+        triggersEnteredSet.erase(exitedPair);
     }
 }
 
