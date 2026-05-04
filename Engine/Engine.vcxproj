@@ -192,6 +192,7 @@ xcopy /y /d "$(TargetPath)" "$(SolutionDir)RogaliqueGame\$(Platform)\$(Configura
     <ClInclude Include="SpriteColliderComponent.h" />
     <ClInclude Include="SpriteDirectionComponent.h" />
     <ClInclude Include="SpriteRendererComponent.h" />
+    <ClInclude Include="StaminaComponent.h" />
     <ClInclude Include="TransformComponent.h" />
     <ClInclude Include="Trigger.h" />
     <ClInclude Include="Vector.h" />
@@ -230,6 +231,7 @@ xcopy /y /d "$(TargetPath)" "$(SolutionDir)RogaliqueGame\$(Platform)\$(Configura
     <ClCompile Include="SpriteColliderComponent.cpp" />
     <ClCompile Include="SpriteDirectionComponent.cpp" />
     <ClCompile Include="SpriteRendererComponent.cpp" />
+    <ClCompile Include="StaminaComponent.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
     <ClCompile Include="Trigger.cpp" />
   </ItemGroup>
