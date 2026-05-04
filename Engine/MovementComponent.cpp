@@ -23,16 +23,22 @@ MovementComponent::MovementComponent(GameObject* gameObject)
 }
 
 void MovementComponent::Update(float deltaTime) {
+    if (!stamina) {
+        stamina = gameObject->GetComponent<StaminaComponent>();
+    }
     float xAxis = input->GetHorizontalAxis();
     float yAxis = input->GetVerticalAxis();
-
     Vector2Df dir = {xAxis, yAxis};
-    if (dir.x != 0.f || dir.y != 0.f) {
+    float len = dir.GetLength();
+    float speedMultiplier = 1.f;
+    /*if (dir.x != 0.f || dir.y != 0.f) {
         LOG_INFO("MovementComponent moving (" + std::to_string(dir.x) + ", " +
                  std::to_string(dir.y) + ")");
+    }*/
+    if (stamina && stamina->GetStamina() < 10.f){
+        speedMultiplier = 0.4f;
     }
 
-    float len = dir.GetLength();
     if (len > 0.01f) {
         // Movement: stamina if the component is available
         if (stamina) stamina->Use(10.f * deltaTime);
@@ -41,7 +47,7 @@ void MovementComponent::Update(float deltaTime) {
         if (stamina) stamina->Restore(15.f * deltaTime);
     }
 
-    transform->MoveBy(speed * deltaTime * dir);
+    transform->MoveBy(speed * speedMultiplier * deltaTime * dir);
 
     acceleration = transform->GetWorldPosition() - previousPosition;
     previousPosition = transform->GetWorldPosition();
