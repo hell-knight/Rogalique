@@ -14,7 +14,9 @@ void CameraComponent::Update(float deltaTime) {
     auto position = transform->GetWorldPosition();
     auto rotation = transform->GetWorldRotation();
 
-    view->setCenter(Convert<sf::Vector2f, Vector2Df>(position));
+    sf::Vector2f finalPos = Convert<sf::Vector2f, Vector2Df>(position) +
+                            Convert<sf::Vector2f, Vector2Df>(shakeOffset);
+    view->setCenter(finalPos);
     view->setRotation(rotation);
 
     if (!window) {
@@ -34,6 +36,10 @@ void CameraComponent::Render() {
 void CameraComponent::SetBaseResolution(int width, int height) {
     view->reset(sf::FloatRect(0, 0, static_cast<float>(width),
                               static_cast<float>(-height)));
+}
+
+void CameraComponent::SetShakeOffset(const Vector2Df& offset) {
+    shakeOffset = offset;
 }
 
 void CameraComponent::SetWindow(sf::RenderWindow* newWindow) {

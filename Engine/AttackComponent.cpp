@@ -36,10 +36,21 @@ bool AttackComponent::Attack() {
                  target->GetGameObject()->GetName() + " for " +
                  std::to_string(damage) + " damage.");
         timeSinceLastAttack = 0.f;
+        for (const auto& pair : attackCallbacks) {
+            pair.second();
+        }
         return true;
     }
     return false;
 }
+
+int AttackComponent::SubscribeOnAttack(std::function<void()> callback) {
+    int id = nextAttackCallbackId++;
+    attackCallbacks[id] = callback;
+    return id;
+}
+
+void AttackComponent::UnsubscribeOnAttack(int id) { attackCallbacks.erase(id); }
 
 HealthComponent* AttackComponent::FindTargetInRange() const {
     auto selfPos =

@@ -40,6 +40,9 @@ void HealthComponent::ApplyDamage(float damage) {
     health -= effective;
     LOG_INFO(gameObject->GetName() + " took " + std::to_string(effective) +
              " damage, HP: " + std::to_string(health));
+    for (auto& pair : damageCallbacks){
+        pair.second(effective);
+    }
     if (health <= 0.f) {
         health = 0.f;
         CheckDeath();
@@ -68,4 +71,13 @@ int HealthComponent::SubscribeOnDeath(std::function<void()> callback) {
 }
 
 void HealthComponent::UnsubscribeOnDeath(int id) { deathCallbacks.erase(id); }
+
+int HealthComponent::SubscribeOnDamage(std::function<void(float)> callback) {
+    int id = nextDamageCallbackId++;
+    damageCallbacks[id] = callback;
+    return id;
+}
+
+void HealthComponent::UnsubscribeOnDamage(int id) { damageCallbacks.erase(id); }
+
 }  // namespace MyEngine
