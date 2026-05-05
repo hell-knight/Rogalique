@@ -9,6 +9,7 @@
 #include "InputAttackComponent.h"
 #include "AttackComponent.h"
 #include "StaminaComponent.h"
+#include "CameraShakeComponent.h"
 
 namespace RogaliqueGame {
 Player::Player(const MyEngine::Vector2Df& position) {
@@ -63,6 +64,8 @@ Player::Player(const MyEngine::Vector2Df& position) {
     auto attack = gameObject->AddComponent<MyEngine::AttackComponent>(
         gameObject, 25.f, 150.f, 0.5f);
     gameObject->AddComponent<MyEngine::InputAttackComponent>();
+
+    gameObject->AddComponent<MyEngine::CameraShakeComponent>(gameObject, camera, health, attack);
 }
 
 MyEngine::GameObject* Player::GetGameObject() { return gameObject; }

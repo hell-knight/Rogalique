@@ -14,12 +14,14 @@ class ENGINE_API CameraComponent : public Component {
 
     void SetWindow(sf::RenderWindow* newWindow);
     void ZoomBy(float newZoom);
-
     void SetBaseResolution(int width, int height);
+
+    void SetShakeOffset(const Vector2Df& offset);
 
    private:
     TransformComponent* transform;
     sf::RenderWindow* window;
     sf::View* view;
+    Vector2Df shakeOffset;
 };
 }  // namespace MyEngine
