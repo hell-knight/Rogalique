@@ -2,37 +2,69 @@
 #include "Player.h"
 #include "Engine.h"
 #include "ResourceSystem.h"
-#include "DeveloperLevel.h"
+#include "Level1Scene.h"
+#include "SceneManager.h"
+#include "HUDRendererComponent.h"
+#include "HealthComponent.h"
+#include "StaminaComponent.h"
 #include "Matrix2D.h"
 #include "Logger.h"
 
-using namespace RogaliqueGame;
+class RogaliqueEngine : public MyEngine::Engine {
+   public:
+    void OnFrameEnd() override { RogaliqueGame::SceneManager::Instance()->ProcessSwitch(); }
+};
 
 int main() {
-    MyEngine::Engine::Instance();
-    LOG_INFO("Logger is alive before resources");
-    MyEngine::RenderSystem::Instance()->SetMainWindow(
-        new sf::RenderWindow(sf::VideoMode(1280, 720), "RogaliqueGame"));
+    RogaliqueEngine rogaliqueEngine;
 
-    ResourceSystem::Instance()->LoadTextureMap(
+    auto* window =
+        new sf::RenderWindow(sf::VideoMode(1280, 720), "RogaliqueGame");
+    MyEngine::RenderSystem::Instance()->SetMainWindow(window);
+
+    MyEngine::ResourceSystem::Instance()->LoadTextureMap(
         "player", "Resources/Textures/Player.png", {48, 63}, 4, false);
-    ResourceSystem::Instance()->LoadTextureMap(
+    MyEngine::ResourceSystem::Instance()->LoadTextureMap(
         "level_floors", "Resources/Textures/Floor.png", {16, 16}, 49, false);
-    ResourceSystem::Instance()->LoadTextureMap(
+    MyEngine::ResourceSystem::Instance()->LoadTextureMap(
         "level_walls", "Resources/Textures/Wall.png", {16, 16}, 48, false);
-    ResourceSystem::Instance()->LoadTextureMap(
+    MyEngine::ResourceSystem::Instance()->LoadTextureMap(
         "ai", "Resources/Textures/AI.png", {784 / 3, 1168 / 3}, 9, false);
-    ResourceSystem::Instance()->LoadTexture("icon_health", "Resources/Textures/health.png");
-    ResourceSystem::Instance()->LoadTexture("icon_stamina",
+    MyEngine::ResourceSystem::Instance()->LoadTexture(
+        "icon_health", "Resources/Textures/health.png");
+    MyEngine::ResourceSystem::Instance()->LoadTexture(
+        "icon_stamina",
                                             "Resources/Textures/stamina.png");
 
-    ResourceSystem::Instance()->LoadSound(
+    MyEngine::ResourceSystem::Instance()->LoadSound(
         "music", "Resources/Sounds/game_background.ogg");
 
-    auto developerLevel = std::make_shared<DeveloperLevel>();
-    developerLevel->Start();
+    LOG_INFO("Resources loaded.");
 
-    MyEngine::Engine::Instance()->Run();
+    auto playerPos = MyEngine::Vector2Df(0.f, 0.f);
+    auto player = std::make_shared<RogaliqueGame::Player>(playerPos);
+    MyEngine::GameObject* playerObj = player->GetGameObject();
+
+    auto hudObj = MyEngine::GameWorld::Instance()->CreateGameObject("HUD");
+    auto* health = playerObj->GetComponent<MyEngine::HealthComponent>();
+    auto* stamina = playerObj->GetComponent<MyEngine::StaminaComponent>();
+    auto* healthTex =
+        MyEngine::ResourceSystem::Instance()->GetTextureShared("icon_health");
+    auto* staminaTex =
+        MyEngine::ResourceSystem::Instance()->GetTextureShared("icon_stamina");
+    hudObj->AddComponent<MyEngine::HUDRendererComponent>(
+        hudObj, health, stamina, healthTex, staminaTex);
+
+    RogaliqueGame::SceneManager::Instance()->Init(playerObj);
+
+    auto firstLevel = std::make_shared<RogaliqueGame::Level1Scene>();
+    RogaliqueGame::SceneManager::Instance()->RequestSwitch(firstLevel.get());
+    RogaliqueGame::SceneManager::Instance()->ProcessSwitch();
+
+    LOG_INFO("Starting game loop...");
+    rogaliqueEngine.Run();
+
+    delete window;
 
     return 0;
 }

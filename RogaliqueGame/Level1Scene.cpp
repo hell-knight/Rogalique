@@ -1,17 +1,26 @@
-#include "DeveloperLevel.h"
-#include "Logger.h"
-#include "MazeGenerator.h"
+#include "pch.h"
+#include "Level1Scene.h"
+#include "Level2Scene.h"
+#include "SceneManager.h"
+#include "Player.h"
+#include "AI.h"
 #include "Creeper.h"
-#include <unordered_set>
-#include "HUDRendererComponent.h"
-#include "HealthComponent.h"
-#include "StaminaComponent.h"
+#include "Floor.h"
+#include "Wall.h"
+#include "Music.h"
+#include "MazeGenerator.h"
+#include "LevelExit.h"
+#include "GameWorld.h"
+#include "Logger.h"
+#include "Spawner.h"
+#include <set>
+#include <algorithm>
 
 using namespace MyEngine;
 
 namespace RogaliqueGame {
-void DeveloperLevel::Start() {
-    LOG_INFO("Starting DeveloperLevel...");
+void Level1Scene::Start() {
+    LOG_INFO("Starting Level 1...");
     int width = 15;
     int height = 15;
 
@@ -19,92 +28,87 @@ void DeveloperLevel::Start() {
         for (int x = 0; x < width + 1; x++) {
             // if not wall place
             if (x != 0 && x != width && y != 0 && y != height) {
-                floors.push_back(std::make_unique<Floor>(
+                AddFloor(std::make_unique<Floor>(
                     MyEngine::Vector2Df(x * 128.f, y * 128.f), 0));
             }
 
             // if left-bottom corner
             if (x == 0 && y == 0) {
-                walls.push_back(std::make_unique<Wall>(
+                AddWall(std::make_unique<Wall>(
                     MyEngine::Vector2Df(x * 128.f, y * 128.f), 25));
             }
 
             // if right-bottom corner
             if (x == width && y == 0) {
-                walls.push_back(std::make_unique<Wall>(
+                AddWall(std::make_unique<Wall>(
                     MyEngine::Vector2Df(x * 128.f, y * 128.f), 27));
             }
 
             // if left-top corner
             if (x == 0 && y == height) {
-                walls.push_back(std::make_unique<Wall>(
+                AddWall(std::make_unique<Wall>(
                     MyEngine::Vector2Df(x * 128.f, y * 128.f), 1));
             }
 
             // if right-top corner
             if (x == width && y == height) {
-                walls.push_back(std::make_unique<Wall>(
+                AddWall(std::make_unique<Wall>(
                     MyEngine::Vector2Df(x * 128.f, y * 128.f), 3));
             }
 
             // if left (not corner)
             if (x == 0 && y != height && y != 0) {
-                floors.push_back(std::make_unique<Floor>(
+                AddFloor(std::make_unique<Floor>(
                     MyEngine::Vector2Df(x * 128.f, y * 128.f), 18));
-                walls.push_back(std::make_unique<Wall>(
+                AddWall(std::make_unique<Wall>(
                     MyEngine::Vector2Df(x * 128.f, y * 128.f), 12));
             }
 
             // if right (not corner)
             if (x == width && y != height && y != 0) {
-                floors.push_back(std::make_unique<Floor>(
+                AddFloor(std::make_unique<Floor>(
                     MyEngine::Vector2Df(x * 128.f, y * 128.f), 19));
-                walls.push_back(std::make_unique<Wall>(
+                AddWall(std::make_unique<Wall>(
                     MyEngine::Vector2Df(x * 128.f, y * 128.f), 12));
             }
 
             // if bottom (not corner)
             if (y == 0 && x != width && x != 0) {
-                walls.push_back(std::make_unique<Wall>(
+                AddWall(std::make_unique<Wall>(
                     MyEngine::Vector2Df(x * 128.f, y * 128.f), 38));
             }
 
             // if top (not corner)
             if (y == height && x != width && x != 0) {
-                walls.push_back(std::make_unique<Wall>(
+                AddWall(std::make_unique<Wall>(
                     MyEngine::Vector2Df(x * 128.f, y * 128.f), 38));
             }
         }
     }
-    LOG_INFO("Generated " + std::to_string(walls.size()) + " walls and " +
-             std::to_string(floors.size()) + " floors");
-
     // Maze Generator
     MazeGenerator mazeGenerator(width, height, this);
     mazeGenerator.Generate();
 
     auto playerPos =
         MyEngine::Vector2Df({width / 2 * 128.f, height / 2 * 128.f});
-    player = std::make_unique<Player>(playerPos);
-    LOG_INFO("Player created at (" + std::to_string(playerPos.x) + ", " +
-             std::to_string(playerPos.y) + ")");
-
-    auto hudObj = GameWorld::Instance()->CreateGameObject("HUD");
-    auto* health = player->GetGameObject()->GetComponent<HealthComponent>();
-    auto* stamina = player->GetGameObject()->GetComponent<StaminaComponent>();
-    auto* healthTex = ResourceSystem::Instance()->GetTextureShared("icon_health");
-    auto* staminaTex = ResourceSystem::Instance()->GetTextureShared("icon_stamina");
-    hudObj->AddComponent<MyEngine::HUDRendererComponent>(hudObj, health, stamina, healthTex, staminaTex);
+    if (player) {
+        player->GetComponent<TransformComponent>()->SetWorldPosition(playerPos);
+        LOG_INFO("Player created at (" + std::to_string(playerPos.x) + ", " +
+                 std::to_string(playerPos.y) + ")");
+    } else {
+        LOG_ERROR("Player is null in Level1Scene!");
+        return;
+    }
 
     // Compilation of safe positions
     std::vector<MyEngine::Vector2Df> floorPositions;
-    for (auto& floor : floors) {
+    for (auto& floor : GetFloors()) {
         floorPositions.push_back(floor->GetPosition());
     }
 
     // Group wall segments into a set for quick deletion
     std::set<MyEngine::Vector2Df> wallPositions;
-    for (auto& w : walls) {
+    for (auto& w : GetWalls()) {
         wallPositions.insert(w->GetPosition());
     }
 
@@ -117,37 +121,46 @@ void DeveloperLevel::Start() {
         floorPositions.end());
 
     // Removing the player's positions
-    auto removePos = [&](const MyEngine::Vector2Df& target) {
-        floorPositions.erase(
-            std::remove(floorPositions.begin(), floorPositions.end(), target),
-            floorPositions.end());
-    };
-    removePos(player->GetGameObject()
-                  ->GetComponent<MyEngine::TransformComponent>()
-                  ->GetWorldPosition());
+    floorPositions.erase(
+        std::remove(floorPositions.begin(), floorPositions.end(), playerPos),
+        floorPositions.end());
 
-    GameObject* playerObj = player->GetGameObject();
     Spawner mixedSpawner(
-        [playerObj](const Vector2Df& pos) -> std::shared_ptr<Character> {
+        [this](const Vector2Df& pos) -> std::shared_ptr<Character> {
             if (rand() % 2)
-                return std::make_shared<Creeper>(pos, playerObj);
+                return std::make_shared<Creeper>(pos, player);
             else
-                return std::make_shared<AI>(pos, playerObj);
+                return std::make_shared<AI>(pos, player);
         });
 
     auto creepers = mixedSpawner.SpawnRandom(5, floorPositions);
     for (auto& c : creepers) {
-        enemies.push_back(c);
+        AddSceneObject(c->GetGameObject());
     }
     LOG_INFO("Spawned " + std::to_string(creepers.size()) + " creepers.");
 
-    music = std::make_unique<Music>("music");
-}
+    for (auto& enemy : creepers) {
+        Vector2Df enemyPos = enemy->GetGameObject()
+                                 ->GetComponent<TransformComponent>()
+                                 ->GetWorldPosition();
+        floorPositions.erase(
+            std::remove(floorPositions.begin(), floorPositions.end(), enemyPos),
+            floorPositions.end());
+    }
 
-void DeveloperLevel::Restart() {
-    Stop();
-    Start();
-}
+    if (!floorPositions.empty()) {
+        int exitIdx = std::rand() % floorPositions.size();
+        Vector2Df exitPos = floorPositions[exitIdx];
+        auto exit = std::make_shared<LevelExit>(exitPos, [this]() {
+            SceneManager::Instance()->RequestSwitch(new Level2Scene());
+        });
+        AddSceneObject(exit->GetGameObject());
+        LOG_INFO("Exit placed at (" + std::to_string(exitPos.x) + ", " +
+                 std::to_string(exitPos.y) + ")");
+    } else {
+        LOG_WARN("No free cell for exit after placing enemies!");
+    }
 
-void DeveloperLevel::Stop() { GameWorld::Instance()->Clear(); }
+    LOG_INFO("Level 1 setup complete.");
+}
 }  // namespace RogaliqueGame

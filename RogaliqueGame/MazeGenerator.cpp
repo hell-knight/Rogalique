@@ -1,12 +1,13 @@
 #include "MazeGenerator.h"
-#include "DeveloperLevel.h"
+#include "Wall.h"
+#include "Floor.h"
 #include <cstdlib>
 #include <ctime>
 
 namespace RogaliqueGame {
 // Constructor: Initializes the maze generator with the given dimensions and
 // level reference.
-MazeGenerator::MazeGenerator(int width, int height, DeveloperLevel* level)
+MazeGenerator::MazeGenerator(int width, int height, LevelScene* level)
     : width(width), height(height), level(level) {
     // Resize the grid to match the maze dimensions and initialize all cells as
     // unvisited (false).
@@ -98,7 +99,7 @@ void MazeGenerator::RemoveWall(int x1, int y1, int x2, int y2) {
 
     // Add a wall at the midpoint if the cells are not directly adjacent.
     if (wallX != x1 || wallY != y1) {
-        level->walls.push_back(std::make_unique<Wall>(
+        level->AddWall(std::make_unique<Wall>(
             MyEngine::Vector2Df{wallX * 128.f, wallY * 128.f}, 14));
     }
 }

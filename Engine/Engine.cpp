@@ -57,6 +57,9 @@ void Engine::Run() {
         GameWorld::Instance()->Render();
         GameWorld::Instance()->LateUpdate();
 
+        // Let the game execute its end-of-frame logic
+        OnFrameEnd();
+
         RenderSystem::Instance()->GetMainWindow().display();
     }
 }

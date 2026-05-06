@@ -1,18 +1,18 @@
 #pragma once
-#include "DeveloperLevel.h"
+#include "LevelScene.h"
 #include <vector>
 #include <stack>
 
 namespace RogaliqueGame {
 class MazeGenerator {
    public:
-    MazeGenerator(int width, int height, DeveloperLevel* level);
+    MazeGenerator(int width, int height, LevelScene* level);
     void Generate();
 
    private:
     int width;
     int height;
-    DeveloperLevel* level;
+    LevelScene* level;
     std::vector<std::vector<bool>> grid;
 
     std::vector<std::pair<int, int>> GetAvailableDirections(int x, int y);

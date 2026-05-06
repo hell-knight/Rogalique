@@ -13,9 +13,6 @@
     <ClCompile Include="Player.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="DeveloperLevel.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
     <ClCompile Include="Music.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
@@ -40,10 +37,24 @@
     <ClCompile Include="Spawner.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="LevelScene.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelExit.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Level1Scene.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Level2Scene.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h" />
-    <ClInclude Include="DeveloperLevel.h" />
     <ClInclude Include="Music.h" />
     <ClInclude Include="AI.h" />
     <ClInclude Include="Floor.h" />
@@ -52,5 +63,10 @@
     <ClInclude Include="Character.h" />
     <ClInclude Include="Creeper.h" />
     <ClInclude Include="Spawner.h" />
+    <ClInclude Include="LevelScene.h" />
+    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="LevelExit.h" />
+    <ClInclude Include="Level1Scene.h" />
+    <ClInclude Include="Level2Scene.h" />
   </ItemGroup>
 </Project>
