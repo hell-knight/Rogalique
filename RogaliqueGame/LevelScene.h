@@ -29,6 +29,8 @@ class LevelScene : public MyEngine::Scene{
     // selected)
     void AddSceneObject(MyEngine::GameObject* obj);
 
+    void RemoveSceneObject(MyEngine::GameObject* obj);
+
     void AddFloor(std::unique_ptr<Floor> floor);
     void AddWall(std::unique_ptr<Wall> wall);
     void AddEnemy(std::shared_ptr<Character> enemy);

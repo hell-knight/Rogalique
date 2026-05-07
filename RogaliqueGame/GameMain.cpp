@@ -9,6 +9,7 @@
 #include "StaminaComponent.h"
 #include "Matrix2D.h"
 #include "Logger.h"
+#include "Music.h"
 
 class RogaliqueEngine : public MyEngine::Engine {
    public:
@@ -40,6 +41,8 @@ int main() {
         "music", "Resources/Sounds/game_background.ogg");
 
     LOG_INFO("Resources loaded.");
+
+    auto music = std::make_unique<RogaliqueGame::Music>("music");
 
     auto playerPos = MyEngine::Vector2Df(15 / 2 * 128.f, 15 / 2 * 128.f);
     auto player = std::make_shared<RogaliqueGame::Player>(playerPos);

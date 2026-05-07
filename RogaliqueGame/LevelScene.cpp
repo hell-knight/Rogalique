@@ -23,6 +23,10 @@ void LevelScene::AddSceneObject(MyEngine::GameObject* obj) {
     }
 }
 
+void LevelScene::RemoveSceneObject(MyEngine::GameObject* obj) {
+    sceneObjects.erase(std::remove(sceneObjects.begin(), sceneObjects.end(), obj), sceneObjects.end());
+}
+
 void LevelScene::AddFloor(std::unique_ptr<Floor> floor) {
     if (!floor) {
         return;
