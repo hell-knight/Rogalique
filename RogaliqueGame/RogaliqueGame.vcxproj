@@ -166,6 +166,7 @@
     <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="Level1Scene.cpp" />
     <ClCompile Include="Level2Scene.cpp" />
+    <ClCompile Include="Level3Scene.cpp" />
     <ClCompile Include="LevelExit.cpp" />
     <ClCompile Include="LevelScene.cpp" />
     <ClCompile Include="MazeGenerator.cpp" />
@@ -187,6 +188,7 @@
     <ClInclude Include="Floor.h" />
     <ClInclude Include="Level1Scene.h" />
     <ClInclude Include="Level2Scene.h" />
+    <ClInclude Include="Level3Scene.h" />
     <ClInclude Include="LevelExit.h" />
     <ClInclude Include="LevelScene.h" />
     <ClInclude Include="MazeGenerator.h" />

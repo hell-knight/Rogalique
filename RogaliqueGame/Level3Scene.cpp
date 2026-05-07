@@ -1,6 +1,6 @@
 #include "pch.h"
-#include "Level2Scene.h"
 #include "Level3Scene.h"
+#include "Level2Scene.h"
 #include "SceneManager.h"
 #include "Player.h"
 #include "AI.h"
@@ -17,8 +17,8 @@
 using namespace MyEngine;
 
 namespace RogaliqueGame {
-void Level2Scene::Start() {
-    LOG_INFO("Starting Level 2...");
+void Level3Scene::Start() {
+    LOG_INFO("Starting Level 3...");
     const int width = 15;
     const int height = 15;
 
@@ -73,8 +73,7 @@ void Level2Scene::Start() {
     auto playerPos = Vector2Df(playerStartX * 128.f, playerStartY * 128.f);
 
     if (player) {
-        player->GetComponent<TransformComponent>()->SetWorldPosition(
-            playerPos);
+        player->GetComponent<TransformComponent>()->SetWorldPosition(playerPos);
         LOG_INFO("Player placed at (" + std::to_string(playerPos.x) + ", " +
                  std::to_string(playerPos.y) + ")");
     } else {
@@ -117,20 +116,20 @@ void Level2Scene::Start() {
         AddEnemy(enemy);
     }
     LOG_INFO("Spawned " + std::to_string(enemies.size()) + " enemies.");
-
-    if (!floorPositions.empty()) {
-        int exitIdx = std::rand() % floorPositions.size();
-        Vector2Df exitPos = floorPositions[exitIdx];
-        auto exit = std::make_shared<LevelExit>(exitPos, [this]() {
-            SceneManager::Instance()->RequestSwitch(new Level3Scene());
-        });
-        AddSceneObject(exit->GetGameObject());
-        LOG_INFO("Exit placed at (" + std::to_string(exitPos.x) + ", " +
-                 std::to_string(exitPos.y) + ")");
-    } else {
-        LOG_WARN("No free cell for exit!");
-    }
-
-    LOG_INFO("Level 2 setup complete.");
+    
+    //if (!floorPositions.empty()) {
+     //   int exitIdx = std::rand() % floorPositions.size();
+      //  Vector2Df exitPos = floorPositions[exitIdx];
+///auto exit = std::make_shared<LevelExit>(exitPos, [this]() {
+       //     SceneManager::Instance()->RequestSwitch(new Level1Scene());
+       // });
+       // AddSceneObject(exit->GetGameObject());
+       // LOG_INFO("Exit placed at (" + std::to_string(exitPos.x) + ", " +
+      //           std::to_string(exitPos.y) + ")");
+   // } else {
+    //    LOG_WARN("No free cell for exit!");
+    //}
+    
+    LOG_INFO("Level 3 setup complete.");
 }
 }  // namespace RogaliqueGame

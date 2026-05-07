@@ -52,6 +52,9 @@
     <ClCompile Include="Level2Scene.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="Level3Scene.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h" />
@@ -68,5 +71,6 @@
     <ClInclude Include="LevelExit.h" />
     <ClInclude Include="Level1Scene.h" />
     <ClInclude Include="Level2Scene.h" />
+    <ClInclude Include="Level3Scene.h" />
   </ItemGroup>
 </Project>
