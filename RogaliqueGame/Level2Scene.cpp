@@ -66,7 +66,9 @@ void Level2Scene::Start() {
     MazeGenerator maze(width, height, this);
     maze.Generate();
 
-    int playerStartX = 1;
+    const auto& passGrid = maze.GetPassabilityGrid();
+
+    int playerStartX = width / 2;
     int playerStartY = height / 2;
     auto playerPos = Vector2Df(playerStartX * 128.f, playerStartY * 128.f);
 
@@ -81,25 +83,13 @@ void Level2Scene::Start() {
     }
 
     std::vector<Vector2Df> floorPositions;
-    for (auto& floor : GetFloors())
-        floorPositions.push_back(floor->GetPosition());
-
-    std::vector<MyEngine::Vector2Df> wallPositions;
-    for (auto& w : GetWalls()) {
-        wallPositions.push_back(w->GetPosition());
+    for (int y = 0; y < height; ++y) {
+        for (int x = 0; x < width; ++x) {
+            if (passGrid[y][x]) {
+                floorPositions.push_back(Vector2Df(x * 128.f, y * 128.f));
+            }
+        }
     }
-    std::sort(wallPositions.begin(), wallPositions.end());
-    wallPositions.erase(std::unique(wallPositions.begin(), wallPositions.end()),
-                        wallPositions.end());
-
-    floorPositions.erase(
-        std::remove_if(
-            floorPositions.begin(), floorPositions.end(),
-                       [&](const Vector2Df& pos) {
-                           return std::binary_search(wallPositions.begin(),
-                                                     wallPositions.end(), pos);
-                       }),
-        floorPositions.end());
 
     floorPositions.erase(
         std::remove(floorPositions.begin(), floorPositions.end(), playerPos),

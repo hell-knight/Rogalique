@@ -9,6 +9,10 @@ class MazeGenerator {
     MazeGenerator(int width, int height, LevelScene* level);
     void Generate();
 
+    const std::vector<std::vector<bool>>& GetPassabilityGrid() const {
+        return grid;
+    }
+
    private:
     int width;
     int height;

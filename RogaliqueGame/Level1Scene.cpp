@@ -90,6 +90,8 @@ void Level1Scene::Start() {
     MazeGenerator mazeGenerator(width, height, this);
     mazeGenerator.Generate();
 
+    const auto& passGrid = mazeGenerator.GetPassabilityGrid();
+
     auto playerPos =
         MyEngine::Vector2Df({width / 2 * 128.f, height / 2 * 128.f});
     if (player) {
@@ -101,27 +103,14 @@ void Level1Scene::Start() {
         return;
     }
 
-    // Compilation of safe positions
-    std::vector<MyEngine::Vector2Df> floorPositions;
-    for (auto& floor : GetFloors()) {
-        floorPositions.push_back(floor->GetPosition());
+    std::vector<Vector2Df> floorPositions;
+    for (int y = 0; y < height; ++y) {
+        for (int x = 0; x < width; ++x) {
+            if (passGrid[y][x]) {
+                floorPositions.push_back(Vector2Df(x * 128.f, y * 128.f));
+            }
+        }
     }
-
-    // Group wall segments into a set for quick deletion
-    std::vector<MyEngine::Vector2Df> wallPositions;
-    for (auto& w : GetWalls()) {
-        wallPositions.push_back(w->GetPosition());
-    }
-    std::sort(wallPositions.begin(), wallPositions.end());
-    wallPositions.erase(std::unique(wallPositions.begin(), wallPositions.end()), wallPositions.end());
-
-    // Remove the floor sections that are embedded in the walls
-    floorPositions.erase(
-        std::remove_if(floorPositions.begin(), floorPositions.end(),
-                       [&](const MyEngine::Vector2Df& pos) {
-                           return std::binary_search(wallPositions.begin(), wallPositions.end(), pos);
-                       }),
-        floorPositions.end());
 
     // Removing the player's positions
     floorPositions.erase(

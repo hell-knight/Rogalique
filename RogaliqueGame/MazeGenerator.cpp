@@ -60,6 +60,13 @@ void MazeGenerator::Generate() {
             stack.push({nx, ny});
         }
     }
+    /*for (int y = 0; y < height; ++y) {
+        for (int x = 0; x < width; ++x) {
+            if (x == 1 || x == width - 1 || y == 1 || y == height - 1) {
+                grid[y][x] = false;
+            }
+        }
+    }*/
 }
 
 // GetAvailableDirections: Returns a list of valid, unvisited neighboring cells.
