@@ -32,9 +32,11 @@ void SceneManager::ProcessSwitch() {
     currentScene = pendingScene;
     pendingScene = nullptr;
 
-    if (currentScene) {
+    if (currentScene && player) {
         currentScene->SetPlayer(player);
         currentScene->Start();
+        if (player) MyEngine::GameWorld::Instance()->BringToFront(player);
+        if (hudObject) MyEngine::GameWorld::Instance()->BringToFront(hudObject);
         LOG_INFO("Switched to new scene.");
     }
 

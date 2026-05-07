@@ -14,10 +14,13 @@ class SceneManager {
     LevelScene* GetCurrent() const { return currentScene; }
     MyEngine::GameObject* GetPlayer() const { return player; }
 
+    void SetHUD(MyEngine::GameObject* hud) { hudObject = hud; }
+
    private:
     SceneManager() = default;
     LevelScene* currentScene = nullptr;
     LevelScene* pendingScene = nullptr;
     MyEngine::GameObject* player = nullptr;
+    MyEngine::GameObject* hudObject = nullptr;
 };
 }

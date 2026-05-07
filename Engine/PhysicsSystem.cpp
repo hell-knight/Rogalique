@@ -133,6 +133,15 @@ void PhysicsSystem::Subscribe(ColliderComponent* collider) {
 
 void PhysicsSystem::Unsubscribe(ColliderComponent* collider) {
     std::cout << "Unsubscribe " << collider << std::endl;
+
+    std::vector<std::pair<ColliderComponent*, ColliderComponent*>> toRemove;
+    for (const auto& p : triggersEnteredSet) {
+        if (p.first == collider || p.second == collider) toRemove.push_back(p);
+    }
+    for (const auto& p : toRemove) {
+        triggersEnteredSet.erase(p);
+    }
+
     colliders.erase(std::remove_if(colliders.begin(), colliders.end(),
                                    [collider](ColliderComponent* obj) {
                                        return obj == collider;

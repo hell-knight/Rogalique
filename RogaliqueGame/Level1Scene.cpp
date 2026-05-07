@@ -13,13 +13,14 @@
 #include "GameWorld.h"
 #include "Logger.h"
 #include "Spawner.h"
-#include <set>
 #include <algorithm>
 
 using namespace MyEngine;
 
 namespace RogaliqueGame {
 void Level1Scene::Start() {
+    LOG_INFO("Level1Scene::Start() - Player pointer: " +
+             std::to_string((uintptr_t)player));
     LOG_INFO("Starting Level 1...");
     int width = 15;
     int height = 15;
@@ -107,16 +108,18 @@ void Level1Scene::Start() {
     }
 
     // Group wall segments into a set for quick deletion
-    std::set<MyEngine::Vector2Df> wallPositions;
+    std::vector<MyEngine::Vector2Df> wallPositions;
     for (auto& w : GetWalls()) {
-        wallPositions.insert(w->GetPosition());
+        wallPositions.push_back(w->GetPosition());
     }
+    std::sort(wallPositions.begin(), wallPositions.end());
+    wallPositions.erase(std::unique(wallPositions.begin(), wallPositions.end()), wallPositions.end());
 
     // Remove the floor sections that are embedded in the walls
     floorPositions.erase(
         std::remove_if(floorPositions.begin(), floorPositions.end(),
                        [&](const MyEngine::Vector2Df& pos) {
-                           return wallPositions.count(pos) > 0;
+                           return std::binary_search(wallPositions.begin(), wallPositions.end(), pos);
                        }),
         floorPositions.end());
 
@@ -134,8 +137,11 @@ void Level1Scene::Start() {
         });
 
     auto creepers = mixedSpawner.SpawnRandom(5, floorPositions);
-    for (auto& c : creepers) {
-        AddSceneObject(c->GetGameObject());
+    for (auto& enemy : creepers) {
+        Vector2Df enemyPos = enemy->GetGameObject()->GetComponent<TransformComponent>()->GetWorldPosition();
+        // Remove the enemy unit from the list of available units (so they don't overlap)
+        floorPositions.erase(std::remove(floorPositions.begin(), floorPositions.end(), enemyPos), floorPositions.end());
+        AddEnemy(enemy);
     }
     LOG_INFO("Spawned " + std::to_string(creepers.size()) + " creepers.");
 

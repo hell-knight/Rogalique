@@ -12,7 +12,6 @@
 #include "Spawner.h"
 #include "GameWorld.h"
 #include "Logger.h"
-#include <set>
 #include <algorithm>
 
 using namespace MyEngine;
@@ -85,13 +84,21 @@ void Level2Scene::Start() {
     for (auto& floor : GetFloors())
         floorPositions.push_back(floor->GetPosition());
 
-    std::set<Vector2Df> wallPositions;
-    for (auto& w : GetWalls()) wallPositions.insert(w->GetPosition());
+    std::vector<MyEngine::Vector2Df> wallPositions;
+    for (auto& w : GetWalls()) {
+        wallPositions.push_back(w->GetPosition());
+    }
+    std::sort(wallPositions.begin(), wallPositions.end());
+    wallPositions.erase(std::unique(wallPositions.begin(), wallPositions.end()),
+                        wallPositions.end());
 
     floorPositions.erase(
         std::remove_if(
             floorPositions.begin(), floorPositions.end(),
-            [&](const Vector2Df& pos) { return wallPositions.count(pos) > 0; }),
+                       [&](const Vector2Df& pos) {
+                           return std::binary_search(wallPositions.begin(),
+                                                     wallPositions.end(), pos);
+                       }),
         floorPositions.end());
 
     floorPositions.erase(
@@ -108,14 +115,16 @@ void Level2Scene::Start() {
 
     int enemyCount = 7;
     auto enemies = mixedSpawner.SpawnRandom(enemyCount, floorPositions);
-    for (auto& e : enemies) {
-        AddSceneObject(e->GetGameObject());
-        Vector2Df ePos = e->GetGameObject()
-                             ->GetComponent<TransformComponent>()
-                             ->GetWorldPosition();
+    for (auto& enemy : enemies) {
+        Vector2Df enemyPos = enemy->GetGameObject()
+                                 ->GetComponent<TransformComponent>()
+                                 ->GetWorldPosition();
+        // Remove the enemy unit from the list of available units (so they don't
+        // overlap)
         floorPositions.erase(
-            std::remove(floorPositions.begin(), floorPositions.end(), ePos),
+            std::remove(floorPositions.begin(), floorPositions.end(), enemyPos),
             floorPositions.end());
+        AddEnemy(enemy);
     }
     LOG_INFO("Spawned " + std::to_string(enemies.size()) + " enemies.");
 

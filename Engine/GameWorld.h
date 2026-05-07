@@ -24,6 +24,8 @@ class ENGINE_API GameWorld {
         return gameObjects;
     }
 
+    void BringToFront(GameObject* obj);
+
    private:
     GameWorld() {}
     ~GameWorld() {}

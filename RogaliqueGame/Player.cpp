@@ -16,7 +16,8 @@ Player::Player(const MyEngine::Vector2Df& position) {
     gameObject = MyEngine::GameWorld::Instance()->CreateGameObject("Player");
     auto transform = gameObject->GetComponent<MyEngine::TransformComponent>();
     transform->SetWorldPosition(position);
-
+    LOG_INFO("Player created! GameObject address: " +
+             std::to_string((uintptr_t)gameObject));
     auto* tex =
         MyEngine::ResourceSystem::Instance()->GetTextureMapElementShared(
             "player", 0);

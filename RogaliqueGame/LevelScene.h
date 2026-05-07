@@ -4,6 +4,7 @@
 #include <memory>
 #include "GameObject.h"
 #include "Vector.h"
+#include "Character.h"
 
 namespace RogaliqueGame {
 class Floor;
@@ -30,6 +31,7 @@ class LevelScene : public MyEngine::Scene{
 
     void AddFloor(std::unique_ptr<Floor> floor);
     void AddWall(std::unique_ptr<Wall> wall);
+    void AddEnemy(std::shared_ptr<Character> enemy);
 
     const std::vector<std::unique_ptr<Floor>>& GetFloors() const {
         return floors;
@@ -45,5 +47,6 @@ class LevelScene : public MyEngine::Scene{
     std::vector<MyEngine::GameObject*> sceneObjects;
     std::vector<std::unique_ptr<Floor>> floors;
     std::vector<std::unique_ptr<Wall>> walls;
+    std::vector<std::shared_ptr<Character>> enemies;
 };
 }

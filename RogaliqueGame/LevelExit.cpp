@@ -38,8 +38,10 @@ LevelExit::LevelExit(const MyEngine::Vector2Df& position,
 
     triggerSubId = collider->SubscribeTriggerEnter([this, onPlayerEnter](const MyEngine::Trigger& trigger) {
         // check that the other object is a player
-            MyEngine::GameObject* other = trigger.second->GetGameObject();
-            if (other->GetName() == "Player") {
+            MyEngine::GameObject* first = trigger.first->GetGameObject();
+            MyEngine::GameObject* second = trigger.second->GetGameObject();
+            if ((first && first->GetName() == "Player") ||
+                (second && second->GetName() == "Player")) {
                 LOG_INFO("Player entered exit trigger!");
                 onPlayerEnter();
             }

@@ -33,11 +33,13 @@ class PhysicsSystem {
             const std::pair<ColliderComponent*, ColliderComponent*>& rhs)
             const {
             // reduce it to canonical form: the left index is 1
-            auto canonical = [](ColliderComponent* a, ColliderComponent* b) {
-                return std::minmax(a, b);
+            auto canonical = [](const std::pair<ColliderComponent*, ColliderComponent*>& p) {
+                return (p.first < p.second) ? p : std::make_pair(p.second, p.first);
             };
-            return canonical(lhs.first, lhs.second) <
-                   canonical(rhs.first, rhs.second);
+            auto cl = canonical(lhs);
+            auto cr = canonical(rhs);
+            if (cl.first != cr.first) return cl.first < cr.first;
+            return cl.second < cr.second;
         }
     };
 

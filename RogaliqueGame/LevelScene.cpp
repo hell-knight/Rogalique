@@ -44,4 +44,15 @@ void LevelScene::AddWall(std::unique_ptr<Wall> wall) {
     }
     walls.push_back(std::move(wall));
 }
+
+void LevelScene::AddEnemy(std::shared_ptr<Character> enemy) {
+    if (!enemy) {
+        return;
+    }
+    MyEngine::GameObject* go = enemy->GetGameObject();
+    if (go) {
+        sceneObjects.push_back(go);
+    }
+    enemies.push_back(std::move(enemy));
+}
 }  // namespace RogaliqueGame

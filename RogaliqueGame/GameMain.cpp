@@ -41,7 +41,7 @@ int main() {
 
     LOG_INFO("Resources loaded.");
 
-    auto playerPos = MyEngine::Vector2Df(0.f, 0.f);
+    auto playerPos = MyEngine::Vector2Df(15 / 2 * 128.f, 15 / 2 * 128.f);
     auto player = std::make_shared<RogaliqueGame::Player>(playerPos);
     MyEngine::GameObject* playerObj = player->GetGameObject();
 
@@ -56,10 +56,13 @@ int main() {
         hudObj, health, stamina, healthTex, staminaTex);
 
     RogaliqueGame::SceneManager::Instance()->Init(playerObj);
+    RogaliqueGame::SceneManager::Instance()->SetHUD(hudObj);
 
     auto firstLevel = std::make_shared<RogaliqueGame::Level1Scene>();
     RogaliqueGame::SceneManager::Instance()->RequestSwitch(firstLevel.get());
     RogaliqueGame::SceneManager::Instance()->ProcessSwitch();
+    if (playerObj) MyEngine::GameWorld::Instance()->BringToFront(playerObj);
+    if (hudObj) MyEngine::GameWorld::Instance()->BringToFront(hudObj);
 
     LOG_INFO("Starting game loop...");
     rogaliqueEngine.Run();
