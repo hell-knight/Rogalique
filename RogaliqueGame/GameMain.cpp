@@ -10,6 +10,7 @@
 #include "Matrix2D.h"
 #include "Logger.h"
 #include "Music.h"
+#include "BaseLevel.h"
 
 class RogaliqueEngine : public MyEngine::Engine {
    public:
@@ -34,8 +35,7 @@ int main() {
     MyEngine::ResourceSystem::Instance()->LoadTexture(
         "icon_health", "Resources/Textures/health.png");
     MyEngine::ResourceSystem::Instance()->LoadTexture(
-        "icon_stamina",
-                                            "Resources/Textures/stamina.png");
+        "icon_stamina", "Resources/Textures/stamina.png");
 
     MyEngine::ResourceSystem::Instance()->LoadSound(
         "music", "Resources/Sounds/game_background.ogg");
@@ -43,6 +43,8 @@ int main() {
     LOG_INFO("Resources loaded.");
 
     auto music = std::make_unique<RogaliqueGame::Music>("music");
+
+    RogaliqueGame::CreateBaseWorld();
 
     auto playerPos = MyEngine::Vector2Df(15 / 2 * 128.f, 15 / 2 * 128.f);
     auto player = std::make_shared<RogaliqueGame::Player>(playerPos);

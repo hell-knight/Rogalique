@@ -25,75 +25,15 @@ void Level1Scene::Start() {
     int width = 15;
     int height = 15;
 
-    for (int y = 0; y < height + 1; y++) {
-        for (int x = 0; x < width + 1; x++) {
-            // if not wall place
-            if (x != 0 && x != width && y != 0 && y != height) {
-                AddFloor(std::make_unique<Floor>(
-                    MyEngine::Vector2Df(x * 128.f, y * 128.f), 0));
-            }
-
-            // if left-bottom corner
-            if (x == 0 && y == 0) {
-                AddWall(std::make_unique<Wall>(
-                    MyEngine::Vector2Df(x * 128.f, y * 128.f), 25));
-            }
-
-            // if right-bottom corner
-            if (x == width && y == 0) {
-                AddWall(std::make_unique<Wall>(
-                    MyEngine::Vector2Df(x * 128.f, y * 128.f), 27));
-            }
-
-            // if left-top corner
-            if (x == 0 && y == height) {
-                AddWall(std::make_unique<Wall>(
-                    MyEngine::Vector2Df(x * 128.f, y * 128.f), 1));
-            }
-
-            // if right-top corner
-            if (x == width && y == height) {
-                AddWall(std::make_unique<Wall>(
-                    MyEngine::Vector2Df(x * 128.f, y * 128.f), 3));
-            }
-
-            // if left (not corner)
-            if (x == 0 && y != height && y != 0) {
-                AddFloor(std::make_unique<Floor>(
-                    MyEngine::Vector2Df(x * 128.f, y * 128.f), 18));
-                AddWall(std::make_unique<Wall>(
-                    MyEngine::Vector2Df(x * 128.f, y * 128.f), 12));
-            }
-
-            // if right (not corner)
-            if (x == width && y != height && y != 0) {
-                AddFloor(std::make_unique<Floor>(
-                    MyEngine::Vector2Df(x * 128.f, y * 128.f), 19));
-                AddWall(std::make_unique<Wall>(
-                    MyEngine::Vector2Df(x * 128.f, y * 128.f), 12));
-            }
-
-            // if bottom (not corner)
-            if (y == 0 && x != width && x != 0) {
-                AddWall(std::make_unique<Wall>(
-                    MyEngine::Vector2Df(x * 128.f, y * 128.f), 38));
-            }
-
-            // if top (not corner)
-            if (y == height && x != width && x != 0) {
-                AddWall(std::make_unique<Wall>(
-                    MyEngine::Vector2Df(x * 128.f, y * 128.f), 38));
-            }
-        }
-    }
+    
     // Maze Generator
     MazeGenerator mazeGenerator(width, height, this);
     mazeGenerator.Generate();
 
     const auto& passGrid = mazeGenerator.GetPassabilityGrid();
 
-    auto playerPos =
-        MyEngine::Vector2Df({width / 2 * 128.f, height / 2 * 128.f});
+    auto playerPos = MyEngine::Vector2Df(
+        {width / 2 * 128.f, height / 2 * 128.f});
     if (player) {
         player->GetComponent<TransformComponent>()->SetWorldPosition(playerPos);
         LOG_INFO("Player created at (" + std::to_string(playerPos.x) + ", " +
@@ -104,10 +44,11 @@ void Level1Scene::Start() {
     }
 
     std::vector<Vector2Df> floorPositions;
-    for (int y = 0; y < height; ++y) {
-        for (int x = 0; x < width; ++x) {
+    for (int y = 2; y < height - 1; ++y) {
+        for (int x = 2; x < width - 1; ++x) {
             if (passGrid[y][x]) {
-                floorPositions.push_back(Vector2Df(x * 128.f, y * 128.f));
+                floorPositions.push_back(
+                    Vector2Df(x * 128.f, y * 128.f ));
             }
         }
     }
@@ -131,30 +72,23 @@ void Level1Scene::Start() {
         // Remove the enemy unit from the list of available units (so they don't overlap)
         floorPositions.erase(std::remove(floorPositions.begin(), floorPositions.end(), enemyPos), floorPositions.end());
         AddEnemy(enemy);
+        IncrementEnemyCount();
     }
     LOG_INFO("Spawned " + std::to_string(creepers.size()) + " creepers.");
 
-    for (auto& enemy : creepers) {
-        Vector2Df enemyPos = enemy->GetGameObject()
-                                 ->GetComponent<TransformComponent>()
-                                 ->GetWorldPosition();
-        floorPositions.erase(
-            std::remove(floorPositions.begin(), floorPositions.end(), enemyPos),
-            floorPositions.end());
-    }
-
-    if (!floorPositions.empty()) {
-        int exitIdx = std::rand() % floorPositions.size();
-        Vector2Df exitPos = floorPositions[exitIdx];
-        auto exit = std::make_shared<LevelExit>(exitPos, [this]() {
-            SceneManager::Instance()->RequestSwitch(new Level2Scene());
-        });
-        AddSceneObject(exit->GetGameObject());
-        LOG_INFO("Exit placed at (" + std::to_string(exitPos.x) + ", " +
-                 std::to_string(exitPos.y) + ")");
-    } else {
-        LOG_WARN("No free cell for exit after placing enemies!");
-    }
+    SetAllEnemiesDeadCallback([this, floorPositions]() mutable {
+        if (!floorPositions.empty()) {
+            int exitIdx = std::rand() % floorPositions.size();
+            Vector2Df exitPos = floorPositions[exitIdx];
+            auto exit = std::make_shared<LevelExit>(exitPos, [this]() {
+                SceneManager::Instance()->RequestSwitch(new Level2Scene());
+            });
+            AddSceneObject(exit->GetGameObject());
+            LOG_INFO("All enemies defeated! Exit placed at (" +
+                     std::to_string(exitPos.x) + ", " +
+                     std::to_string(exitPos.y) + ")");
+        }
+    });
 
     LOG_INFO("Level 1 setup complete.");
 }

@@ -55,6 +55,9 @@
     <ClCompile Include="Level3Scene.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="BaseLevel.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h" />
@@ -72,5 +75,6 @@
     <ClInclude Include="Level1Scene.h" />
     <ClInclude Include="Level2Scene.h" />
     <ClInclude Include="Level3Scene.h" />
+    <ClInclude Include="BaseLevel.h" />
   </ItemGroup>
 </Project>

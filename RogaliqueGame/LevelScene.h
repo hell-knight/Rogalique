@@ -5,6 +5,7 @@
 #include "GameObject.h"
 #include "Vector.h"
 #include "Character.h"
+#include <functional>
 
 namespace RogaliqueGame {
 class Floor;
@@ -42,6 +43,11 @@ class LevelScene : public MyEngine::Scene{
         return walls;
     }
 
+    void SetAllEnemiesDeadCallback(std::function<void()> callback);
+    void IncrementEnemyCount();
+    void DecrementEnemyCount();
+    int GetAliveEnemies() const { return aliveEnemies; }
+
    protected:
     MyEngine::GameObject* player = nullptr;
 
@@ -50,5 +56,7 @@ class LevelScene : public MyEngine::Scene{
     std::vector<std::unique_ptr<Floor>> floors;
     std::vector<std::unique_ptr<Wall>> walls;
     std::vector<std::shared_ptr<Character>> enemies;
+    int aliveEnemies = 0;
+    std::function<void()> onAllEnemiesDead;
 };
 }

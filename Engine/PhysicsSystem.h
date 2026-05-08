@@ -5,9 +5,10 @@
 #include "ColliderComponent.h"
 #include "RigidbodyComponent.h"
 #include "Vector.h"
+#include "EngineAPI.h"
 
 namespace MyEngine {
-class PhysicsSystem {
+class ENGINE_API PhysicsSystem {
    public:
     static PhysicsSystem* Instance();
 
@@ -16,6 +17,8 @@ class PhysicsSystem {
     float GetFixedDeltaTime() const;
     void Subscribe(ColliderComponent* collider);
     void Unsubscribe(ColliderComponent* collider);
+
+    void SetSkipFrames(int frames) { skipFrames = frames; }
 
    private:
     PhysicsSystem() {}
@@ -47,6 +50,7 @@ class PhysicsSystem {
         triggersEnteredSet;
 
     float fixedDeltaTime = 0.02f;
+    int skipFrames = 0;
 
     void ProcessColliders();
     void ProcessCollisionPair(ColliderComponent* a, ColliderComponent* b,

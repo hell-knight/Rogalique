@@ -55,6 +55,7 @@ Creeper::Creeper(const MyEngine::Vector2Df& position,
         LOG_INFO("Creeper died.");
         auto* scene = RogaliqueGame::SceneManager::Instance()->GetCurrent();
         if (scene) {
+            scene->DecrementEnemyCount();
             scene->RemoveSceneObject(gameObject);
         }
         MyEngine::GameWorld::Instance()->DestroyGameObject(gameObject);

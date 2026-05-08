@@ -22,55 +22,16 @@ void Level2Scene::Start() {
     const int width = 15;
     const int height = 15;
 
-    for (int y = 0; y <= height; ++y) {
-        for (int x = 0; x <= width; ++x) {
-            if (x != 0 && x != width && y != 0 && y != height) {
-                AddFloor(std::make_unique<Floor>(
-                    Vector2Df(x * 128.f, y * 128.f), 0));
-            }
-
-            if (x == 0 && y == 0)
-                AddWall(std::make_unique<Wall>(Vector2Df(x * 128.f, y * 128.f),
-                                               25));
-            if (x == width && y == 0)
-                AddWall(std::make_unique<Wall>(Vector2Df(x * 128.f, y * 128.f),
-                                               27));
-            if (x == 0 && y == height)
-                AddWall(
-                    std::make_unique<Wall>(Vector2Df(x * 128.f, y * 128.f), 1));
-            if (x == width && y == height)
-                AddWall(
-                    std::make_unique<Wall>(Vector2Df(x * 128.f, y * 128.f), 3));
-
-            if (x == 0 && y != 0 && y != height) {
-                AddFloor(std::make_unique<Floor>(
-                    Vector2Df(x * 128.f, y * 128.f), 18));
-                AddWall(std::make_unique<Wall>(Vector2Df(x * 128.f, y * 128.f),
-                                               12));
-            }
-            if (x == width && y != 0 && y != height) {
-                AddFloor(std::make_unique<Floor>(
-                    Vector2Df(x * 128.f, y * 128.f), 19));
-                AddWall(std::make_unique<Wall>(Vector2Df(x * 128.f, y * 128.f),
-                                               12));
-            }
-            if (y == 0 && x != 0 && x != width)
-                AddWall(std::make_unique<Wall>(Vector2Df(x * 128.f, y * 128.f),
-                                               38));
-            if (y == height && x != 0 && x != width)
-                AddWall(std::make_unique<Wall>(Vector2Df(x * 128.f, y * 128.f),
-                                               38));
-        }
-    }
-
     MazeGenerator maze(width, height, this);
     maze.Generate();
 
     const auto& passGrid = maze.GetPassabilityGrid();
 
-    int playerStartX = width / 2;
-    int playerStartY = height / 2;
-    auto playerPos = Vector2Df(playerStartX * 128.f, playerStartY * 128.f);
+    //int playerStartX = width / 2;
+    //int playerStartY = height / 2;
+    //auto playerPos = Vector2Df(playerStartX * 128.f, playerStartY * 128.f);
+
+    auto playerPos = Vector2Df(width / 2.f * 128.f, height / 2.f * 128.f);
 
     if (player) {
         player->GetComponent<TransformComponent>()->SetWorldPosition(
@@ -83,10 +44,11 @@ void Level2Scene::Start() {
     }
 
     std::vector<Vector2Df> floorPositions;
-    for (int y = 0; y < height; ++y) {
-        for (int x = 0; x < width; ++x) {
+    for (int y = 2; y < height - 1; ++y) {
+        for (int x = 2; x < width - 1; ++x) {
             if (passGrid[y][x]) {
-                floorPositions.push_back(Vector2Df(x * 128.f, y * 128.f));
+                floorPositions.push_back(
+                    Vector2Df(x * 128.f, y * 128.f));
             }
         }
     }
@@ -115,21 +77,23 @@ void Level2Scene::Start() {
             std::remove(floorPositions.begin(), floorPositions.end(), enemyPos),
             floorPositions.end());
         AddEnemy(enemy);
+        IncrementEnemyCount();
     }
     LOG_INFO("Spawned " + std::to_string(enemies.size()) + " enemies.");
 
-    if (!floorPositions.empty()) {
-        int exitIdx = std::rand() % floorPositions.size();
-        Vector2Df exitPos = floorPositions[exitIdx];
-        auto exit = std::make_shared<LevelExit>(exitPos, [this]() {
-            SceneManager::Instance()->RequestSwitch(new Level3Scene());
-        });
-        AddSceneObject(exit->GetGameObject());
-        LOG_INFO("Exit placed at (" + std::to_string(exitPos.x) + ", " +
-                 std::to_string(exitPos.y) + ")");
-    } else {
-        LOG_WARN("No free cell for exit!");
-    }
+    SetAllEnemiesDeadCallback([this, floorPositions]() mutable {
+        if (!floorPositions.empty()) {
+            int exitIdx = std::rand() % floorPositions.size();
+            Vector2Df exitPos = floorPositions[exitIdx];
+            auto exit = std::make_shared<LevelExit>(exitPos, [this]() {
+                SceneManager::Instance()->RequestSwitch(new Level3Scene());
+            });
+            AddSceneObject(exit->GetGameObject());
+            LOG_INFO("All enemies defeated! Exit placed at (" +
+                     std::to_string(exitPos.x) + ", " +
+                     std::to_string(exitPos.y) + ")");
+        }
+    });
 
     LOG_INFO("Level 2 setup complete.");
 }

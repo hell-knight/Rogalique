@@ -20,10 +20,10 @@ SpriteRendererComponent::~SpriteRendererComponent() {
 void SpriteRendererComponent::Update(float deltaTime) {}
 void SpriteRendererComponent::Render() {
     if (sprite != nullptr) {
-        sprite->setPosition(
-            Convert<sf::Vector2f, Vector2Df>(transform->GetWorldPosition()));
+        auto pos = transform->GetWorldPosition();
+        auto sfPos = Convert<sf::Vector2f, Vector2Df>(pos);
+        sprite->setPosition(sfPos);
         sprite->setRotation(transform->GetWorldRotation());
-
         auto transformScale =
             Convert<sf::Vector2f, Vector2Df>(transform->GetWorldScale());
         sprite->setScale(
@@ -52,10 +52,12 @@ void SpriteRendererComponent::FlipX(bool flip) {
         isFlipX = flip;
     }
 }
+
 void SpriteRendererComponent::FlipY(bool flip) {
     if (flip != isFlipY) {
         scale = {scale.x, -scale.y};
         isFlipY = flip;
     }
 }
+
 }  // namespace MyEngine

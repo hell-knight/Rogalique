@@ -21,6 +21,7 @@ class ENGINE_API FollowComponent : public Component {
     SpriteRendererComponent* spriteRenderer = nullptr;
 
     float speed = 100.f;
+    int skipFrames = 300;
 };
 
 }  // namespace MyEngine

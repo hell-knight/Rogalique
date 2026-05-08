@@ -59,4 +59,19 @@ void LevelScene::AddEnemy(std::shared_ptr<Character> enemy) {
     }
     enemies.push_back(std::move(enemy));
 }
+
+void LevelScene::SetAllEnemiesDeadCallback(std::function<void()> callback) {
+    onAllEnemiesDead = std::move(callback);
+}
+
+void LevelScene::IncrementEnemyCount() { ++aliveEnemies; }
+
+void LevelScene::DecrementEnemyCount() { 
+    if (aliveEnemies > 0){
+        --aliveEnemies;
+        if (aliveEnemies == 0 && onAllEnemiesDead) {
+            onAllEnemiesDead();
+        }
+    }
+}
 }  // namespace RogaliqueGame

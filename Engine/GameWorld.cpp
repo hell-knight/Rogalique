@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "GameWorld.h"
+#include "Logger.h"
 
 namespace MyEngine {
 GameWorld* GameWorld::Instance() {
@@ -105,7 +106,7 @@ void GameWorld::DestroyGameObjectImmediate(GameObject* gameObject) {
                                return obj == gameObjectToDelete;
                            }),
             markedToDestroyGameObjects.end());
-
+        LOG_INFO("Enemy died. Remaining: " + gameObjectToDelete->GetName());
         delete gameObjectToDelete;
     }
 }

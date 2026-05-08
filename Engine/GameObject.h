@@ -36,7 +36,7 @@ class ENGINE_API GameObject {
 
         T* newComponent = new T(this);
         components.push_back(newComponent);
-        std::cout << "Add new component: " << newComponent << std::endl;
+        //std::cout << "Add new component: " << newComponent << std::endl;
         return newComponent;
     }
 
@@ -49,7 +49,7 @@ class ENGINE_API GameObject {
 
         T* newComponent = new T(std::forward<Args>(args)...);
         components.push_back(newComponent);
-        std::cout << "Add new component: " << newComponent << std::endl;
+        //std::cout << "Add new component: " << newComponent << std::endl;
         return newComponent;
     }
 

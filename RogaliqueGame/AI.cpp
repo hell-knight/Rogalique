@@ -51,6 +51,7 @@ AI::AI(const MyEngine::Vector2Df& position, MyEngine::GameObject* player)
         LOG_INFO("AI died.");
         auto* scene = RogaliqueGame::SceneManager::Instance()->GetCurrent();
         if (scene) {
+            scene->DecrementEnemyCount();
             scene->RemoveSceneObject(gameObject);
         }
         MyEngine::GameWorld::Instance()->DestroyGameObject(gameObject);

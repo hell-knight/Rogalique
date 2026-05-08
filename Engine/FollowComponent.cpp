@@ -19,6 +19,11 @@ void FollowComponent::Update(float deltaTime) {
         return;
     }
 
+    if (skipFrames > 0) {
+        --skipFrames;
+        return;
+    }
+
     Vector2Df currentPos = transform->GetWorldPosition();
     Vector2Df targetPos = targetTransform->GetWorldPosition();
     Vector2Df direction = targetPos - currentPos;

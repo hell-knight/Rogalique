@@ -22,47 +22,6 @@ void Level3Scene::Start() {
     const int width = 15;
     const int height = 15;
 
-    for (int y = 0; y <= height; ++y) {
-        for (int x = 0; x <= width; ++x) {
-            if (x != 0 && x != width && y != 0 && y != height) {
-                AddFloor(std::make_unique<Floor>(
-                    Vector2Df(x * 128.f, y * 128.f), 0));
-            }
-
-            if (x == 0 && y == 0)
-                AddWall(std::make_unique<Wall>(Vector2Df(x * 128.f, y * 128.f),
-                                               25));
-            if (x == width && y == 0)
-                AddWall(std::make_unique<Wall>(Vector2Df(x * 128.f, y * 128.f),
-                                               27));
-            if (x == 0 && y == height)
-                AddWall(
-                    std::make_unique<Wall>(Vector2Df(x * 128.f, y * 128.f), 1));
-            if (x == width && y == height)
-                AddWall(
-                    std::make_unique<Wall>(Vector2Df(x * 128.f, y * 128.f), 3));
-
-            if (x == 0 && y != 0 && y != height) {
-                AddFloor(std::make_unique<Floor>(
-                    Vector2Df(x * 128.f, y * 128.f), 18));
-                AddWall(std::make_unique<Wall>(Vector2Df(x * 128.f, y * 128.f),
-                                               12));
-            }
-            if (x == width && y != 0 && y != height) {
-                AddFloor(std::make_unique<Floor>(
-                    Vector2Df(x * 128.f, y * 128.f), 19));
-                AddWall(std::make_unique<Wall>(Vector2Df(x * 128.f, y * 128.f),
-                                               12));
-            }
-            if (y == 0 && x != 0 && x != width)
-                AddWall(std::make_unique<Wall>(Vector2Df(x * 128.f, y * 128.f),
-                                               38));
-            if (y == height && x != 0 && x != width)
-                AddWall(std::make_unique<Wall>(Vector2Df(x * 128.f, y * 128.f),
-                                               38));
-        }
-    }
-
     MazeGenerator maze(width, height, this);
     maze.Generate();
 
@@ -82,10 +41,11 @@ void Level3Scene::Start() {
     }
 
     std::vector<Vector2Df> floorPositions;
-    for (int y = 0; y < height; ++y) {
-        for (int x = 0; x < width; ++x) {
+    for (int y = 2; y < height - 1; ++y) {
+        for (int x = 2; x < width - 1; ++x) {
             if (passGrid[y][x]) {
-                floorPositions.push_back(Vector2Df(x * 128.f, y * 128.f));
+                floorPositions.push_back(
+                    Vector2Df(x * 128.f, y * 128.f));
             }
         }
     }

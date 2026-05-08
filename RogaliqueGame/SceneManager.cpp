@@ -35,6 +35,7 @@ void SceneManager::ProcessSwitch() {
     if (currentScene && player) {
         currentScene->SetPlayer(player);
         currentScene->Start();
+        MyEngine::PhysicsSystem::Instance()->SetSkipFrames(2);
         if (player) MyEngine::GameWorld::Instance()->BringToFront(player);
         if (hudObject) MyEngine::GameWorld::Instance()->BringToFront(hudObject);
         LOG_INFO("Switched to new scene.");
