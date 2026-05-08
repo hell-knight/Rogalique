@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "GameWorld.h"
+#include "Logger.h"
 
 namespace MyEngine {
 GameWorld* GameWorld::Instance() {
@@ -75,6 +76,14 @@ void GameWorld::Print() const {
     }
 }
 
+void GameWorld::BringToFront(GameObject* obj) { 
+    auto it = std::find(gameObjects.begin(), gameObjects.end(), obj);
+    if (it != gameObjects.end()) {
+        gameObjects.erase(it);
+        gameObjects.push_back(obj);
+    }
+}
+
 void GameWorld::DestroyGameObjectImmediate(GameObject* gameObject) {
     auto parent = gameObject->GetComponent<TransformComponent>()->GetParent();
     if (parent != nullptr) {
@@ -97,7 +106,7 @@ void GameWorld::DestroyGameObjectImmediate(GameObject* gameObject) {
                                return obj == gameObjectToDelete;
                            }),
             markedToDestroyGameObjects.end());
-
+        LOG_INFO("Enemy died. Remaining: " + gameObjectToDelete->GetName());
         delete gameObjectToDelete;
     }
 }

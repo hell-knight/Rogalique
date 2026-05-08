@@ -20,10 +20,13 @@ class ENGINE_API Engine {
 
     void Run();
 
-   private:
-    Engine();
-    ~Engine() = default;
+    // New virtual method – called on every frame after LateUpdate
+    virtual void OnFrameEnd(){}
 
+    Engine();
+    virtual ~Engine() = default;
+
+   private:
     void setupLogger();
 };
 }  // namespace MyEngine

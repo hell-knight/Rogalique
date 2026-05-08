@@ -10,6 +10,7 @@
 #include "AttackComponent.h"
 #include "AIAttackComponent.h"
 #include "ResourceSystem.h"
+#include "SceneManager.h"
 
 namespace RogaliqueGame {
 AI::AI(const MyEngine::Vector2Df& position, MyEngine::GameObject* player)
@@ -48,6 +49,11 @@ AI::AI(const MyEngine::Vector2Df& position, MyEngine::GameObject* player)
         gameObject, 80.f, 5.f);
     health->SubscribeOnDeath([this]() {
         LOG_INFO("AI died.");
+        auto* scene = RogaliqueGame::SceneManager::Instance()->GetCurrent();
+        if (scene) {
+            scene->DecrementEnemyCount();
+            scene->RemoveSceneObject(gameObject);
+        }
         MyEngine::GameWorld::Instance()->DestroyGameObject(gameObject);
         gameObject = nullptr;
     });

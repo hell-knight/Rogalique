@@ -5,9 +5,10 @@
 #include "ColliderComponent.h"
 #include "RigidbodyComponent.h"
 #include "Vector.h"
+#include "EngineAPI.h"
 
 namespace MyEngine {
-class PhysicsSystem {
+class ENGINE_API PhysicsSystem {
    public:
     static PhysicsSystem* Instance();
 
@@ -16,6 +17,8 @@ class PhysicsSystem {
     float GetFixedDeltaTime() const;
     void Subscribe(ColliderComponent* collider);
     void Unsubscribe(ColliderComponent* collider);
+
+    void SetSkipFrames(int frames) { skipFrames = frames; }
 
    private:
     PhysicsSystem() {}
@@ -33,11 +36,13 @@ class PhysicsSystem {
             const std::pair<ColliderComponent*, ColliderComponent*>& rhs)
             const {
             // reduce it to canonical form: the left index is 1
-            auto canonical = [](ColliderComponent* a, ColliderComponent* b) {
-                return std::minmax(a, b);
+            auto canonical = [](const std::pair<ColliderComponent*, ColliderComponent*>& p) {
+                return (p.first < p.second) ? p : std::make_pair(p.second, p.first);
             };
-            return canonical(lhs.first, lhs.second) <
-                   canonical(rhs.first, rhs.second);
+            auto cl = canonical(lhs);
+            auto cr = canonical(rhs);
+            if (cl.first != cr.first) return cl.first < cr.first;
+            return cl.second < cr.second;
         }
     };
 
@@ -45,6 +50,7 @@ class PhysicsSystem {
         triggersEnteredSet;
 
     float fixedDeltaTime = 0.02f;
+    int skipFrames = 0;
 
     void ProcessColliders();
     void ProcessCollisionPair(ColliderComponent* a, ColliderComponent* b,

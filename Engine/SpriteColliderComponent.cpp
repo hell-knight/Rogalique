@@ -13,12 +13,12 @@ SpriteColliderComponent::SpriteColliderComponent(GameObject* gameObject)
 
     sprite = gameObject->GetComponent<SpriteRendererComponent>()->GetSprite();
     PhysicsSystem::Instance()->Subscribe(this);
-    LOG_INFO("SpriteColliderComponent subscribed for " + gameObject->GetName());
+    /*LOG_INFO("SpriteColliderComponent subscribed for " + gameObject->GetName());*/
 }
 SpriteColliderComponent::~SpriteColliderComponent() {
     PhysicsSystem::Instance()->Unsubscribe(this);
-    LOG_INFO("SpriteColliderComponent unsubscribed for " +
-             (gameObject ? gameObject->GetName() : "unknown"));
+    /*LOG_INFO("SpriteColliderComponent unsubscribed for " +
+             (gameObject ? gameObject->GetName() : "unknown"));*/
 }
 
 void SpriteColliderComponent::Update(float deltaTime) {
@@ -33,4 +33,5 @@ void SpriteColliderComponent::Render() {
 
     RenderSystem::Instance()->Render(rectangle);
 }
+
 }  // namespace MyEngine

@@ -11,6 +11,10 @@ PhysicsSystem* PhysicsSystem::Instance() {
 float PhysicsSystem::GetFixedDeltaTime() const { return fixedDeltaTime; }
 
 void PhysicsSystem::Update() {
+    if (skipFrames > 0) {
+        --skipFrames;
+        return;
+    }
     ProcessColliders();
     ProcessTriggerExits();
 }
@@ -78,6 +82,9 @@ void PhysicsSystem::ResolveCollision(ColliderComponent* colliderA,
     auto colliderATransform =
         colliderA->GetGameObject()->GetComponent<TransformComponent>();
 
+    //// test position world
+    //Vector2Df oldPos = colliderATransform->GetWorldPosition();
+
     // Determine collision direction and push colliderA out of colliderB
     std::string collisionDir;
     if (intersectionWidth > intersectionHeight) {
@@ -98,13 +105,23 @@ void PhysicsSystem::ResolveCollision(ColliderComponent* colliderA,
         }
     }
 
+    // test world position
+    /*Vector2Df newPos = colliderATransform->GetWorldPosition();
+    if (oldPos.x != newPos.x || oldPos.y != newPos.y) {
+        LOG_INFO("Physics pushed " + colliderA->GetGameObject()->GetName() +
+                 " from (" + std::to_string(oldPos.x) + ", " +
+                 std::to_string(oldPos.y) + ") to (" +
+                 std::to_string(newPos.x) + ", " + std::to_string(newPos.y) +
+                 ")");
+    }*/
+
     Collision collision(colliderA, colliderB, intersection);
     colliderA->OnCollision(collision);
     colliderB->OnCollision(collision);
 
-    LOG_INFO("Collision (" + collisionDir + ") between '" +
+    /*LOG_INFO("Collision (" + collisionDir + ") between '" +
              colliderA->GetGameObject()->GetName() + "' and '" +
-             colliderB->GetGameObject()->GetName() + "'");
+             colliderB->GetGameObject()->GetName() + "'");*/
 }
 
 void PhysicsSystem::ProcessTriggerExits() {
@@ -133,6 +150,15 @@ void PhysicsSystem::Subscribe(ColliderComponent* collider) {
 
 void PhysicsSystem::Unsubscribe(ColliderComponent* collider) {
     std::cout << "Unsubscribe " << collider << std::endl;
+
+    std::vector<std::pair<ColliderComponent*, ColliderComponent*>> toRemove;
+    for (const auto& p : triggersEnteredSet) {
+        if (p.first == collider || p.second == collider) toRemove.push_back(p);
+    }
+    for (const auto& p : toRemove) {
+        triggersEnteredSet.erase(p);
+    }
+
     colliders.erase(std::remove_if(colliders.begin(), colliders.end(),
                                    [collider](ColliderComponent* obj) {
                                        return obj == collider;

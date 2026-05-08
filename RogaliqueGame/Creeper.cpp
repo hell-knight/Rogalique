@@ -10,6 +10,7 @@
 #include "RigidbodyComponent.h"
 #include "SpriteColliderComponent.h"
 #include "SpriteAnimationComponent.h"
+#include "SceneManager.h"
 
 namespace RogaliqueGame {
 Creeper::Creeper(const MyEngine::Vector2Df& position,
@@ -52,6 +53,11 @@ Creeper::Creeper(const MyEngine::Vector2Df& position,
         gameObject, 50.f, 0.f);
     health->SubscribeOnDeath([this]() {
         LOG_INFO("Creeper died.");
+        auto* scene = RogaliqueGame::SceneManager::Instance()->GetCurrent();
+        if (scene) {
+            scene->DecrementEnemyCount();
+            scene->RemoveSceneObject(gameObject);
+        }
         MyEngine::GameWorld::Instance()->DestroyGameObject(gameObject);
         gameObject = nullptr;
     });

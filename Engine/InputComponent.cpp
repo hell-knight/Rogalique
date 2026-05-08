@@ -12,20 +12,20 @@ void InputComponent::Update(float deltaTime) {
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
         verticalAxis += 1.0f;
-        LOG_INFO("Move forward");
+        //LOG_INFO("Move forward");
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
         verticalAxis -= 1.0f;
-        LOG_INFO("Move backward");
+        //LOG_INFO("Move backward");
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
         horizontalAxis += 1.0f;
-        LOG_INFO("Move right");
+        //LOG_INFO("Move right");
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
         horizontalAxis -= 1.0f;
-        LOG_INFO("Move left");
+        //LOG_INFO("Move left");
     }
     attackPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::Space);
 }
