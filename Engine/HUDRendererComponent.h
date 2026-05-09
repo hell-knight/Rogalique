@@ -10,7 +10,7 @@ class StaminaComponent;
 class ENGINE_API HUDRendererComponent : public Component {
    public:
     HUDRendererComponent(GameObject* gameObject, HealthComponent* health, StaminaComponent* stamina,
-        const sf::Texture* healthIconTex, const sf::Texture* staminaIconTex);
+        const sf::Texture* healthIconTex, const sf::Texture* staminaIconTex, const sf::Texture* armorIconTex);
 
     void Update(float deltaTime) override {};
     void Render() override;
@@ -21,8 +21,10 @@ class ENGINE_API HUDRendererComponent : public Component {
 
     sf::Sprite healthIcon;
     sf::Sprite staminaIcon;
+    sf::Sprite armorIcon;
     bool showHealthIcon = false;
     bool showStaminaIcon = false;
+    bool showArmorIcon = false;
 
     void drawBar(sf::RenderWindow& window, float x, float y, float width, float height, float ratio, 
         const sf::Color& fgColor, const sf::Color& bgColor);

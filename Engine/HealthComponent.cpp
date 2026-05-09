@@ -31,6 +31,7 @@ void HealthComponent::SetArmor(float value)
 
 float HealthComponent::GetHealth() const { return health; }
 float HealthComponent::GetMaxHealth() const { return maxHealth; }
+float HealthComponent::GetMaxArmor() const { return maxArmor; }
 float HealthComponent::GetArmor() const { return armor; }
 bool HealthComponent::IsDead() const { return dead; }
 

@@ -11,7 +11,8 @@ HUDRendererComponent::HUDRendererComponent(GameObject* gameObject,
                                            HealthComponent* health,
                                            StaminaComponent* stamina,
                                            const sf::Texture* healthIconTex,
-                                           const sf::Texture* staminaIconTex) 
+                                           const sf::Texture* staminaIconTex,
+                                           const sf::Texture* armorIconTex) 
     : Component(gameObject), health(health), stamina(stamina) {
     if (healthIconTex) {
         auto size = healthIconTex->getSize();
@@ -20,6 +21,15 @@ HUDRendererComponent::HUDRendererComponent(GameObject* gameObject,
         healthIcon.setOrigin(0, 0);
         healthIcon.setColor(sf::Color::Red);
         showHealthIcon = true;
+    }
+
+    if (armorIconTex) {
+        armorIcon.setTexture(*armorIconTex);
+        auto size = armorIconTex->getSize();
+        armorIcon.setScale(24.f / size.x, 24.f / size.y);
+        armorIcon.setOrigin(0, 0);
+        armorIcon.setColor(sf::Color::Blue);
+        showArmorIcon = true;
     }
 
     if (staminaIconTex) {
@@ -60,10 +70,21 @@ void HUDRendererComponent::Render() {
                           : 0.f;
         drawBar(window, barX, startY, barWidth, barHeight, ratio,
                 sf::Color::Red, sf::Color(40, 40, 40));
+        float y = startY + barHeight + spacing;
+        if (showArmorIcon) {
+            armorIcon.setPosition(startX, y - 2.f);
+            window.draw(armorIcon);
+        }
+        float barArmorX = showArmorIcon ? startX + iconOffset : startX;
+        float armorRatio = (health->GetMaxArmor() > 0)
+                          ? health->GetArmor() / health->GetMaxArmor()
+                          : 0.f;
+        drawBar(window, barArmorX, y, barWidth, barHeight, armorRatio,
+                sf::Color::Blue, sf::Color(40, 40, 40));
     }
 
     if (stamina) {
-        float y = startY + barHeight + spacing;
+        float y = startY + 2 * (barHeight + spacing);
         if (showStaminaIcon) {
             staminaIcon.setPosition(startX, y - 2.f);
             window.draw(staminaIcon);

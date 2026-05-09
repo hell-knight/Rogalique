@@ -37,6 +37,8 @@ int main() {
     MyEngine::ResourceSystem::Instance()->LoadTexture(
         "icon_health", "Resources/Textures/health.png");
     MyEngine::ResourceSystem::Instance()->LoadTexture(
+        "icon_armor", "Resources/Textures/armor.png");
+    MyEngine::ResourceSystem::Instance()->LoadTexture(
         "icon_stamina", "Resources/Textures/stamina.png");
     MyEngine::ResourceSystem::Instance()->LoadTexture(
         "icon_key", "Resources/Textures/key.png");
@@ -63,8 +65,10 @@ int main() {
         MyEngine::ResourceSystem::Instance()->GetTextureShared("icon_health");
     auto* staminaTex =
         MyEngine::ResourceSystem::Instance()->GetTextureShared("icon_stamina");
+    auto* armorTex =
+        MyEngine::ResourceSystem::Instance()->GetTextureShared("icon_armor");
     hudObj->AddComponent<MyEngine::HUDRendererComponent>(
-        hudObj, health, stamina, healthTex, staminaTex);
+        hudObj, health, stamina, healthTex, staminaTex, armorTex);
 
     auto* playerInventory = playerObj->AddComponent<RogaliqueGame::InventoryComponent>(playerObj);
 
@@ -82,7 +86,7 @@ int main() {
 
     RogaliqueGame::SceneManager::Instance()->Init(playerObj);
     RogaliqueGame::SceneManager::Instance()->SetHUD(hudObj);
-    RogaliqueGame::SceneManager::Instance()->SetHUD(inventoryObj);
+    RogaliqueGame::SceneManager::Instance()->SetInventoryUI(inventoryObj);
 
     auto firstLevel = std::make_shared<RogaliqueGame::Level1Scene>();
     RogaliqueGame::SceneManager::Instance()->RequestSwitch(firstLevel.get());

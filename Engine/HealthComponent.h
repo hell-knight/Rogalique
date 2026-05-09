@@ -17,6 +17,7 @@ class ENGINE_API HealthComponent : public Component {
 
     float GetHealth() const;
     float GetMaxHealth() const;
+    float GetMaxArmor() const;
     float GetArmor() const;
 
     void ApplyDamage(float damage);
@@ -32,6 +33,7 @@ class ENGINE_API HealthComponent : public Component {
    private:
     float maxHealth = 100.f;
     float health = 100.f;
+    float maxArmor = 100.f;
     float armor = 0.f;
     bool dead = false;
 

@@ -15,6 +15,7 @@ class SceneManager {
     MyEngine::GameObject* GetPlayer() const { return player; }
 
     void SetHUD(MyEngine::GameObject* hud) { hudObject = hud; }
+    void SetInventoryUI(MyEngine::GameObject* ui) { inventoryUIobj = ui; }
 
    private:
     SceneManager() = default;
