@@ -3,6 +3,9 @@
 #include "Logger.h"
 #include <cmath>
 
+static constexpr float TOOLTIP_OFFSET_X = 20.f; // space after the cursor
+static constexpr float TOOLTIP_OFFSET_Y = 20.f;
+
 namespace RogaliqueGame {
 InventoryUIComponent::InventoryUIComponent(
     MyEngine::GameObject* gameObject, InventoryComponent* playerInventory) 
@@ -12,8 +15,6 @@ InventoryUIComponent::InventoryUIComponent(
         LOG_ERROR("InventoryUI: Failed to load font, text disabled.");
     }
 
-    // The window's semi-transparent dark background
-    //background.setFillColor(sf::Color(0, 0, 0, 180));
     // The window size is now dynamic; we'll recalculate it in the Update method
     background.setFillColor(sf::Color(20, 20, 20, 200));
     background.setOutlineThickness(2);
@@ -22,6 +23,15 @@ InventoryUIComponent::InventoryUIComponent(
     textTemplate.setFont(font);
     textTemplate.setCharacterSize(14);
     textTemplate.setFillColor(sf::Color::White);
+
+    // Configuring tooltips
+    tooltipBg.setFillColor(sf::Color(40, 40, 40, 230));
+    tooltipBg.setOutlineThickness(1);
+    tooltipBg.setOutlineColor(sf::Color(180, 180, 180));
+
+    tooltipText.setFont(font);
+    tooltipText.setCharacterSize(12);
+    tooltipText.setFillColor(sf::Color::White);
 }
 
 void InventoryUIComponent::Update(float deltaTime) {
@@ -57,6 +67,7 @@ void InventoryUIComponent::Update(float deltaTime) {
         cellPositions.emplace_back(x, y);
     }
 
+    // Preparing icons
     iconSprites.resize(count);
     for (size_t i = 0; i < items.size(); ++i) {
         if (items[i].icon) {
@@ -72,6 +83,26 @@ void InventoryUIComponent::Update(float deltaTime) {
                 iconSprites[i].setOrigin(localBounds.width / 2.f,
                                          localBounds.height / 2.f);
             } 
+        }
+    }
+
+    // --- Mouse Hover Detection ---
+    hoveredItem = -1;
+    auto& window = MyEngine::RenderSystem::Instance()->GetMainWindow();
+    sf::Vector2i mousePixel = sf::Mouse::getPosition(window);
+    // Convert to the coordinates of the default view (screen)
+    sf::Vector2f mouseWorld = window.mapPixelToCoords(mousePixel, window.getDefaultView());
+
+    // Calculating the background position (centered)
+    sf::Vector2u winSize = window.getSize();
+    sf::Vector2f bgPos(winSize.x / 2.f - background.getSize().x / 2.f,
+                       winSize.y / 2.f - background.getSize().y / 2.f);
+
+    for (size_t i = 0; i < cellPositions.size(); ++i) {
+        sf::FloatRect cellRect(bgPos + cellPositions[i], sf::Vector2f(CELL_SIZE, CELL_SIZE));
+        if (cellRect.contains(mouseWorld)) {
+            hoveredItem = static_cast<int>(i);
+            break;
         }
     }
 }
@@ -99,7 +130,12 @@ void InventoryUIComponent::Render() {
         // Cell background
         sf::RectangleShape cell(sf::Vector2f(CELL_SIZE, CELL_SIZE));
         cell.setPosition(cellPos);
-        cell.setFillColor(sf::Color(60, 60, 60, 150));
+        // The cell under the cursor is slightly highlighted
+        if (static_cast<int>(i) == hoveredItem) {
+            cell.setFillColor(sf::Color(80, 80, 80, 150));
+        } else {
+            cell.setFillColor(sf::Color(60, 60, 60, 150));
+        }
         cell.setOutlineThickness(1);
         cell.setOutlineColor(sf::Color(120, 120, 120));
         window.draw(cell);
@@ -123,6 +159,44 @@ void InventoryUIComponent::Render() {
             float textY = cellPos.y + CELL_SIZE - textBox.height - 5.f;
             textTemplate.setPosition(textX, textY);
             window.draw(textTemplate);
+        }
+    }
+
+    // --- Display a tooltip if a description is available ---
+    if (hoveredItem >= 0 && hoveredItem < static_cast<int>(items.size())) {
+        const std::string& desc = items[hoveredItem].description;
+        if (!desc.empty()){
+            tooltipText.setString(desc);
+
+            // Get the mouse position for placement nearby
+            sf::Vector2i mousePixel = sf::Mouse::getPosition(window);
+            sf::Vector2f mouseWorld = window.mapPixelToCoords(mousePixel, window.getDefaultView());
+
+            // Size text
+            sf::FloatRect textBounds = tooltipText.getLocalBounds();
+            float padding = 8.f;
+            float bgW = textBounds.width + padding * 2;
+            float bgH = textBounds.height + padding * 2;
+
+            // Align to the bottom right of the cursor
+            float bgX = mouseWorld.x + TOOLTIP_OFFSET_X;
+            float bgY = mouseWorld.y + TOOLTIP_OFFSET_Y;
+
+            // If it doesn't fit on the right, move it to the left
+            if (bgX + bgW > winSize.x) {
+                bgX = mouseWorld.x - bgW - TOOLTIP_OFFSET_X;
+            }
+            // If it doesn't fit at the bottom, try higher up
+            if (bgY + bgH > winSize.y) {
+                bgY = mouseWorld.y - bgH - TOOLTIP_OFFSET_Y;
+            }
+
+            tooltipBg.setSize(sf::Vector2f(bgW, bgH));
+            tooltipBg.setPosition(bgX, bgY);
+            tooltipText.setPosition(bgX + padding, bgY + padding);
+
+            window.draw(tooltipBg);
+            window.draw(tooltipText);
         }
     }
 

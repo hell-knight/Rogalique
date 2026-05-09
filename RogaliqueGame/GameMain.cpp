@@ -81,8 +81,10 @@ int main() {
         MyEngine::ResourceSystem::Instance()->GetTextureShared("icon_potion");
 
     // Filling up the inventory
-    playerInventory->AddItem({"Key", keyTex, 1});
-    playerInventory->AddItem({"Health Potion", potionTex, 3});
+    playerInventory->AddItem(
+        {"Key", "A rusty iron key. Opens simple doors.", keyTex, 1});
+    playerInventory->AddItem(
+        {"Health Potion", "Restores 30 HP instantly.", potionTex, 3});
 
     RogaliqueGame::SceneManager::Instance()->Init(playerObj);
     RogaliqueGame::SceneManager::Instance()->SetHUD(hudObj);

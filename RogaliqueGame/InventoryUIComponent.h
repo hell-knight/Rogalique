@@ -27,5 +27,10 @@ class InventoryUIComponent : public MyEngine::Component {
     sf::Text textTemplate;
     std::vector<sf::Sprite> iconSprites;    // for reuse
     std::vector<sf::Vector2f> cellPositions;    // the top-left corner of each cell
+
+    // for tooltip
+    int hoveredItem = -1;
+    sf::RectangleShape tooltipBg;
+    sf::Text tooltipText;
 };
 }
