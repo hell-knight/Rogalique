@@ -15,6 +15,7 @@ class SceneManager {
     MyEngine::GameObject* GetPlayer() const { return player; }
 
     void SetHUD(MyEngine::GameObject* hud) { hudObject = hud; }
+    void SetInventoryUI(MyEngine::GameObject* ui) { inventoryUIobj = ui; }
 
    private:
     SceneManager() = default;
@@ -22,5 +23,6 @@ class SceneManager {
     LevelScene* pendingScene = nullptr;
     MyEngine::GameObject* player = nullptr;
     MyEngine::GameObject* hudObject = nullptr;
+    MyEngine::GameObject* inventoryUIobj = nullptr;
 };
 }

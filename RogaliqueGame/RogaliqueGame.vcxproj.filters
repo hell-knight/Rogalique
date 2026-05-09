@@ -58,6 +58,12 @@
     <ClCompile Include="BaseLevel.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="InventoryComponent.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="InventoryUIComponent.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h" />
@@ -76,5 +82,8 @@
     <ClInclude Include="Level2Scene.h" />
     <ClInclude Include="Level3Scene.h" />
     <ClInclude Include="BaseLevel.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="InventoryComponent.h" />
+    <ClInclude Include="InventoryUIComponent.h" />
   </ItemGroup>
 </Project>

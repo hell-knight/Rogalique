@@ -165,6 +165,8 @@
     <ClCompile Include="Creeper.cpp" />
     <ClCompile Include="Floor.cpp" />
     <ClCompile Include="GameMain.cpp" />
+    <ClCompile Include="InventoryComponent.cpp" />
+    <ClCompile Include="InventoryUIComponent.cpp" />
     <ClCompile Include="Level1Scene.cpp" />
     <ClCompile Include="Level2Scene.cpp" />
     <ClCompile Include="Level3Scene.cpp" />
@@ -188,6 +190,9 @@
     <ClInclude Include="Character.h" />
     <ClInclude Include="Creeper.h" />
     <ClInclude Include="Floor.h" />
+    <ClInclude Include="InventoryComponent.h" />
+    <ClInclude Include="InventoryUIComponent.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="Level1Scene.h" />
     <ClInclude Include="Level2Scene.h" />
     <ClInclude Include="Level3Scene.h" />
