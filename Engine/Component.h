@@ -14,6 +14,9 @@ class ENGINE_API Component {
 
     GameObject* GetGameObject();
 
+    // Returns true if the component has expired and its owner should be removed
+    virtual bool IsExpired() const { return false; }
+
    protected:
     GameObject* gameObject;
 };

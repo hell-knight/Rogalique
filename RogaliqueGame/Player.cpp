@@ -10,6 +10,8 @@
 #include "AttackComponent.h"
 #include "StaminaComponent.h"
 #include "CameraShakeComponent.h"
+#include "ParticleEmitter.h"
+#include "HealTestComponent.h"
 
 namespace RogaliqueGame {
 Player::Player(const MyEngine::Vector2Df& position) {
@@ -60,10 +62,24 @@ Player::Player(const MyEngine::Vector2Df& position) {
 
     auto health = gameObject->AddComponent<MyEngine::HealthComponent>(
         gameObject, 100.f, 10.f);
+    gameObject->AddComponent<HealTestComponent>(gameObject, health);
+    health->SubscribeOnDamage([this](float damage) {
+        auto pos = gameObject->GetComponent<MyEngine::TransformComponent>()
+                       ->GetWorldPosition();
+        ParticleEmitter::Create(pos, sf::Color::Red, 15, 15.f, 40.f, 100.f,
+                                0.4f, 0.9f, 10.f);
+    });
+    health->SubscribeOnHeal([this](float amount) {
+        auto pos = gameObject->GetComponent<MyEngine::TransformComponent>()
+                       ->GetWorldPosition();
+        RogaliqueGame::ParticleEmitter::Create(pos, sf::Color::Green, 20, 15.f,
+                                               30.f, 80.f, 0.4f, 0.9f, 10.f);
+    });
     health->SubscribeOnDeath([this]() { LOG_INFO("Player died."); });
 
     auto attack = gameObject->AddComponent<MyEngine::AttackComponent>(
         gameObject, 25.f, 150.f, 0.5f);
+    
     gameObject->AddComponent<MyEngine::InputAttackComponent>();
 
     gameObject->AddComponent<MyEngine::CameraShakeComponent>(gameObject, camera, health, attack);

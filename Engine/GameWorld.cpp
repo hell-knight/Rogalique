@@ -29,8 +29,29 @@ void GameWorld::Render() {
 }
 
 void GameWorld::LateUpdate() {
+    // Standard deferred removals
     for (int i = (int)markedToDestroyGameObjects.size() - 1; i >= 0; i--) {
         DestroyGameObjectImmediate(markedToDestroyGameObjects[i]);
+    }
+    // Automatic removal of empty particle emitters
+    for (int i = (int)gameObjects.size() - 1; i >= 0; i--) {
+        GameObject* gObj = gameObjects[i];
+        // Check to see if it has already been marked for deletion
+        if (std::find(markedToDestroyGameObjects.begin(),
+                      markedToDestroyGameObjects.end(),
+                      gObj) != markedToDestroyGameObjects.end())
+            continue;
+
+        bool expired = false;
+        for (const auto* comp : gObj->GetAllComponents()) {
+            if (comp->IsExpired()) {
+                expired = true;
+                break;
+            }
+        }
+        if (expired) {
+            DestroyGameObject(gObj);    // delayed deletion on the next frame
+        }
     }
 }
 

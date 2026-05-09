@@ -30,6 +30,9 @@ class ENGINE_API HealthComponent : public Component {
     int SubscribeOnDamage(std::function<void(float)> callback);
     void UnsubscribeOnDamage(int id);
 
+    int SubscribeOnHeal(std::function<void(float)> callback);
+    void UnsubscribeOnHeal(int id);
+
    private:
     float maxHealth = 100.f;
     float health = 100.f;
@@ -42,6 +45,9 @@ class ENGINE_API HealthComponent : public Component {
 
     std::map<int, std::function<void(float)>> damageCallbacks;
     int nextDamageCallbackId = 1;
+
+    std::map<int, std::function<void(float)>> healCallbacks;
+    int nextHealCallbackId = 1;
 
     void CheckDeath();
 };
