@@ -22,5 +22,6 @@ class SceneManager {
     LevelScene* pendingScene = nullptr;
     MyEngine::GameObject* player = nullptr;
     MyEngine::GameObject* hudObject = nullptr;
+    MyEngine::GameObject* inventoryUIobj = nullptr;
 };
 }

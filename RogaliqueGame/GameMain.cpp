@@ -11,6 +11,8 @@
 #include "Logger.h"
 #include "Music.h"
 #include "BaseLevel.h"
+#include "InventoryComponent.h"
+#include "InventoryUIComponent.h"
 
 class RogaliqueEngine : public MyEngine::Engine {
    public:
@@ -36,6 +38,10 @@ int main() {
         "icon_health", "Resources/Textures/health.png");
     MyEngine::ResourceSystem::Instance()->LoadTexture(
         "icon_stamina", "Resources/Textures/stamina.png");
+    MyEngine::ResourceSystem::Instance()->LoadTexture(
+        "icon_key", "Resources/Textures/key.png");
+    MyEngine::ResourceSystem::Instance()->LoadTexture(
+        "icon_potion", "Resources/Textures/health_potion.png");
 
     MyEngine::ResourceSystem::Instance()->LoadSound(
         "music", "Resources/Sounds/game_background.ogg");
@@ -60,14 +66,30 @@ int main() {
     hudObj->AddComponent<MyEngine::HUDRendererComponent>(
         hudObj, health, stamina, healthTex, staminaTex);
 
+    auto* playerInventory = playerObj->AddComponent<RogaliqueGame::InventoryComponent>(playerObj);
+
+    // create a separate GameObject for the inventory UI
+    auto* inventoryObj = MyEngine::GameWorld::Instance()->CreateGameObject("InventoryUI");
+    inventoryObj->AddComponent<RogaliqueGame::InventoryUIComponent>(inventoryObj, playerInventory);
+    auto* keyTex =
+        MyEngine::ResourceSystem::Instance()->GetTextureShared("icon_key");
+    auto* potionTex =
+        MyEngine::ResourceSystem::Instance()->GetTextureShared("icon_potion");
+
+    // Filling up the inventory
+    playerInventory->AddItem({"Key", keyTex, 1});
+    playerInventory->AddItem({"Health Potion", potionTex, 3});
+
     RogaliqueGame::SceneManager::Instance()->Init(playerObj);
     RogaliqueGame::SceneManager::Instance()->SetHUD(hudObj);
+    RogaliqueGame::SceneManager::Instance()->SetHUD(inventoryObj);
 
     auto firstLevel = std::make_shared<RogaliqueGame::Level1Scene>();
     RogaliqueGame::SceneManager::Instance()->RequestSwitch(firstLevel.get());
     RogaliqueGame::SceneManager::Instance()->ProcessSwitch();
     if (playerObj) MyEngine::GameWorld::Instance()->BringToFront(playerObj);
     if (hudObj) MyEngine::GameWorld::Instance()->BringToFront(hudObj);
+    if (inventoryObj) MyEngine::GameWorld::Instance()->BringToFront(inventoryObj);
 
     LOG_INFO("Starting game loop...");
     rogaliqueEngine.Run();

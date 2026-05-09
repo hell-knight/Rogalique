@@ -38,6 +38,7 @@ void SceneManager::ProcessSwitch() {
         MyEngine::PhysicsSystem::Instance()->SetSkipFrames(2);
         if (player) MyEngine::GameWorld::Instance()->BringToFront(player);
         if (hudObject) MyEngine::GameWorld::Instance()->BringToFront(hudObject);
+        if (inventoryUIobj) MyEngine::GameWorld::Instance()->BringToFront(inventoryUIobj);
         LOG_INFO("Switched to new scene.");
     }
 
