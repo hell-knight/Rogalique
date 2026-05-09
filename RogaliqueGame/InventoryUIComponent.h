@@ -2,10 +2,9 @@
 #include "Component.h"
 #include "InventoryComponent.h"
 #include <SFML/Graphics.hpp>
+#include <vector>
 
 namespace RogaliqueGame {
-static constexpr float ICON_SIZE = 32.f;
-
 class InventoryUIComponent : public MyEngine::Component {
    public:
     InventoryUIComponent(MyEngine::GameObject* gameObject, InventoryComponent* playerInventory);
@@ -18,9 +17,15 @@ class InventoryUIComponent : public MyEngine::Component {
     bool visible = false;
     bool keyWasPressed = false;
 
+    // Constantes cell
+    static constexpr float CELL_SIZE = 50.f;
+    static constexpr float CELL_MARGIN = 5.f;
+    static constexpr int COLS = 4;
+
     sf::RectangleShape background;
     sf::Font font;
     sf::Text textTemplate;
     std::vector<sf::Sprite> iconSprites;    // for reuse
+    std::vector<sf::Vector2f> cellPositions;    // the top-left corner of each cell
 };
 }

@@ -1,6 +1,7 @@
 #include "InventoryUIComponent.h"
 #include "RenderSystem.h"
 #include "Logger.h"
+#include <cmath>
 
 namespace RogaliqueGame {
 InventoryUIComponent::InventoryUIComponent(
@@ -12,13 +13,14 @@ InventoryUIComponent::InventoryUIComponent(
     }
 
     // The window's semi-transparent dark background
-    background.setSize(sf::Vector2f(400, 300));
-    background.setFillColor(sf::Color(0, 0, 0, 180));
+    //background.setFillColor(sf::Color(0, 0, 0, 180));
+    // The window size is now dynamic; we'll recalculate it in the Update method
+    background.setFillColor(sf::Color(20, 20, 20, 200));
     background.setOutlineThickness(2);
     background.setOutlineColor(sf::Color::White);
 
     textTemplate.setFont(font);
-    textTemplate.setCharacterSize(18);
+    textTemplate.setCharacterSize(14);
     textTemplate.setFillColor(sf::Color::White);
 }
 
@@ -36,19 +38,40 @@ void InventoryUIComponent::Update(float deltaTime) {
 
     // create sprites for the icons based on the number of items
     const auto& items = inventory->GetItems();
-    iconSprites.resize(items.size());
+    int count = static_cast<int>(items.size());
+
+    // Determine the dimensions of the window for the screen
+    int rows = std::max(1, (count + COLS - 1) / COLS);
+    float totalWidth = COLS * (CELL_SIZE + CELL_MARGIN) - CELL_MARGIN + 40;
+    float totalHeight = rows * (CELL_SIZE + CELL_MARGIN) - CELL_MARGIN + 40;
+    background.setSize(sf::Vector2f(totalWidth, totalHeight));
+
+    // Cell positions
+    cellPositions.clear();
+    cellPositions.reserve(count);
+    for (int i = 0; i < count; ++i) {
+        int col = i % COLS;
+        int row = i / COLS;
+        float x = 20 + col * (CELL_SIZE + CELL_MARGIN);
+        float y = 20 + row * (CELL_SIZE + CELL_MARGIN);
+        cellPositions.emplace_back(x, y);
+    }
+
+    iconSprites.resize(count);
     for (size_t i = 0; i < items.size(); ++i) {
         if (items[i].icon) {
             iconSprites[i].setTexture(*items[i].icon);
             sf::Vector2u texSize = items[i].icon->getSize();
             if (texSize.x > 0 && texSize.y > 0){
-                float scaleX = ICON_SIZE / texSize.x;
-                float scaleY = ICON_SIZE / texSize.y;
-                float scale = std::min(scaleX, scaleY);
+                // Place the icon in the cell with an 8px margin from the edges
+                float maxIconSize = CELL_SIZE - 16.f;
+                float scale = maxIconSize / std::max(texSize.x, texSize.y);
                 iconSprites[i].setScale(scale, scale);
-            } else {
-                iconSprites[i].setScale(1.f, 1.f);
-            }
+                // Center relative to the cell
+                sf::FloatRect localBounds = iconSprites[i].getLocalBounds();
+                iconSprites[i].setOrigin(localBounds.width / 2.f,
+                                         localBounds.height / 2.f);
+            } 
         }
     }
 }
@@ -70,26 +93,37 @@ void InventoryUIComponent::Render() {
     window.draw(background);
 
     const auto& items = inventory->GetItems();
-    float startX = backgroundPos.x + 20.f;
-    float startY = backgroundPos.y + 20.f;
-    float stepY = 50.f;
-
     for (size_t i = 0; i < items.size(); ++i) {
+        sf::Vector2f cellPos = backgroundPos + cellPositions[i];
+
+        // Cell background
+        sf::RectangleShape cell(sf::Vector2f(CELL_SIZE, CELL_SIZE));
+        cell.setPosition(cellPos);
+        cell.setFillColor(sf::Color(60, 60, 60, 150));
+        cell.setOutlineThickness(1);
+        cell.setOutlineColor(sf::Color(120, 120, 120));
+        window.draw(cell);
+
         // icon
         if (i < iconSprites.size() && items[i].icon)
         {
-            iconSprites[i].setPosition(startX, startY + i * stepY);
+            // Center cell
+            sf::Vector2f center(cellPos.x + CELL_SIZE / 2.f, cellPos.y + CELL_SIZE / 2.f);
+            iconSprites[i].setPosition(center);
             window.draw(iconSprites[i]);
         }
 
-        // Text (name and quantity)
-        std::string label = items[i].name;
-        if (items[i].quantity > 1) {
-            label += " x" + std::to_string(items[i].quantity);
+        // Quantity
+        if (items[i].quantity > 0) {
+            std::string quantity = std::to_string(items[i].quantity);
+            textTemplate.setString(quantity);
+            // Place the cell with indentation in the lower-right corner
+            sf::FloatRect textBox = textTemplate.getLocalBounds();
+            float textX = cellPos.x + CELL_SIZE - textBox.width - 5.f;
+            float textY = cellPos.y + CELL_SIZE - textBox.height - 5.f;
+            textTemplate.setPosition(textX, textY);
+            window.draw(textTemplate);
         }
-        textTemplate.setString(label);
-        textTemplate.setPosition(startX + 40.f, startY + i * stepY + 5.f);
-        window.draw(textTemplate);
     }
 
     window.setView(oldView);
