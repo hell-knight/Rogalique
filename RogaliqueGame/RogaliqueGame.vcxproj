@@ -160,6 +160,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AI.cpp" />
+    <ClCompile Include="AuraComponent.cpp" />
     <ClCompile Include="BaseLevel.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="Creeper.cpp" />
@@ -188,6 +189,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AI.h" />
+    <ClInclude Include="AuraComponent.h" />
     <ClInclude Include="BaseLevel.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="Creeper.h" />

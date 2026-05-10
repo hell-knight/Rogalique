@@ -26,6 +26,8 @@ class ENGINE_API GameWorld {
 
     void BringToFront(GameObject* obj);
 
+    void InsertBefore(GameObject* obj, GameObject* beforeThis);
+
    private:
     GameWorld() {}
     ~GameWorld() {}

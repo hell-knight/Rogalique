@@ -70,6 +70,9 @@
     <ClCompile Include="ParticleEmitter.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="AuraComponent.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h" />
@@ -95,5 +98,6 @@
     <ClInclude Include="ParticleSystemComponent.h" />
     <ClInclude Include="ParticleEmitter.h" />
     <ClInclude Include="HealTestComponent.h" />
+    <ClInclude Include="AuraComponent.h" />
   </ItemGroup>
 </Project>

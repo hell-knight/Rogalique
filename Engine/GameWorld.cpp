@@ -105,6 +105,16 @@ void GameWorld::BringToFront(GameObject* obj) {
     }
 }
 
+void GameWorld::InsertBefore(GameObject* obj, GameObject* beforeThis) {
+    auto itBefore =
+        std::find(gameObjects.begin(), gameObjects.end(), beforeThis);
+    auto itObj = std::find(gameObjects.begin(), gameObjects.end(), obj);
+    if (itBefore != gameObjects.end() && itObj != gameObjects.end()) {
+        gameObjects.erase(itObj);
+        gameObjects.insert(itBefore, obj);
+    }
+}
+
 void GameWorld::DestroyGameObjectImmediate(GameObject* gameObject) {
     auto parent = gameObject->GetComponent<TransformComponent>()->GetParent();
     if (parent != nullptr) {

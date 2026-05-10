@@ -53,7 +53,11 @@ bool ParticleSystemComponent::IsEmpty() const { return particles.empty(); }
 void ParticleSystemComponent::UpdateVertices() {
     vertices.clear();
     for (const auto& p : particles) {
-        float half = p.size * 0.5f;
+        float lifeRatio = p.life / p.maxLife;  // from 1 to 0
+        float currentSize =
+            p.size *
+            (0.3f + 0.7f * lifeRatio);  // minimum amount: 30% of the initial amount
+        float half = currentSize * 0.5f;
         // Color as a function of transparency over time
         float alpha = p.life / p.maxLife;
         sf::Color col = p.color;

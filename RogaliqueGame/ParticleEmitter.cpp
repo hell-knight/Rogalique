@@ -3,6 +3,7 @@
 #include "GameWorld.h"
 #include "RigidbodyComponent.h"
 #include <cstdlib>
+#include "FollowComponent.h"
 
 namespace RogaliqueGame {
 MyEngine::GameObject* ParticleEmitter::Create(
