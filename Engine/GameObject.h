@@ -118,6 +118,10 @@ class ENGINE_API GameObject {
         return result;
     }
 
+    const std::vector<Component*>& GetAllComponents() const {
+        return components;
+    }
+
     friend class GameWorld;
     friend class TransformComponent;
 

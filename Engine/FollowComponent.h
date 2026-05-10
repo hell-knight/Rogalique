@@ -15,13 +15,15 @@ class ENGINE_API FollowComponent : public Component {
     void SetSpeed(float newSpeed);
     float GetSpeed() const;
 
+    void SetSkipFrames(int frames) { skipFrames = frames; }
+
    private:
     TransformComponent* transform = nullptr;
     TransformComponent* targetTransform = nullptr;
     SpriteRendererComponent* spriteRenderer = nullptr;
 
     float speed = 100.f;
-    int skipFrames = 300;
+    int skipFrames = 0;
 };
 
 }  // namespace MyEngine

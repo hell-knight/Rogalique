@@ -11,6 +11,7 @@
 #include "AIAttackComponent.h"
 #include "ResourceSystem.h"
 #include "SceneManager.h"
+#include "ParticleEmitter.h"
 
 namespace RogaliqueGame {
 AI::AI(const MyEngine::Vector2Df& position, MyEngine::GameObject* player)
@@ -47,6 +48,12 @@ AI::AI(const MyEngine::Vector2Df& position, MyEngine::GameObject* player)
 
     auto health = gameObject->AddComponent<MyEngine::HealthComponent>(
         gameObject, 80.f, 5.f);
+    health->SubscribeOnDamage([this](float damage) {
+        auto pos = gameObject->GetComponent<MyEngine::TransformComponent>()
+                       ->GetWorldPosition();
+        ParticleEmitter::Create(pos, sf::Color::Red, 15, 15.f, 40.f, 100.f,
+                                0.4f, 0.8f, 10.f);
+    });
     health->SubscribeOnDeath([this]() {
         LOG_INFO("AI died.");
         auto* scene = RogaliqueGame::SceneManager::Instance()->GetCurrent();

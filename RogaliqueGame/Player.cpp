@@ -10,6 +10,9 @@
 #include "AttackComponent.h"
 #include "StaminaComponent.h"
 #include "CameraShakeComponent.h"
+#include "ParticleEmitter.h"
+#include "HealTestComponent.h"
+#include "AuraComponent.h"
 
 namespace RogaliqueGame {
 Player::Player(const MyEngine::Vector2Df& position) {
@@ -27,6 +30,9 @@ Player::Player(const MyEngine::Vector2Df& position) {
         gameObject = nullptr;
         return;
     }
+
+    auto* aura =
+        gameObject->AddComponent<RogaliqueGame::AuraComponent>(gameObject);
 
     auto renderer =
         gameObject->AddComponent<MyEngine::SpriteRendererComponent>();
@@ -60,10 +66,45 @@ Player::Player(const MyEngine::Vector2Df& position) {
 
     auto health = gameObject->AddComponent<MyEngine::HealthComponent>(
         gameObject, 100.f, 10.f);
+    gameObject->AddComponent<HealTestComponent>(gameObject, health);
+    health->SubscribeOnDamage([this](float damage) {
+        auto pos = gameObject->GetComponent<MyEngine::TransformComponent>()
+                       ->GetWorldPosition();
+        ParticleEmitter::Create(pos, sf::Color::Red, 15, 15.f, 40.f, 100.f,
+                                0.4f, 0.9f, 10.f);
+    });
+    health->SubscribeOnHeal([aura, this](float /*amount*/) {
+        const int count = 240;
+        const float radius = 80.0f;
+        const float minLife = 1.5f;
+        const float maxLife = 2.5f;
+        const float size = 26.0f;
+        const sf::Color color(100, 255, 100, 180);
+
+        std::vector<RogaliqueGame::Particle> newParticles;
+        newParticles.reserve(count);
+        for (int i = 0; i < count; ++i) {
+            RogaliqueGame::Particle p;
+            float angle = (static_cast<float>(std::rand()) / RAND_MAX) * 2.0f *
+                          3.14159265f;
+            float dist = (static_cast<float>(std::rand()) / RAND_MAX) * radius;
+            p.position = MyEngine::Vector2Df(std::cos(angle) * dist,
+                                             std::sin(angle) * dist);
+            p.velocity = MyEngine::Vector2Df(0.0f, 0.0f);
+            p.maxLife = minLife + (static_cast<float>(std::rand()) / RAND_MAX) *
+                                      (maxLife - minLife);
+            p.life = p.maxLife;
+            p.color = color;
+            p.size = size;
+            newParticles.push_back(p);
+        }
+        aura->Emit(newParticles);
+    });
     health->SubscribeOnDeath([this]() { LOG_INFO("Player died."); });
 
     auto attack = gameObject->AddComponent<MyEngine::AttackComponent>(
         gameObject, 25.f, 150.f, 0.5f);
+    
     gameObject->AddComponent<MyEngine::InputAttackComponent>();
 
     gameObject->AddComponent<MyEngine::CameraShakeComponent>(gameObject, camera, health, attack);

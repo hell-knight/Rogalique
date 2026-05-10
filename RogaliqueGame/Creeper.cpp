@@ -11,6 +11,7 @@
 #include "SpriteColliderComponent.h"
 #include "SpriteAnimationComponent.h"
 #include "SceneManager.h"
+#include "ParticleEmitter.h"
 
 namespace RogaliqueGame {
 Creeper::Creeper(const MyEngine::Vector2Df& position,
@@ -51,6 +52,12 @@ Creeper::Creeper(const MyEngine::Vector2Df& position,
 
     auto health = gameObject->AddComponent<MyEngine::HealthComponent>(
         gameObject, 50.f, 0.f);
+    health->SubscribeOnDamage([this](float damage) {
+        auto pos = gameObject->GetComponent<MyEngine::TransformComponent>()
+                       ->GetWorldPosition();
+        ParticleEmitter::Create(pos, sf::Color::Red, 15, 15.f, 40.f, 100.f,
+                                0.4f, 0.8f, 10.f);
+    });
     health->SubscribeOnDeath([this]() {
         LOG_INFO("Creeper died.");
         auto* scene = RogaliqueGame::SceneManager::Instance()->GetCurrent();

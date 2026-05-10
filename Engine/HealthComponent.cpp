@@ -55,6 +55,9 @@ void HealthComponent::Heal(float amount) {
     health = std::min(maxHealth, health + amount);
     LOG_INFO(gameObject->GetName() + " healed by " + std::to_string(amount) +
              ", HP: " + std::to_string(health));
+    for (auto& pair : healCallbacks) {
+        pair.second(amount);
+    }
 }
 
 void HealthComponent::CheckDeath() {
@@ -80,5 +83,13 @@ int HealthComponent::SubscribeOnDamage(std::function<void(float)> callback) {
 }
 
 void HealthComponent::UnsubscribeOnDamage(int id) { damageCallbacks.erase(id); }
+
+int HealthComponent::SubscribeOnHeal(std::function<void(float)> callback) {
+    int id = nextHealCallbackId;
+    healCallbacks[id] = callback;
+    return id;
+}
+
+void HealthComponent::UnsubscribeOnHeal(int id) { healCallbacks.erase(id); }
 
 }  // namespace MyEngine

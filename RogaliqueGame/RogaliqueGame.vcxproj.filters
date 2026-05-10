@@ -64,6 +64,15 @@
     <ClCompile Include="InventoryUIComponent.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="ParticleSystemComponent.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleEmitter.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="AuraComponent.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h" />
@@ -85,5 +94,10 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="InventoryComponent.h" />
     <ClInclude Include="InventoryUIComponent.h" />
+    <ClInclude Include="Particle.h" />
+    <ClInclude Include="ParticleSystemComponent.h" />
+    <ClInclude Include="ParticleEmitter.h" />
+    <ClInclude Include="HealTestComponent.h" />
+    <ClInclude Include="AuraComponent.h" />
   </ItemGroup>
 </Project>
