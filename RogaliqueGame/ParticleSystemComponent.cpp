@@ -35,12 +35,7 @@ void ParticleSystemComponent::Update(float deltaTime) {
 void ParticleSystemComponent::Render() {
     if (particles.empty()) return;
     auto& window = MyEngine::RenderSystem::Instance()->GetMainWindow();
-    sf::View oldView = window.getView();
-    window.setView(window.getDefaultView());
-    // Let's restore the old view
-    window.setView(oldView);
     // draw directly in world coordinates (like sprites). Since the camera is already
-    // set up, we'll keep the current view.
     window.draw(vertices);
 }
 
