@@ -2,6 +2,7 @@
 #include "Component.h"
 #include "Vector.h"
 #include <random>
+#include <memory>
 
 namespace MyEngine {
 class GameObject;
@@ -42,9 +43,8 @@ class BossAIComponent : public MyEngine::Component {
     void ExecuteShockwave();
     void ExecuteTeleport();
 
-    MyEngine::GameObject* player;
+    std::weak_ptr<MyEngine::GameObject> m_player;
     MyEngine::TransformComponent* transform;
-    MyEngine::TransformComponent* playerTransform;
     MyEngine::RigidbodyComponent* rigidbody;
     MyEngine::HealthComponent* health;
     MyEngine::AttackComponent* attackComp;

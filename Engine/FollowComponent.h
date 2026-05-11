@@ -3,6 +3,7 @@
 #include "TransformComponent.h"
 #include "SpriteRendererComponent.h"
 #include "EngineAPI.h"
+#include <memory>
 
 namespace MyEngine {
 class ENGINE_API FollowComponent : public Component {
@@ -19,7 +20,7 @@ class ENGINE_API FollowComponent : public Component {
 
    private:
     TransformComponent* transform = nullptr;
-    TransformComponent* targetTransform = nullptr;
+    std::weak_ptr<GameObject> targetGameObject;
     SpriteRendererComponent* spriteRenderer = nullptr;
 
     float speed = 100.f;

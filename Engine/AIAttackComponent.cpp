@@ -20,13 +20,12 @@ AIAttackComponent::AIAttackComponent(GameObject* gameObject)
 
 void AIAttackComponent::SetTarget(GameObject* target) {
     if (target) {
-        targetTransform = target->GetComponent<TransformComponent>();
-        if (targetTransform)
-            LOG_INFO("AIAttackComponent target set to " + target->GetName());
-        else
-            LOG_ERROR("AIAttackComponent: target has no TransformComponent.");
+        targetGameObject = target->GetWeakPtr();
+        auto t = targetGameObject.lock();
+        if (t)
+            LOG_INFO("AIAttackComponent target set to " + t->GetName());
     } else {
-        targetTransform = nullptr;
+        targetGameObject.reset();
         LOG_WARN("AIAttackComponent: target cleared.");
     }
 }
@@ -34,7 +33,13 @@ void AIAttackComponent::SetTarget(GameObject* target) {
 void AIAttackComponent::SetAttackRange(float range) { attackRange = range; }
 
 void AIAttackComponent::Update(float) {
-    if (!selfTransform || !targetTransform || !attack) return;
+    if (!selfTransform || !attack) return;
+
+    auto target = targetGameObject.lock();
+    if (!target) return;
+
+    auto* targetTransform = target->GetComponent<TransformComponent>();
+    if (!targetTransform) return;
 
     Vector2Df diff =
         targetTransform->GetWorldPosition() - selfTransform->GetWorldPosition();

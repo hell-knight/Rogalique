@@ -1,10 +1,12 @@
 #pragma once
 #include "Component.h"
 #include "EngineAPI.h"
+#include <memory>
 
 namespace MyEngine {
 class TransformComponent;
 class AttackComponent;
+class GameObject;
 
 class ENGINE_API AIAttackComponent : public Component {
    public:
@@ -18,7 +20,7 @@ class ENGINE_API AIAttackComponent : public Component {
 
    private:
     TransformComponent* selfTransform = nullptr;
-    TransformComponent* targetTransform = nullptr;
+    std::weak_ptr<GameObject> targetGameObject;
     AttackComponent* attack = nullptr;
     float attackRange = 150.f;
 };
