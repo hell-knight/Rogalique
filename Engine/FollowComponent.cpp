@@ -15,7 +15,7 @@ FollowComponent::FollowComponent(GameObject* gameObject)
 }
 
 void FollowComponent::Update(float deltaTime) {
-    if (transform == nullptr || targetTransform == nullptr) {
+    if (transform == nullptr) {
         return;
     }
 
@@ -23,6 +23,12 @@ void FollowComponent::Update(float deltaTime) {
         --skipFrames;
         return;
     }
+
+    auto target = targetGameObject.lock();
+    if (!target) return;
+
+    auto* targetTransform = target->GetComponent<TransformComponent>();
+    if (!targetTransform) return;
 
     Vector2Df currentPos = transform->GetWorldPosition();
     Vector2Df targetPos = targetTransform->GetWorldPosition();
@@ -46,14 +52,15 @@ void FollowComponent::Render() {}
 void FollowComponent::SetTarget(GameObject* targetObject) {
     if (!targetObject) {
         LOG_WARN("FollowComponent: SetTarget called with nullptr.");
-        targetTransform = nullptr;
+        targetGameObject.reset();
         return;
     }
-    targetTransform = targetObject->GetComponent<TransformComponent>();
-    if (targetTransform) {
+    targetGameObject = targetObject->GetWeakPtr();
+    auto locked = targetGameObject.lock();
+    if (locked) {
         LOG_INFO("FollowComponent: target set to " + targetObject->GetName());
     } else {
-        LOG_ERROR("FollowComponent: target object has no TransformComponent.");
+        LOG_ERROR("FollowComponent: failed to lock target weak_ptr.");
     }
 }
 

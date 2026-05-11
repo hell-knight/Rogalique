@@ -14,12 +14,11 @@ namespace RogaliqueGame {
 
 BossAIComponent::BossAIComponent(MyEngine::GameObject* gameObject,
                                  MyEngine::GameObject* player)
-    : Component(gameObject), player(player), rng(std::random_device{}()) {
+    : Component(gameObject), m_player(player->GetWeakPtr()), rng(std::random_device{}()) {
     transform = gameObject->GetComponent<MyEngine::TransformComponent>();
     rigidbody = gameObject->GetComponent<MyEngine::RigidbodyComponent>();
     health = gameObject->GetComponent<MyEngine::HealthComponent>();
     attackComp = gameObject->GetComponent<MyEngine::AttackComponent>();
-    playerTransform = player->GetComponent<MyEngine::TransformComponent>();
     spriteRenderer =
         gameObject->GetComponent<MyEngine::SpriteRendererComponent>();
 }
@@ -35,6 +34,14 @@ void BossAIComponent::Update(float deltaTime) {
         SetState(DEAD);
         return;
     }
+
+    auto player = m_player.lock();
+    if (!player) {
+        return;
+    }
+
+    auto playerTransform = player->GetComponent<MyEngine::TransformComponent>();
+    if (!playerTransform) return;
 
     // Sprite facing the player (always)
     if (spriteRenderer && playerTransform) {
@@ -72,6 +79,11 @@ void BossAIComponent::UpdateIdle(float dt) {
 }
 
 void BossAIComponent::UpdateChasing(float dt) {
+    auto player = m_player.lock();
+    if (!player) {
+        return;
+    }
+    auto playerTransform = player->GetComponent<MyEngine::TransformComponent>();
     if (!playerTransform) return;
 
     MyEngine::Vector2Df myPos = transform->GetWorldPosition();
@@ -112,6 +124,12 @@ void BossAIComponent::UpdateChasing(float dt) {
 }
 
 void BossAIComponent::UpdateAttackCharge(float dt) {
+    auto player = m_player.lock();
+    if (!player) {
+        return;
+    }
+    auto playerTransform = player->GetComponent<MyEngine::TransformComponent>();
+    if (!playerTransform) return;
     stateTimer += dt;
     // Moving in the same direction
     transform->MoveBy(chargeDirection * chargeSpeed * dt);
@@ -164,6 +182,12 @@ void BossAIComponent::UpdateAttackShockwave(float dt) {
 }
 
 void BossAIComponent::UpdateAttackTeleport(float dt) {
+    auto player = m_player.lock();
+    if (!player) {
+        return;
+    }
+    auto playerTransform = player->GetComponent<MyEngine::TransformComponent>();
+    if (!playerTransform) return;
     // Instant execution on entry
     if (stateTimer == 0.0f) {
         // Teleport to a random location near the player
@@ -188,6 +212,12 @@ void BossAIComponent::UpdateAttackTeleport(float dt) {
 }
 
 void BossAIComponent::ExecuteCharge() {
+    auto player = m_player.lock();
+    if (!player) {
+        return;
+    }
+    auto playerTransform = player->GetComponent<MyEngine::TransformComponent>();
+    if (!playerTransform) return;
     // keep the player in our sights
     MyEngine::Vector2Df dir =
         playerTransform->GetWorldPosition() - transform->GetWorldPosition();

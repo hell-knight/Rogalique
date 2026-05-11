@@ -20,9 +20,9 @@ class ENGINE_API GameWorld {
 
     void Print() const;
 
-    const std::vector<GameObject*>& GetAllGameObjects() const {
-        return gameObjects;
-    }
+    // Returns a list of raw pointers, as before,
+    // but now the owners are shared_ptrs.
+    std::vector<GameObject*> GetAllGameObjects() const;
 
     void BringToFront(GameObject* obj);
 
@@ -37,8 +37,9 @@ class ENGINE_API GameWorld {
 
     float fixedCounter = 0.f;
 
-    std::vector<GameObject*> gameObjects = {};
-    std::vector<GameObject*> markedToDestroyGameObjects = {};
+    // Now GameWorld owns the objects via shared_ptr
+    std::vector<std::shared_ptr<GameObject>> gameObjects;
+    std::vector<GameObject*> markedToDestroyGameObjects;
 
     void DestroyGameObjectImmediate(GameObject* gameObject);
 };

@@ -1,12 +1,13 @@
 #pragma once
 #include "TransformComponent.h"
 #include <iostream>
+#include <memory>
 #include "EngineAPI.h"
 
 namespace MyEngine {
 class TransformComponent;
 
-class ENGINE_API GameObject {
+class ENGINE_API GameObject : public std::enable_shared_from_this<GameObject> {
    public:
     GameObject();
     GameObject(std::string newName);
@@ -17,6 +18,8 @@ class ENGINE_API GameObject {
 
     void Update(float deltaTime);
     void Render();
+
+    std::weak_ptr<GameObject> GetWeakPtr() { return weak_from_this(); }
 
     template <typename T>
     T* AddComponent() {
