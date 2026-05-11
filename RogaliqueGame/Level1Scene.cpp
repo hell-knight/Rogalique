@@ -14,6 +14,7 @@
 #include "Logger.h"
 #include "Spawner.h"
 #include <algorithm>
+#include "Boss.h"
 
 using namespace MyEngine;
 
@@ -76,6 +77,8 @@ void Level1Scene::Start() {
     }
     LOG_INFO("Spawned " + std::to_string(creepers.size()) + " creepers.");
 
+    /*SpawnBoss(MyEngine::Vector2Df(2 * 128.f, 2 * 128.f));*/
+    /*
     SetAllEnemiesDeadCallback([this, floorPositions]() mutable {
         if (!floorPositions.empty()) {
             int exitIdx = std::rand() % floorPositions.size();
@@ -88,6 +91,32 @@ void Level1Scene::Start() {
                      std::to_string(exitPos.x) + ", " +
                      std::to_string(exitPos.y) + ")");
         }
+    });*/
+
+    // Колбэк, когда все обычные враги убиты
+    SetAllEnemiesDeadCallback([this, floorPositions]() {
+        LOG_INFO("All ordinary enemies defeated! The boss emerges...");
+        // 1. Удаляем внутренние стены
+        RemoveInnerWalls();
+        // 3. Создаём босса в центре
+        Vector2Df bossPos(7 * 128.f, 7 * 128.f);
+        auto boss = std::make_shared<Boss>(bossPos, player);
+        AddEnemy(boss);  // увеличит aliveEnemies
+        IncrementEnemyCount();
+        bossSpawned = true;
+
+        // 4. Колбэк после смерти босса — открыть выход
+        SetBossDeadCallback([this, floorPositions]() {
+            if (!floorPositions.empty()) {
+                int exitIdx = std::rand() % floorPositions.size();
+                auto exitPos = floorPositions[exitIdx];
+                auto exit = std::make_shared<LevelExit>(exitPos, [this]() {
+                    SceneManager::Instance()->RequestSwitch(new Level2Scene());
+                });
+                AddSceneObject(exit->GetGameObject());
+                LOG_INFO("Boss defeated! Exit opened.");
+            }
+        });
     });
 
     LOG_INFO("Level 1 setup complete.");

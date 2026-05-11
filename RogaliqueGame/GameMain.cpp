@@ -44,6 +44,8 @@ int main() {
         "icon_key", "Resources/Textures/key.png");
     MyEngine::ResourceSystem::Instance()->LoadTexture(
         "icon_potion", "Resources/Textures/health_potion.png");
+    MyEngine::ResourceSystem::Instance()->LoadTextureMap(
+        "boss", "Resources/Textures/Boss_walk.png", {384 / 6, 256 / 4}, 24, false);
 
     MyEngine::ResourceSystem::Instance()->LoadSound(
         "music", "Resources/Sounds/game_background.ogg");

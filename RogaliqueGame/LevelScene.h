@@ -48,8 +48,12 @@ class LevelScene : public MyEngine::Scene{
     void DecrementEnemyCount();
     int GetAliveEnemies() const { return aliveEnemies; }
 
+    void SetBossDeadCallback(std::function<void()> callback);
+    void RemoveInnerWalls();  // removes all walls except the boundary walls
+
    protected:
     MyEngine::GameObject* player = nullptr;
+    bool bossSpawned = false;
 
    private:
     std::vector<MyEngine::GameObject*> sceneObjects;
@@ -58,5 +62,7 @@ class LevelScene : public MyEngine::Scene{
     std::vector<std::shared_ptr<Character>> enemies;
     int aliveEnemies = 0;
     std::function<void()> onAllEnemiesDead;
+
+    std::function<void()> onBossDead;
 };
 }
