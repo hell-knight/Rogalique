@@ -2,7 +2,7 @@
 #include "ParticleSystemComponent.h"
 #include "GameWorld.h"
 #include "RigidbodyComponent.h"
-#include <cstdlib>
+#include "randomizer.h"
 #include "FollowComponent.h"
 
 namespace RogaliqueGame {
@@ -35,21 +35,19 @@ std::vector<Particle> ParticleEmitter::GenerateBurst(
     for (int i = 0; i < count; ++i) {
         Particle p;
         // Random displacement within the radius
-        float angle = static_cast<float>(rand()) / RAND_MAX * 2 * 3.14159265f;
-        float dist = static_cast<float>(rand()) / RAND_MAX * radius;
+        float angle = random(0.0f, 2.f * 3.14159265f);
+        float dist = random(0.0f, radius);
         p.position.x = origin.x + cosf(angle) * dist;
         p.position.y = origin.y + sinf(angle) * dist;
 
         // Speed: random direction and speed
-        float speed = minSpeed + static_cast<float>(rand()) / RAND_MAX *
-                                     (maxSpeed - minSpeed);
-        float velAngle =
-            static_cast<float>(rand()) / RAND_MAX * 2 * 3.14159265f;
+        float speed = random(minSpeed, maxSpeed);
+        float velAngle = random(0.0f, 2.f * 3.14159265f);
         p.velocity.x = cosf(velAngle) * speed;
         p.velocity.y = sinf(velAngle) * speed;
 
-        p.maxLife = minLife +
-                    static_cast<float>(rand()) / RAND_MAX * (maxLife - minLife);
+        p.maxLife = random(minLife, maxLife);
+        ;
         p.life = p.maxLife;
         p.color = color;
         p.size = size;

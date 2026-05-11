@@ -1,6 +1,6 @@
 #include "Spawner.h"
 #include "Character.h"
-#include <cstdlib>
+#include "randomizer.h"
 
 namespace RogaliqueGame {
 Spawner::Spawner(SpawnCallBack callback) : create_(std::move(callback)) {}
@@ -17,7 +17,7 @@ std::vector<std::shared_ptr<Character>> Spawner::SpawnRandom(
     std::vector<MyEngine::Vector2Df> positions = validPositions;
 
     for (int i = 0; i < count; ++i) {
-        int idx = std::rand() % positions.size();
+        int idx = random(0, static_cast<int>(positions.size()) - 1);
 
         auto character = create_(positions[idx]);
         if (character) {

@@ -12,8 +12,8 @@ Engine* Engine::Instance() {
 
 Engine::Engine() {
     // Init random number generator
-    unsigned int seed = (unsigned int)time(nullptr);
-    srand(seed);
+    /*unsigned int seed = (unsigned int)time(nullptr);
+    srand(seed);*/
 
     setupLogger();
 }

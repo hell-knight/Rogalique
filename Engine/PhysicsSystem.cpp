@@ -105,23 +105,9 @@ void PhysicsSystem::ResolveCollision(ColliderComponent* colliderA,
         }
     }
 
-    // test world position
-    /*Vector2Df newPos = colliderATransform->GetWorldPosition();
-    if (oldPos.x != newPos.x || oldPos.y != newPos.y) {
-        LOG_INFO("Physics pushed " + colliderA->GetGameObject()->GetName() +
-                 " from (" + std::to_string(oldPos.x) + ", " +
-                 std::to_string(oldPos.y) + ") to (" +
-                 std::to_string(newPos.x) + ", " + std::to_string(newPos.y) +
-                 ")");
-    }*/
-
     Collision collision(colliderA, colliderB, intersection);
     colliderA->OnCollision(collision);
     colliderB->OnCollision(collision);
-
-    /*LOG_INFO("Collision (" + collisionDir + ") between '" +
-             colliderA->GetGameObject()->GetName() + "' and '" +
-             colliderB->GetGameObject()->GetName() + "'");*/
 }
 
 void PhysicsSystem::ProcessTriggerExits() {

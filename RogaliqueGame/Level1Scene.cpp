@@ -15,6 +15,7 @@
 #include "Spawner.h"
 #include <algorithm>
 #include "Boss.h"
+#include "randomizer.h"
 
 using namespace MyEngine;
 
@@ -61,7 +62,7 @@ void Level1Scene::Start() {
 
     Spawner mixedSpawner(
         [this](const Vector2Df& pos) -> std::shared_ptr<Character> {
-            if (rand() % 2)
+            if (random(0, 1) == 1)
                 return std::make_shared<Creeper>(pos, player);
             else
                 return std::make_shared<AI>(pos, player);
@@ -77,35 +78,19 @@ void Level1Scene::Start() {
     }
     LOG_INFO("Spawned " + std::to_string(creepers.size()) + " creepers.");
 
-    /*SpawnBoss(MyEngine::Vector2Df(2 * 128.f, 2 * 128.f));*/
-    /*
-    SetAllEnemiesDeadCallback([this, floorPositions]() mutable {
-        if (!floorPositions.empty()) {
-            int exitIdx = std::rand() % floorPositions.size();
-            Vector2Df exitPos = floorPositions[exitIdx];
-            auto exit = std::make_shared<LevelExit>(exitPos, [this]() {
-                SceneManager::Instance()->RequestSwitch(new Level2Scene());
-            });
-            AddSceneObject(exit->GetGameObject());
-            LOG_INFO("All enemies defeated! Exit placed at (" +
-                     std::to_string(exitPos.x) + ", " +
-                     std::to_string(exitPos.y) + ")");
-        }
-    });*/
-
-    // Колбэк, когда все обычные враги убиты
+    // A callback when all the usual enemies have been defeated
     SetAllEnemiesDeadCallback([this, floorPositions]() {
         LOG_INFO("All ordinary enemies defeated! The boss emerges...");
-        // 1. Удаляем внутренние стены
+        // Removing interior walls
         RemoveInnerWalls();
-        // 3. Создаём босса в центре
+        // Let's create a boss in the center
         Vector2Df bossPos(7 * 128.f, 7 * 128.f);
         auto boss = std::make_shared<Boss>(bossPos, player);
-        AddEnemy(boss);  // увеличит aliveEnemies
+        AddEnemy(boss);
         IncrementEnemyCount();
         bossSpawned = true;
 
-        // 4. Колбэк после смерти босса — открыть выход
+        // Post-boss death: Unlock the exit
         SetBossDeadCallback([this, floorPositions]() {
             if (!floorPositions.empty()) {
                 int exitIdx = std::rand() % floorPositions.size();
