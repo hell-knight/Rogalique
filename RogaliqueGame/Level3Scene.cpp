@@ -13,6 +13,7 @@
 #include "GameWorld.h"
 #include "Logger.h"
 #include <algorithm>
+#include "randomizer.h"
 
 using namespace MyEngine;
 
@@ -56,7 +57,7 @@ void Level3Scene::Start() {
 
     Spawner mixedSpawner(
         [this](const Vector2Df& pos) -> std::shared_ptr<Character> {
-            if (rand() % 2)
+            if (random(0, 1) == 1)
                 return std::make_shared<Creeper>(pos, player);
             else
                 return std::make_shared<AI>(pos, player);

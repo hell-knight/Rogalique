@@ -14,6 +14,7 @@
 #include "Logger.h"
 #include <algorithm>
 #include "Boss.h"
+#include "randomizer.h"
 
 using namespace MyEngine;
 
@@ -27,10 +28,6 @@ void Level2Scene::Start() {
     maze.Generate();
 
     const auto& passGrid = maze.GetPassabilityGrid();
-
-    //int playerStartX = width / 2;
-    //int playerStartY = height / 2;
-    //auto playerPos = Vector2Df(playerStartX * 128.f, playerStartY * 128.f);
 
     auto playerPos = Vector2Df(width / 2.f * 128.f, height / 2.f * 128.f);
 
@@ -60,7 +57,7 @@ void Level2Scene::Start() {
 
     Spawner mixedSpawner(
         [this](const Vector2Df& pos) -> std::shared_ptr<Character> {
-            if (rand() % 2)
+            if (random(0, 1) == 1)
                 return std::make_shared<Creeper>(pos, player);
             else
                 return std::make_shared<AI>(pos, player);
@@ -82,39 +79,21 @@ void Level2Scene::Start() {
     }
     LOG_INFO("Spawned " + std::to_string(enemies.size()) + " enemies.");
 
-    /*SetAllEnemiesDeadCallback([this, floorPositions]() mutable {
-        if (!floorPositions.empty()) {
-            int exitIdx = std::rand() % floorPositions.size();
-            Vector2Df exitPos = floorPositions[exitIdx];
-            auto exit = std::make_shared<LevelExit>(exitPos, [this]() {
-                SceneManager::Instance()->RequestSwitch(new Level3Scene());
-            });
-            AddSceneObject(exit->GetGameObject());
-            LOG_INFO("All enemies defeated! Exit placed at (" +
-                     std::to_string(exitPos.x) + ", " +
-                     std::to_string(exitPos.y) + ")");
-        }
-    });*/
-
-    // Колбэк, когда все обычные враги убиты
     SetAllEnemiesDeadCallback([this, floorPositions]() {
         LOG_INFO("All ordinary enemies defeated! The boss emerges...");
-        // 1. Удаляем внутренние стены
         RemoveInnerWalls();
-        // 3. Создаём босса в центре
         Vector2Df bossPos(7 * 128.f, 7 * 128.f);
         auto boss = std::make_shared<Boss>(bossPos, player);
-        AddEnemy(boss);  // увеличит aliveEnemies
+        AddEnemy(boss);
         IncrementEnemyCount();
         bossSpawned = true;
 
-        // 4. Колбэк после смерти босса — открыть выход
         SetBossDeadCallback([this, floorPositions]() {
             if (!floorPositions.empty()) {
                 int exitIdx = std::rand() % floorPositions.size();
                 auto exitPos = floorPositions[exitIdx];
                 auto exit = std::make_shared<LevelExit>(exitPos, [this]() {
-                    SceneManager::Instance()->RequestSwitch(new Level2Scene());
+                    SceneManager::Instance()->RequestSwitch(new Level3Scene());
                 });
                 AddSceneObject(exit->GetGameObject());
                 LOG_INFO("Boss defeated! Exit opened.");

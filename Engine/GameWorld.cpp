@@ -31,14 +31,13 @@ void GameWorld::Render() {
 }
 
 void GameWorld::LateUpdate() {
-    // --- Безопасное удаление помеченных объектов ---
-    // Берём копию, чтобы избежать модификации вектора во время итерации
+    // --- Safely delete selected items ---
+    // take a copy to prevent the vector from being modified during the iteration
     std::vector<GameObject*> toDestroy = markedToDestroyGameObjects;
     markedToDestroyGameObjects.clear();
 
     for (GameObject* go : toDestroy) {
-        // Проверяем, жив ли ещё объект (мог быть уже удалён как потомок
-        // другого)
+        // check whether the object still exists (it may have already been deleted as a descendant of another object)
         auto it = std::find_if(gameObjects.begin(), gameObjects.end(),
                                [go](const std::shared_ptr<GameObject>& sp) {
                                    return sp.get() == go;
@@ -46,10 +45,9 @@ void GameWorld::LateUpdate() {
         if (it != gameObjects.end()) {
             DestroyGameObjectImmediate(go);
         }
-        // Если объект уже отсутствует, просто пропускаем
     }
 
-    // --- Автоудаление по истечению срока (IsExpired) ---
+    // --- Automatic deletion upon expiration (IsExpired) ---
     for (int i = (int)gameObjects.size() - 1; i >= 0; --i) {
         auto& go = gameObjects[i];
         bool expired = false;
@@ -60,7 +58,7 @@ void GameWorld::LateUpdate() {
             }
         }
         if (expired) {
-            DestroyGameObject(go.get());  // будет удалён на следующем кадре
+            DestroyGameObject(go.get());  // will be removed in the next frame
         }
     }
 }
@@ -78,14 +76,14 @@ GameObject* GameWorld::CreateGameObject(std::string name) {
 }
 
 void GameWorld::DestroyGameObject(GameObject* gameObject) {
-    // Перестраховка: если объекта нет в хранилище – выходим
+    // Safety net: if the object isn't in the storage, we exit
     auto it = std::find_if(gameObjects.begin(), gameObjects.end(),
                            [gameObject](const std::shared_ptr<GameObject>& sp) {
                                return sp.get() == gameObject;
                            });
     if (it == gameObjects.end()) return;
 
-    // Проверка, что не помечен уже
+    // Check that it hasn't already been marked
     if (std::find(markedToDestroyGameObjects.begin(),
                   markedToDestroyGameObjects.end(),
                   gameObject) == markedToDestroyGameObjects.end()) {
@@ -94,8 +92,8 @@ void GameWorld::DestroyGameObject(GameObject* gameObject) {
 }
 
 void GameWorld::Clear() {
-    // Сначала сбросим родительские связи, чтобы деструкторы не пытались удалить
-    // детей повторно
+    // First, let's reset the parent-child relationships so that the destructors
+    // don't try to delete the children again
     for (auto& go : gameObjects) {
         auto* transform = go->GetComponent<TransformComponent>();
         if (transform && transform->GetParent()) {
@@ -157,7 +155,7 @@ void GameWorld::InsertBefore(GameObject* obj, GameObject* beforeThis) {
 void GameWorld::DestroyGameObjectImmediate(GameObject* gameObject) {
     if (!gameObject) return;
 
-    // Проверяем, существует ли объект в главном хранилище
+    // Check whether the object exists in the main storage
     auto itRoot =
         std::find_if(gameObjects.begin(), gameObjects.end(),
                      [gameObject](const std::shared_ptr<GameObject>& sp) {
@@ -165,7 +163,7 @@ void GameWorld::DestroyGameObjectImmediate(GameObject* gameObject) {
                      });
     if (itRoot == gameObjects.end()) return;
 
-    // Собираем множество удаляемых (корень + потомки)
+    // Collect a set of items to be deleted (root + children)
     std::unordered_set<GameObject*> toRemoveSet;
     toRemoveSet.insert(gameObject);
 
@@ -186,7 +184,7 @@ void GameWorld::DestroyGameObjectImmediate(GameObject* gameObject) {
         }
     }
 
-    // Отсоединяем от родителя (если есть)
+    // Disconnect from the parent (if any)
     if (rootTransform) {
         auto* parent = rootTransform->GetParent();
         if (parent) {
@@ -194,7 +192,7 @@ void GameWorld::DestroyGameObjectImmediate(GameObject* gameObject) {
         }
     }
 
-    // Удаляем из gameObjects все объекты из множества
+    // Remove all objects from the set from the gameObjects
     gameObjects.erase(
         std::remove_if(gameObjects.begin(), gameObjects.end(),
                        [&](const std::shared_ptr<GameObject>& sp) {

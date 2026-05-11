@@ -1,8 +1,7 @@
 #include "MazeGenerator.h"
 #include "Wall.h"
 #include "Floor.h"
-#include <cstdlib>
-#include <ctime>
+#include "randomizer.h"
 
 namespace RogaliqueGame {
 // Constructor: Initializes the maze generator with the given dimensions and
@@ -20,8 +19,8 @@ void MazeGenerator::Generate() {
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
     // Start from a random cell in the grid.
-    int startX = 2 + std::rand() % (width - 4);
-    int startY = 2 + std::rand() % (height - 4);
+    int startX = random(2, width - 3);
+    int startY = random(2, height - 3);
 
     // Use a stack to keep track of visited cells during DFS.
     std::stack<std::pair<int, int>> stack;
@@ -45,8 +44,8 @@ void MazeGenerator::Generate() {
             stack.push({x, y});
 
             // Randomly select one of the available directions.
-            std::pair<int, int> dir =
-                directions[std::rand() % directions.size()];
+            int idx = random(0, static_cast<int>(directions.size()) - 1);
+            auto dir = directions[idx];
             int nx = x + dir.first;
             int ny = y + dir.second;
 
@@ -60,13 +59,6 @@ void MazeGenerator::Generate() {
             stack.push({nx, ny});
         }
     }
-    /*for (int y = 0; y < height; ++y) {
-        for (int x = 0; x < width; ++x) {
-            if (x == 1 || x == width - 1 || y == 1 || y == height - 1) {
-                grid[y][x] = false;
-            }
-        }
-    }*/
 }
 
 // GetAvailableDirections: Returns a list of valid, unvisited neighboring cells.
