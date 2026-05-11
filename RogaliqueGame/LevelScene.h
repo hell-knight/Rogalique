@@ -64,5 +64,8 @@ class LevelScene : public MyEngine::Scene{
     std::function<void()> onAllEnemiesDead;
 
     std::function<void()> onBossDead;
+
+    bool m_allEnemiesDeadCalled = false;
+    bool m_bossDeadCalled = false;
 };
 }

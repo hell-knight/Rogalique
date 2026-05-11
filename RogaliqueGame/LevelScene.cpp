@@ -16,6 +16,14 @@ void LevelScene::Stop() {
     sceneObjects.clear();
     floors.clear();
     walls.clear();
+    enemies.clear();
+
+    aliveEnemies = 0;
+    bossSpawned = false;
+    m_allEnemiesDeadCalled = false;
+    m_bossDeadCalled = false;
+    onAllEnemiesDead = nullptr;
+    onBossDead = nullptr;
 }
 
 void LevelScene::AddSceneObject(MyEngine::GameObject* obj) {
@@ -71,9 +79,11 @@ void LevelScene::DecrementEnemyCount() {
     if (aliveEnemies > 0) {
         --aliveEnemies;
         if (aliveEnemies == 0) {
-            if (!bossSpawned) {
+            if (!bossSpawned && !m_allEnemiesDeadCalled) {
+                m_allEnemiesDeadCalled = true;
                 if (onAllEnemiesDead) onAllEnemiesDead();
-            } else {
+            } else if (bossSpawned && !m_bossDeadCalled) {
+                m_bossDeadCalled = true;
                 if (onBossDead) onBossDead();
             }
         }
