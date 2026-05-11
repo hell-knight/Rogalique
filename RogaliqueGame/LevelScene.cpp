@@ -3,6 +3,7 @@
 #include "Floor.h"
 #include "Wall.h"
 #include "GameWorld.h"
+#include "Boss.h"
 
 namespace RogaliqueGame {
 LevelScene::LevelScene() = default;
@@ -67,11 +68,48 @@ void LevelScene::SetAllEnemiesDeadCallback(std::function<void()> callback) {
 void LevelScene::IncrementEnemyCount() { ++aliveEnemies; }
 
 void LevelScene::DecrementEnemyCount() { 
-    if (aliveEnemies > 0){
+    if (aliveEnemies > 0) {
         --aliveEnemies;
-        if (aliveEnemies == 0 && onAllEnemiesDead) {
-            onAllEnemiesDead();
+        if (aliveEnemies == 0) {
+            if (!bossSpawned) {
+                if (onAllEnemiesDead) onAllEnemiesDead();
+            } else {
+                if (onBossDead) onBossDead();
+            }
         }
     }
 }
+
+void LevelScene::SetBossDeadCallback(std::function<void()> callback) {
+    onBossDead = std::move(callback);
+}
+
+void LevelScene::RemoveInnerWalls() {
+    const float tileSize = 128.f;
+    const int width = 15, height = 15;
+    std::vector<Wall*> toRemove;
+
+    for (auto& wall : walls) {
+        auto pos = wall->GetPosition();
+        int tileX = static_cast<int>(pos.x / tileSize);
+        int tileY = static_cast<int>(pos.y / tileSize);
+        // keep only the boundary walls (x==0, x==width, y==0, y==height)
+        if (tileX > 0 && tileX < width && tileY > 0 && tileY < height) {
+            toRemove.push_back(wall.get());
+        }
+    }
+
+    for (auto* w : toRemove) {
+        auto it = std::find_if(
+            walls.begin(), walls.end(),
+            [w](const std::unique_ptr<Wall>& p) { return p.get() == w; });
+        if (it != walls.end()) {
+            MyEngine::GameObject* go = (*it)->GetGameObject();
+            RemoveSceneObject(go);
+            MyEngine::GameWorld::Instance()->DestroyGameObject(go);
+            walls.erase(it);
+        }
+    }
+}
+
 }  // namespace RogaliqueGame

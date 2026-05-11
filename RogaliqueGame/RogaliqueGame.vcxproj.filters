@@ -73,6 +73,12 @@
     <ClCompile Include="AuraComponent.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="Boss.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="BossAIComponent.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h" />
@@ -99,5 +105,7 @@
     <ClInclude Include="ParticleEmitter.h" />
     <ClInclude Include="HealTestComponent.h" />
     <ClInclude Include="AuraComponent.h" />
+    <ClInclude Include="Boss.h" />
+    <ClInclude Include="BossAIComponent.h" />
   </ItemGroup>
 </Project>
