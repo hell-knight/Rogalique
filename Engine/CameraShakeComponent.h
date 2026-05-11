@@ -13,6 +13,7 @@ class ENGINE_API CameraShakeComponent : public Component {
     CameraShakeComponent(GameObject* gameObject, CameraComponent* camera,
                          HealthComponent* health,
                          AttackComponent* attack = nullptr);
+    ~CameraShakeComponent();
 
     void Update(float deltaTime) override;
     void Render() override {}

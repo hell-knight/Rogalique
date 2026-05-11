@@ -36,6 +36,17 @@ CameraShakeComponent::CameraShakeComponent(GameObject* gameObject,
     }
 }
 
+CameraShakeComponent::~CameraShakeComponent() {
+    // Safely unsubscribe from events
+    if (auto* health = gameObject->GetComponent<HealthComponent>()) {
+        health->UnsubscribeOnDamage(damageSubId);
+        // If there were a “unsubscribe” option for death, we'd unsubscribe from that too, but there isn't one
+    }
+    if (auto* attack = gameObject->GetComponent<AttackComponent>()) {
+        attack->UnsubscribeOnAttack(attackSubId);
+    }
+}
+
 void CameraShakeComponent::Update(float deltaTime) {
     if (isShaking) {
         shakeTimer -= deltaTime;
