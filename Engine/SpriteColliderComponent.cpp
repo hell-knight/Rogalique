@@ -22,8 +22,17 @@ SpriteColliderComponent::~SpriteColliderComponent() {
 }
 
 void SpriteColliderComponent::Update(float deltaTime) {
-    bounds = sprite->getGlobalBounds();
+    if (useFixedSize) {
+        // The position is relative to the sprite, and the size is fixed
+        auto pos = sprite->getPosition();
+        bounds =
+            sf::FloatRect(pos.x - fixedSize.x / 2.f, pos.y - fixedSize.y / 2.f,
+                          fixedSize.x, fixedSize.y);
+    } else {
+        bounds = sprite->getGlobalBounds();
+    }
 }
+
 void SpriteColliderComponent::Render() {
     sf::RectangleShape rectangle(sf::Vector2f(bounds.width, bounds.height));
     rectangle.setPosition(bounds.left, bounds.top);
@@ -32,6 +41,11 @@ void SpriteColliderComponent::Render() {
     rectangle.setOutlineThickness(4);
 
     RenderSystem::Instance()->Render(rectangle);
+}
+
+void SpriteColliderComponent::SetFixedColliderSize(float width, float height) {
+    fixedSize = {width, height};
+    useFixedSize = (width > 0 && height > 0);
 }
 
 }  // namespace MyEngine

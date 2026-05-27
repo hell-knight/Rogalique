@@ -27,7 +27,7 @@ int main() {
     MyEngine::RenderSystem::Instance()->SetMainWindow(window);
 
     MyEngine::ResourceSystem::Instance()->LoadTextureMap(
-        "player", "Resources/Textures/Player.png", {48, 63}, 4, false);
+        "player", "Resources/Textures/Swordsman.png", {384 / 6, 256 / 4}, 24, false);
     MyEngine::ResourceSystem::Instance()->LoadTextureMap(
         "level_floors", "Resources/Textures/Floor.png", {16, 16}, 49, false);
     MyEngine::ResourceSystem::Instance()->LoadTextureMap(
@@ -45,7 +45,7 @@ int main() {
     MyEngine::ResourceSystem::Instance()->LoadTexture(
         "icon_potion", "Resources/Textures/health_potion.png");
     MyEngine::ResourceSystem::Instance()->LoadTextureMap(
-        "boss", "Resources/Textures/Boss_walk.png", {384 / 6, 256 / 4}, 24, false);
+        "boss_dir", "Resources/Textures/Boss_walk.png", {384 / 6, 256 / 4}, 24, false);
 
     MyEngine::ResourceSystem::Instance()->LoadSound(
         "music", "Resources/Sounds/game_background.ogg");

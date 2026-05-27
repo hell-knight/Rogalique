@@ -11,13 +11,15 @@
 #include "SceneManager.h"
 #include <SpriteAnimationComponent.h>
 #include "ParticleEmitter.h"
+#include <DirectionalAnimationComponent.h>
+#include "FollowDirectionComponent.h"
 
 namespace RogaliqueGame {
 Boss::Boss(const MyEngine::Vector2Df& position, MyEngine::GameObject* player)
     : Character(position, player, "Boss") {
     auto* tex =
         MyEngine::ResourceSystem::Instance()->GetTextureMapElementShared(
-            "ai", 0);
+            "boss_dir", 0);
     if (!tex) {
         LOG_ERROR("Boss texture not found, using AI texture");
         tex = MyEngine::ResourceSystem::Instance()->GetTextureMapElementShared(
@@ -26,16 +28,17 @@ Boss::Boss(const MyEngine::Vector2Df& position, MyEngine::GameObject* player)
     auto* renderer =
         gameObject->AddComponent<MyEngine::SpriteRendererComponent>();
     renderer->SetTexture(*tex);
-    renderer->SetPixelSize(128, 128);
+    renderer->SetPixelSize(256.f, 256.f);
 
     auto* rigid = gameObject->AddComponent<MyEngine::RigidbodyComponent>();
     rigid->SetKinematic(true);  // doesn't push the player, but blocks them
 
-    gameObject->AddComponent<MyEngine::SpriteColliderComponent>();
+    auto collider = gameObject->AddComponent<MyEngine::SpriteColliderComponent>();
+    collider->SetFixedColliderSize(128.f, 128.f);
 
     auto animator =
-        gameObject->AddComponent<MyEngine::SpriteAnimationComponent>();
-    animator->Initialize("ai", 6.f);
+        gameObject->AddComponent<MyEngine::DirectionalAnimationComponent>(gameObject, 4);
+    animator->Initialize("boss_dir", 8.f);
 
     auto* health = gameObject->AddComponent<MyEngine::HealthComponent>(
         gameObject, 200.0f, 10.0f);

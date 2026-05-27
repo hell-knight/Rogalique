@@ -180,6 +180,7 @@
     <ClCompile Include="ParticleEmitter.cpp" />
     <ClCompile Include="ParticleSystemComponent.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerDirectionComponent.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="Wall.cpp" />
@@ -213,6 +214,7 @@
     <ClInclude Include="ParticleEmitter.h" />
     <ClInclude Include="ParticleSystemComponent.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerDirectionComponent.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Spawner.h" />
     <ClInclude Include="Wall.h" />

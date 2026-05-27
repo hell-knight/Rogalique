@@ -79,6 +79,9 @@
     <ClCompile Include="BossAIComponent.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerDirectionComponent.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h" />
@@ -107,5 +110,6 @@
     <ClInclude Include="AuraComponent.h" />
     <ClInclude Include="Boss.h" />
     <ClInclude Include="BossAIComponent.h" />
+    <ClInclude Include="PlayerDirectionComponent.h" />
   </ItemGroup>
 </Project>

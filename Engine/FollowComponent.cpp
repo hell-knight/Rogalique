@@ -68,4 +68,9 @@ void FollowComponent::SetSpeed(float newSpeed) { speed = newSpeed; }
 
 float FollowComponent::GetSpeed() const { return speed; }
 
+MyEngine::GameObject* FollowComponent::GetTarget() const { 
+    auto locked = targetGameObject.lock();
+    return locked ? locked.get() : nullptr; 
+}
+
 }  // namespace MyEngine

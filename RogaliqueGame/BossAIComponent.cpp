@@ -21,6 +21,7 @@ BossAIComponent::BossAIComponent(MyEngine::GameObject* gameObject,
     attackComp = gameObject->GetComponent<MyEngine::AttackComponent>();
     spriteRenderer =
         gameObject->GetComponent<MyEngine::SpriteRendererComponent>();
+    dirAnim = gameObject->GetComponent<MyEngine::DirectionalAnimationComponent>();
 }
 
 void BossAIComponent::SetState(State newState) {
@@ -44,11 +45,11 @@ void BossAIComponent::Update(float deltaTime) {
     if (!playerTransform) return;
 
     // Sprite facing the player (always)
-    if (spriteRenderer && playerTransform) {
+    /*if (spriteRenderer && playerTransform) {
         MyEngine::Vector2Df dir =
             playerTransform->GetWorldPosition() - transform->GetWorldPosition();
         spriteRenderer->FlipX(dir.x < 0);
-    }
+    }*/
 
     if (attackCooldownTimer > 0.0f) attackCooldownTimer -= deltaTime;
 
@@ -91,6 +92,10 @@ void BossAIComponent::UpdateChasing(float dt) {
     MyEngine::Vector2Df dir = targetPos - myPos;
     float dist = dir.GetLength();
 
+    if (dirAnim) {
+        dirAnim->SetMoveDirection(dir);
+    }
+
     // Moving toward the player
     if (dist > 60.0f) {             // If it's far away, let's go over there
         dir = dir * (1.0f / dist);  // normalization
@@ -124,30 +129,34 @@ void BossAIComponent::UpdateChasing(float dt) {
 }
 
 void BossAIComponent::UpdateAttackCharge(float dt) {
-    auto player = m_player.lock();
-    if (!player) {
-        return;
-    }
-    auto playerTransform = player->GetComponent<MyEngine::TransformComponent>();
-    if (!playerTransform) return;
     stateTimer += dt;
     // Moving in the same direction
     transform->MoveBy(chargeDirection * chargeSpeed * dt);
 
-    // Checking for a hit on a player
-    MyEngine::Vector2Df myPos = transform->GetWorldPosition();
-    MyEngine::Vector2Df playerPos = playerTransform->GetWorldPosition();
-    float dist = (playerPos - myPos).GetLength();
+    if (dirAnim) dirAnim->SetMoveDirection(chargeDirection);
 
-    if (dist < 150.0f) {
-        auto* playerHealth = player->GetComponent<MyEngine::HealthComponent>();
-        if (playerHealth) {
-            playerHealth->ApplyDamage(30.0f);
-            ParticleEmitter::Create(myPos, sf::Color::Red, 10, 10.f, 30.f, 60.f,
-                                    0.2f, 0.5f, 4.f);
+    auto player = m_player.lock();
+    if (player) {
+        auto playerTransform =
+            player->GetComponent<MyEngine::TransformComponent>();
+        if (playerTransform) {
+            // Checking for a hit on a player
+            MyEngine::Vector2Df myPos = transform->GetWorldPosition();
+            MyEngine::Vector2Df playerPos = playerTransform->GetWorldPosition();
+            float dist = (playerPos - myPos).GetLength();
+
+            if (dist < 150.0f) {
+                auto* playerHealth =
+                    player->GetComponent<MyEngine::HealthComponent>();
+                if (playerHealth) {
+                    playerHealth->ApplyDamage(30.0f);
+                    ParticleEmitter::Create(myPos, sf::Color::Red, 10, 10.f,
+                                            30.f, 60.f, 0.2f, 0.5f, 4.f);
+                }
+                SetState(CHASING);
+                return;
+            }
         }
-        SetState(CHASING);
-        return;
     }
 
     // If time runs out, just finish the dash without taking any damage
@@ -182,14 +191,19 @@ void BossAIComponent::UpdateAttackShockwave(float dt) {
 }
 
 void BossAIComponent::UpdateAttackTeleport(float dt) {
-    auto player = m_player.lock();
-    if (!player) {
-        return;
-    }
-    auto playerTransform = player->GetComponent<MyEngine::TransformComponent>();
-    if (!playerTransform) return;
     // Instant execution on entry
     if (stateTimer == 0.0f) {
+        auto player = m_player.lock();
+        if (!player) {
+            SetState(CHASING);
+            return;
+        }
+        auto playerTransform =
+            player->GetComponent<MyEngine::TransformComponent>();
+        if (!playerTransform) {
+            SetState(CHASING);
+            return;
+        }
         // Teleport to a random location near the player
         MyEngine::Vector2Df playerPos = playerTransform->GetWorldPosition();
         std::uniform_real_distribution<float> angleDist(0.0f,
@@ -204,6 +218,11 @@ void BossAIComponent::UpdateAttackTeleport(float dt) {
         ParticleEmitter::Create(transform->GetWorldPosition(),
                                 sf::Color(200, 100, 255), 20, 5.0f, 40.0f,
                                 80.0f, 0.7f, 0.9f, 24.0f);
+
+        if (dirAnim) {
+            MyEngine::Vector2Df dirToPlayer = playerPos - newPos;
+            dirAnim->SetMoveDirection(dirToPlayer);
+        }
     }
     stateTimer += dt;
     if (stateTimer > 0.3f) {
@@ -225,6 +244,10 @@ void BossAIComponent::ExecuteCharge() {
     if (len > 1.0f) dir = dir * (1.0f / len);
     chargeDirection = dir;
     stateTimer = 0.0f;
+
+    if (dirAnim) {
+        dirAnim->SetMoveDirection(chargeDirection);
+    }
 }
 
 void BossAIComponent::ExecuteShockwave() {

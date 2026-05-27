@@ -3,6 +3,7 @@
 #include "Vector.h"
 #include <random>
 #include <memory>
+#include "DirectionalAnimationComponent.h"
 
 namespace MyEngine {
 class GameObject;
@@ -49,6 +50,7 @@ class BossAIComponent : public MyEngine::Component {
     MyEngine::HealthComponent* health;
     MyEngine::AttackComponent* attackComp;
     MyEngine::SpriteRendererComponent* spriteRenderer = nullptr;
+    MyEngine::DirectionalAnimationComponent* dirAnim = nullptr;
 
     State currentState = IDLE;
     float stateTimer = 0.0f;

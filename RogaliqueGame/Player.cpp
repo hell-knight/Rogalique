@@ -13,6 +13,8 @@
 #include "ParticleEmitter.h"
 #include "HealTestComponent.h"
 #include "AuraComponent.h"
+#include "DirectionalAnimationComponent.h"
+#include "PlayerDirectionComponent.h"
 
 namespace RogaliqueGame {
 Player::Player(const MyEngine::Vector2Df& position) {
@@ -37,7 +39,7 @@ Player::Player(const MyEngine::Vector2Df& position) {
     auto renderer =
         gameObject->AddComponent<MyEngine::SpriteRendererComponent>();
     renderer->SetTexture(*tex);
-    renderer->SetPixelSize(100, 100);
+    renderer->SetPixelSize(200, 200);
 
     auto camera = gameObject->AddComponent<MyEngine::CameraComponent>();
     camera->SetWindow(&MyEngine::RenderSystem::Instance()->GetMainWindow());
@@ -51,18 +53,21 @@ Player::Player(const MyEngine::Vector2Df& position) {
     auto movement = gameObject->AddComponent<MyEngine::MovementComponent>();
     movement->SetSpeed(400.f);
 
-    auto spriteDirection =
-        gameObject->AddComponent<MyEngine::SpriteDirectionComponent>();
+    /*auto spriteDirection =
+        gameObject->AddComponent<MyEngine::SpriteDirectionComponent>();*/
 
     auto rigidbody = gameObject->AddComponent<MyEngine::RigidbodyComponent>();
     rigidbody->SetKinematic(false);
 
     auto collider =
         gameObject->AddComponent<MyEngine::SpriteColliderComponent>();
+    collider->SetFixedColliderSize(100.f, 100.f);
 
-    auto animator =
-        gameObject->AddComponent<MyEngine::SpriteAnimationComponent>();
-    animator->Initialize("player", 6.f);
+    auto dirAnim =
+        gameObject->AddComponent<MyEngine::DirectionalAnimationComponent>(gameObject, 4);
+    dirAnim->Initialize("player", 8.f);
+
+    gameObject->AddComponent<PlayerDirectionComponent>();
 
     auto health = gameObject->AddComponent<MyEngine::HealthComponent>(
         gameObject, 100.f, 10.f);

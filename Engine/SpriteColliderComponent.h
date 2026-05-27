@@ -14,7 +14,12 @@ class ENGINE_API SpriteColliderComponent : public ColliderComponent {
     void Update(float deltaTime) override;
     void Render() override;
 
+    // // Set a fixed collider size (in pixels). If (0,0), the sprite's size is used.
+    void SetFixedColliderSize(float width, float height);
+
    private:
     const sf::Sprite* sprite;
+    sf::Vector2f fixedSize;     // // {0,0} means “auto”
+    bool useFixedSize = false;
 };
 }  // namespace MyEngine

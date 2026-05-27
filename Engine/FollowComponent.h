@@ -18,6 +18,8 @@ class ENGINE_API FollowComponent : public Component {
 
     void SetSkipFrames(int frames) { skipFrames = frames; }
 
+    MyEngine::GameObject* GetTarget() const;
+
    private:
     TransformComponent* transform = nullptr;
     std::weak_ptr<GameObject> targetGameObject;
